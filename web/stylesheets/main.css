@@ -1,36 +1,222 @@
-.jumbotron {
-  background: #532F8C;
-  color: white;
-  padding-bottom: 80px;
+html, body {
+  font-family: "Raleway", sans-serif;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: #222;
 }
-.jumbotron .btn-primary {
-  background: #845ac7;
-  border-color: #845ac7;
+h1 {
+  display: inline-block;
+  vertical-align: middle;
+  font-size: 1.75em;
+  margin: 0px auto;
+  padding: 0 6px;
 }
-.jumbotron .btn-primary:hover {
-  background: #7646c1;
+p {
+  font-size: 0.95em;
+  margin: 0;
+  padding: 0;
 }
-.jumbotron p {
-  color: #d9ccee;
-  max-width: 75%;
-  margin: 1em auto 2em;
+.container-fluid {
+  padding: 0 !important;
 }
-.jumbotron h1 {
-  font-size: 40px;
+.table-container {
+  background: #f6f6f6;
+  padding: 20px 0px !important;
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
 }
-.navbar + .jumbotron {
-  margin-top: -20px;
+.row {
+  text-align: center;
+  margin: 0 auto;
+  width: 96%;
+  max-width: 1150px;
+  background: #fff;
 }
-.jumbotron .lang-logo {
-  display: block;
-  background: #B01302;
-  border-radius: 50%;
-  overflow: hidden;
-  width: 100px;
+.ticker {
+  width: 100% !important;
+  max-width: none !important;
+  font-size: 0.8em;
+  color: #444;
+  background: #f5f6f7;
+  padding: 5px 0px;
+  margin: 0px;
+  border-bottom: 1px solid #ddd;
+}
+.ticker div {
+  margin: 0;
+  padding: 0;
+  text-align: center !important;
+  background: none;
+}
+.ticker .col-xs-12 .row div:first-child {
+  border-right: 1px solid #ccc;
+}
+.ticker .col-xs-12 .row div:last-child {
+  border-left: 1px solid #ccc;
+}
+.title {
+  padding: 15px 0px 0px 0px;
+}
+.ad {
+  padding: 15px 0px;
+}
+.table-header {
   height: 100px;
-  margin: auto;
-  border: 2px solid white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
 }
-.jumbotron .lang-logo img {
-  max-width: 100%;
+.row img {
+  height: 30px;
+  width: auto;
+  margin: 0 auto 8px auto;
+}
+.logo {
+  display: inline-block;
+  vertical-align: middle;
+  height: 60px !important;
+  margin: 0 0 0 0 !important;
+}
+.col {
+  height: 55px;
+  margin: 0px;
+  padding: 0px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+.crypto {
+  display: flex;
+}
+.align-rt {
+  text-align: right;
+  padding-right: 20px;
+}
+.pct {
+  font-size: 1.4em;
+}
+.updated, .portrait-only {
+  background: none;
+}
+.updated p, .portrait-only p {
+  font-size: 0.8em !important;
+  color: #888 !important;
+}
+.updated p {
+  font-style: italic !important;
+  text-align: right !important;
+  padding: 5px 0px !important;
+}
+.portrait-only {
+  display: none;
+}
+.portrait-only p {
+  text-align: center !important;
+  padding: 10px 0px !important;
+  color: #222 !important;
+}
+
+@media (orientation: portrait) {
+  .crypto {
+    display: none;
+  }
+  .col-xs-3 {
+    width: 50% !important;
+  }
+  .logo {
+    margin: 0 0 10px 0 !important;
+  }
+  .table-container {
+    padding: 20px 0 0 0;
+  }
+  .ticker {
+    font-size: 0.7em;
+  }
+  .portrait-only {
+    display: block;
+  }
+}
+
+@media (min-width: 600px) {
+  .align-rt {
+    padding-right: 10px;
+  }
+  .logo {
+    margin: 0 0 0 0 !important;
+  }
+}
+
+/* Small devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+  h1 {
+    font-size: 3em;
+    margin: 0px auto;
+  }
+  p {
+    font-size: 1em;
+  }
+  .crypto {
+    display: flex;
+  }
+  .row {
+    width: 95%;
+  }
+  .ticker {
+    width: 100% !important;
+  }
+  .logo {
+    height: 70px !important;
+  }
+}
+
+/* Medium devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+  p {
+    font-size: 1.25em;
+  }
+  .align-rt {
+    padding-right: 20px;
+  }
+}
+
+/* Large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) { ... }
+
+
+
+
+
+/* borders */
+
+.border-top-left {
+  border-top: 1px solid #ddd;
+  border-left: 1px solid #ddd;
+}
+.border-top-left-right {
+  border-top: 1px solid #ddd;
+  border-left: 1px solid #ddd;
+  border-right: 1px solid #ddd;
+}
+.border-top-left-bottom {
+  border-top: 1px solid #ddd;
+  border-left: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+}
+.border-all {
+  border: 1px solid #ddd;
+}
+
+
+/* footer */
+
+footer {
+  padding: 50px 0;
+}
+
+.copyright {
+  font-size: 0.8em;
+  color: #888;
 }
