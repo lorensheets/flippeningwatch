@@ -35,6 +35,12 @@ $app->get('/db/', function() use($app) {
 });
 
 
+$app->get('/update/', function() use($app) {
+  $st = $app['pdo']->prepare('INSERT INTO test_table (name) VALUES ('name_1')');
+  $st->execute();
+});
+
+
 // Register the monolog logging service
 $app->register(new Silex\Provider\MonologServiceProvider(), array(
   'monolog.logfile' => 'php://stderr',
