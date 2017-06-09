@@ -20,6 +20,12 @@ $app->register(new Csanquer\Silex\PdoServiceProvider\Provider\PDOServiceProvider
                )
 );
 $app->get('/db/', function() use($app) {
+  $in = $app['pdo']->prepare('CREATE TABLE [IF NOT EXISTS] test_table (
+    id bigserial primary key,
+    name varchar(20) NOT NULL
+  )');
+  $in-execute();
+  
   $st = $app['pdo']->prepare('SELECT name FROM test_table');
   $st->execute();
 
@@ -34,12 +40,7 @@ $app->get('/db/', function() use($app) {
   ));
 });
 
-/*
-$app->get('/update/', function() use($app) {
-  $st = $app['pdo']->prepare('INSERT INTO test_table (name) VALUES ('name_1')');
-  $st->execute();
-});
-*/
+
 
 
 // Register the monolog logging service
