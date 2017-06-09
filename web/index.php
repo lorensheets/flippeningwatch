@@ -5,6 +5,26 @@ require('../vendor/autoload.php');
 $app = new Silex\Application();
 $app['debug'] = true;
 
+
+// Register the monolog logging service
+$app->register(new Silex\Provider\MonologServiceProvider(), array(
+  'monolog.logfile' => 'php://stderr',
+));
+
+// Register view rendering
+$app->register(new Silex\Provider\TwigServiceProvider(), array(
+    'twig.path' => __DIR__.'/views',
+));
+
+// Our web handlers
+
+$app->get('/', function() use($app) {
+  $app['monolog']->addDebug('logging output.');
+  return $app['twig']->render('index.twig');
+});
+
+
+
 // Database connection
 $dbopts = parse_url(getenv('DATABASE_URL'));
 $app->register(new Csanquer\Silex\PdoServiceProvider\Provider\PDOServiceProvider('pdo'),
@@ -41,9 +61,9 @@ $app->get('/db/', function() use($app) {
 });
 
 $app->get('/update/', function() use($app) {
-  /*
+
   $abc = $app['pdo']->prepare('INSERT INTO test_table (name) VALUES ('new_name')');
-  $abc->execute();*/
+  $abc->execute();
 
   $st = $app['pdo']->prepare('SELECT name FROM test_table');
   $st->execute();
@@ -60,23 +80,5 @@ $app->get('/update/', function() use($app) {
 });
 
 
-
-
-// Register the monolog logging service
-$app->register(new Silex\Provider\MonologServiceProvider(), array(
-  'monolog.logfile' => 'php://stderr',
-));
-
-// Register view rendering
-$app->register(new Silex\Provider\TwigServiceProvider(), array(
-    'twig.path' => __DIR__.'/views',
-));
-
-// Our web handlers
-
-$app->get('/', function() use($app) {
-  $app['monolog']->addDebug('logging output.');
-  return $app['twig']->render('index.twig');
-});
 
 $app->run();
