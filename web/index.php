@@ -46,7 +46,7 @@ $app->get('/db/', function() use($app) {
   )');
   $in->execute();
 
-  $abc = $app['pdo']->prepare('INSERT INTO test_table (id, name) VALUES (NULL, 10)');
+  $abc = $app['pdo']->prepare('INSERT INTO test_table (name) VALUES ('10')');
   $abc->execute();
 
   $st = $app['pdo']->prepare('SELECT name FROM test_table');
@@ -63,21 +63,7 @@ $app->get('/db/', function() use($app) {
   ));
 });
 
-$app->get('/update/', function() use($app) {
 
-  $st = $app['pdo']->prepare('SELECT name FROM test_table');
-  $st->execute();
-
-  $names = array();
-  while ($row = $st->fetch(PDO::FETCH_ASSOC)) {
-    $app['monolog']->addDebug('Row ' . $row['name']);
-    $names[] = $row;
-  }
-
-  return $app['twig']->render('database.twig', array(
-    'names' => $names
-  ));
-});
 
 
 
