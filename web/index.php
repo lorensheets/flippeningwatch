@@ -62,7 +62,7 @@ $app->get('/db/', function() use($app) {
 
 $app->get('/update/', function() use($app) {
 
-  $abc = $app['pdo']->prepare('INSERT INTO test_table (name) VALUES ("new_name")');
+  $abc = $app['pdo']->prepare('INSERT INTO test_table (id, name) VALUES (NULL, "new_name")');
   $abc->execute();
 
   $st = $app['pdo']->prepare('SELECT name FROM test_table');
