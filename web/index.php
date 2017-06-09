@@ -20,7 +20,7 @@ $app->register(new Csanquer\Silex\PdoServiceProvider\Provider\PDOServiceProvider
                )
 );
 $app->get('/db/', function() use($app) {
-  $in = $app['pdo']->prepare('CREATE TABLE [IF NOT EXISTS] test_table (
+  $in = $app['pdo']->prepare('CREATE TABLE IF NOT EXISTS test_table (
     id bigserial primary key,
     name varchar(20) NOT NULL
   )');
