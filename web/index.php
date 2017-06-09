@@ -24,8 +24,8 @@ $app->get('/db/', function() use($app) {
     id bigserial primary key,
     name varchar(20) NOT NULL
   )');
-  $in-execute();
-  
+  $in->execute();
+
   $st = $app['pdo']->prepare('SELECT name FROM test_table');
   $st->execute();
 
