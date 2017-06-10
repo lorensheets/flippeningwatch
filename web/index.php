@@ -35,7 +35,7 @@ $app->get('/update', function() use($app) {
 // Database connection
 
 $app->get('/script1', function() use($app) {
-  return $app['twig']->render('script1.py');
+  return $app['twig']->render('script1.html');
 });
 
 $app->get('/hello/{number}', function($number) use($app) {
