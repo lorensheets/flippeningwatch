@@ -45,9 +45,6 @@ $app->register(new Csanquer\Silex\PdoServiceProvider\Provider\PDOServiceProvider
 );
 $app->get('/db/', function() use($app) {
 
-  $abc = $app['pdo']->prepare('INSERT INTO test_table (id, name) VALUES (NULL, 11)');
-  $abc->execute();
-
   $st = $app['pdo']->prepare('SELECT name FROM test_table');
   $st->execute();
 
@@ -70,7 +67,7 @@ $app->get('/script1', function() use($app) {
 $app->get('/hello/{number}', function($number) use($app) {
   $value = $app->escape($number);
 
-  $abc = $app['pdo']->prepare('INSERT INTO test_table (name) VALUES ( $value )');
+  $abc = $app['pdo']->prepare('INSERT INTO test_table (id, name) VALUES ( NULL, '$value' )');
   $abc->execute();
 
   return 'Your number: '.$value;
