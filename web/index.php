@@ -34,8 +34,8 @@ $app->get('/update', function() use($app) {
 
 // Database connection
 
-$app->get('/hello/', function() use($app) {
-    return 'Your number: ';
+$app->get('/hello/{number}', function($number) use($app) {
+    return 'Your number: '.$app->escape($number);
 });
 
 $dbopts = parse_url(getenv('DATABASE_URL'));
