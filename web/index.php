@@ -33,7 +33,10 @@ $app->get('/update', function() use($app) {
 
 
 // Database connection
-use Symfony\Component\HttpFoundation\Request;
+
+$app->get('/hello/{number}', function($number) use($app) {
+    return 'Your number: '.$app->escape($number);
+});
 
 $dbopts = parse_url(getenv('DATABASE_URL'));
 $app->register(new Csanquer\Silex\PdoServiceProvider\Provider\PDOServiceProvider('pdo'),
@@ -48,16 +51,16 @@ $app->register(new Csanquer\Silex\PdoServiceProvider\Provider\PDOServiceProvider
                    )
                )
 );
-$app->get('/db/', function(Request $request) use($app) {
+$app->get('/db/', function() use($app) {
   $in = $app['pdo']->prepare('CREATE TABLE IF NOT EXISTS test_table (
     id bigserial primary key,
     name int(11) NOT NULL
   )');
   $in->execute();
 
-  $value = $request->attributes->get('number');
 
-  $abc = $app['pdo']->prepare('INSERT INTO test_table (name) VALUES ( $value )');
+
+  $abc = $app['pdo']->prepare('INSERT INTO test_table (name) VALUES (  )');
   $abc->execute();
 
   $st = $app['pdo']->prepare('SELECT name FROM test_table');
