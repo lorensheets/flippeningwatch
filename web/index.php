@@ -50,6 +50,9 @@ $app->get('/db/', function() use($app) {
   )');
   $in->execute();
 
+  $abc = $app['pdo']->prepare('INSERT INTO test_table (name) VALUES ( 11 )');
+  $abc->execute();
+
   $st = $app['pdo']->prepare('SELECT name FROM test_table');
   $st->execute();
 
@@ -72,15 +75,10 @@ $app->get('/script1', function() use($app) {
 $app->get('/hello/{number}', function($number) use($app) {
   $value = $app->escape($number);
 
-  $in = $app['pdo']->prepare('CREATE TABLE IF NOT EXISTS test_table (
-    id bigserial primary key,
-    name int(11) NOT NULL
-  )');
-  $in->execute();
-
+/*
   $abc = $app['pdo']->prepare('INSERT INTO test_table (name) VALUES ( $value )');
   $abc->execute();
-
+*/
   return 'Your number: '.$value;
 });
 
