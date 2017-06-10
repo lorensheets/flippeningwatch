@@ -51,7 +51,9 @@ $app->get('/db/', function() use($app) {
   $row = $st->fetch(PDO::FETCH_ASSOC);
   $btc = $row['btc'];
 
-  return $app['twig']->render('database.twig', btc = $btc);
+  return $app['twig']->render('database.twig', array(
+    'btc' => $btc
+  ));
 
   /*
   $names = array();
