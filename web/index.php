@@ -65,8 +65,6 @@ $app->get('/db/', function() use($app) {
 });
 
 
-/*
-
 $app->get('/script1', function() use($app) {
   return $app['twig']->render('script1.html');
 });
@@ -74,12 +72,18 @@ $app->get('/script1', function() use($app) {
 $app->get('/hello/{number}', function($number) use($app) {
   $value = $app->escape($number);
 
+  $in = $app['pdo']->prepare('CREATE TABLE IF NOT EXISTS test_table (
+    id bigserial primary key,
+    name int(11) NOT NULL
+  )');
+  $in->execute();
+
   $abc = $app['pdo']->prepare('INSERT INTO test_table (name) VALUES ( $value )');
   $abc->execute();
 
   return 'Your number: '.$value;
 });
 
-*/
+
 
 $app->run();
