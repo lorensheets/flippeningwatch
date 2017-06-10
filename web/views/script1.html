@@ -4,6 +4,18 @@
 
 values = [];
 
+  $.getJSON( "https://api.coinmarketcap.com/v1/global/", function( data) {
+
+    mkt_cap = parseInt( data.total_market_cap_usd );
+
+    ticker(mkt_cap);
+
+  });
+
+function ticker(mkt_cap) {
+
+  values.push(mkt_cap);
+
   $.getJSON( "https://api.coinmarketcap.com/v1/ticker/", function( data ) {
 
     btc = parseInt( data[0].market_cap_usd );
@@ -18,6 +30,7 @@ values = [];
     api(btc, eth, pct, btc_vol, eth_vol, pct_vol, eth_price, btc_rwd);
 
   });
+}
 
 function api(btc, eth, pct, btc_vol, eth_vol, pct_vol, eth_price, btc_rwd) {
 

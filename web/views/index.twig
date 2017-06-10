@@ -214,6 +214,7 @@
     var pct_rwd   = {{ api[9] }};
     var btc_tx    = {{ api[10] }};
     var btc_nodes = {{ api[11] }};
+    var mkt_cap   = {{ api[12] }};
 
     // set manually
     var eth_tx    = 215831; // 24 hour ETH transaction volume
@@ -223,6 +224,15 @@
     var last_updated = "*Last updated: June 10th, 2017 3:35am UTC−4:00";
 
     $('#last_updated').html( last_updated );
+
+    var bct_dom = bct / mkt_cap;
+    var eth_dom = eth / mkt_cap;
+    var pct_dom = eth / bct;
+    
+    $('#btc_dom').html("BCT DOM: " + btc_dom + "%");
+    $('#eth_dom').html("ETH DOM: " + eth_dom + "%");
+    $('#pct_dom').html("ETH/BTC: " + pct_dom + "%");
+
 
     $('#btc_mkt_cap').html( "$" + btc.toLocaleString('en-US') );
     $('#eth_mkt_cap').html( "$" + eth.toLocaleString('en-US') );

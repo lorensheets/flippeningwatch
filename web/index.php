@@ -39,7 +39,7 @@ $app->register(new Csanquer\Silex\PdoServiceProvider\Provider\PDOServiceProvider
 $app->get('/', function() use($app) {
   $app['monolog']->addDebug('logging output.');
 
-  $st = $app['pdo']->prepare('SELECT * FROM test_table');
+  $st = $app['pdo']->prepare('SELECT * FROM crypto');
   $st->execute();
 
   $api = array();
@@ -57,6 +57,7 @@ $app->get('/', function() use($app) {
   array_push($api, $row['pct_rwd']);
   array_push($api, $row['btc_tx']);
   array_push($api, $row['btc_nodes']);
+  array_push($api, $row['mkt_cap']);
 
 
 
@@ -69,7 +70,7 @@ $app->get('/', function() use($app) {
 
 $app->get('/db/', function() use($app) {
 
-  $st = $app['pdo']->prepare('SELECT * FROM test_table');
+  $st = $app['pdo']->prepare('SELECT * FROM crypto');
   $st->execute();
 
   $api = array();
@@ -87,6 +88,7 @@ $app->get('/db/', function() use($app) {
   array_push($api, $row['pct_rwd']);
   array_push($api, $row['btc_tx']);
   array_push($api, $row['btc_nodes']);
+  array_push($api, $row['mkt_cap']);
 
 
 
@@ -102,7 +104,8 @@ $app->get('/script1', function() use($app) {
   return $app['twig']->render('script1.html');
 });
 
-$app->get('/api/{btc}/{eth}/{pct}/{btc_vol}/{eth_vol}/{pct_vol}/{eth_price}/{btc_rwd}/{eth_rwd}/{pct_rwd}/{btc_tx}/{btc_nodes}', function($btc,$eth,$pct,$btc_vol,$eth_vol,$pct_vol,$eth_price,$btc_rwd,$eth_rwd,$pct_rwd,$btc_tx,$btc_nodes) use($app) {
+$app->get('/api/{mkt_cap}/{btc}/{eth}/{pct}/{btc_vol}/{eth_vol}/{pct_vol}/{eth_price}/{btc_rwd}/{eth_rwd}/{pct_rwd}/{btc_tx}/{btc_nodes}', function($btc,$eth,$pct,$btc_vol,$eth_vol,$pct_vol,$eth_price,$btc_rwd,$eth_rwd,$pct_rwd,$btc_tx,$btc_nodes) use($app) {
+  $v0 = $app->escape($mkt_cap);
   $v1 = $app->escape($btc);
   $v2 = $app->escape($eth);
   $v3 = $app->escape($pct);
@@ -116,13 +119,14 @@ $app->get('/api/{btc}/{eth}/{pct}/{btc_vol}/{eth_vol}/{pct_vol}/{eth_price}/{btc
   $v11 = $app->escape($btc_tx);
   $v12 = $app->escape($btc_nodes);
 
-  $truncate = $app['pdo']->prepare('TRUNCATE test_table');
+  $truncate = $app['pdo']->prepare('TRUNCATE crypto');
   $truncate->execute();
 
-  $insert = $app['pdo']->prepare("INSERT INTO test_table (id,btc,eth,pct,btc_vol,eth_vol,pct_vol,eth_price,btc_rwd,eth_rwd,pct_rwd,btc_tx,btc_nodes) VALUES ( NULL,'$v1','$v2','$v3','$v4','$v5','$v6','$v7','$v8','$v9','$v10','$v11','$v12' )");
+  $insert = $app['pdo']->prepare("INSERT INTO crypto (id,mkt_cap,btc,eth,pct,btc_vol,eth_vol,pct_vol,eth_price,btc_rwd,eth_rwd,pct_rwd,btc_tx,btc_nodes) VALUES ( NULL,'$v0','$v1','$v2','$v3','$v4','$v5','$v6','$v7','$v8','$v9','$v10','$v11','$v12' )");
   $insert->execute();
 
-  return $v1.'<br>'
+  return $v0.'<br'
+  .$v1.'<br>'
   .$v2.'<br>'
   .$v3.'<br>'
   .$v4.'<br>'
