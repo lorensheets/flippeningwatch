@@ -4,7 +4,10 @@
 
 <p id="target"></p>
 
-<script> $('#target').html( "$" + {{ btc[0] }}.toLocaleString('en-US') ); </script>
+<script>
+  var btc = {{ btc[0] }};
+  $('#target').html( "$" + btc.toLocaleString('en-US') ); 
+</script>
 
 <!--
 <ul>
