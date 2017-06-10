@@ -48,14 +48,14 @@ $app->get('/db/', function() use($app) {
   $st = $app['pdo']->prepare('SELECT * FROM test_table');
   $st->execute();
 
-  $names = array();
+  $values = array();
   while ($row = $st->fetch(PDO::FETCH_ASSOC)) {
     //$app['monolog']->addDebug('Row ' . $row['name']);
-    $names[0] = $row['btc'];
+    $values[0] = $row['btc'];
   }
 
   return $app['twig']->render('database.twig', array(
-    'names' => $names
+    'values' => $values
   ));
 });
 
