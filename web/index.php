@@ -46,14 +46,14 @@ $app->register(new Csanquer\Silex\PdoServiceProvider\Provider\PDOServiceProvider
                    )
                )
 );
-$app->get('/db/', function() use($app) {
+$app->get('/db/', function(Request $requests) use($app) {
   $in = $app['pdo']->prepare('CREATE TABLE IF NOT EXISTS test_table (
     id bigserial primary key,
     name int(11) NOT NULL
   )');
   $in->execute();
 
-  $value = $app['number'];
+  $value = $requests->attributes->get('number');
 
   $abc = $app['pdo']->prepare('INSERT INTO test_table (name) VALUES ($value)');
   $abc->execute();
