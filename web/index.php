@@ -45,7 +45,7 @@ $app->register(new Csanquer\Silex\PdoServiceProvider\Provider\PDOServiceProvider
 );
 $app->get('/db/', function() use($app) {
 
-  $st = $app['pdo']->prepare('SELECT name FROM test_table');
+  $st = $app['pdo']->prepare('SELECT * FROM test_table WHERE id = "1"');
   $st->execute();
 
   $names = array();
@@ -78,11 +78,11 @@ $app->get('/api/{btc}/{eth}/{pct}/{btc_vol}/{eth_vol}/{pct_vol}/{eth_price}/{btc
   $v11 = $app->escape($btc_tx);
   $v12 = $app->escape($btc_nodes);
 
+  $truncate = $app['pdo']->prepare('TRUNCATE test_table');
+  $truncate->execute();
 
-  /*
-  $insert = $app['pdo']->prepare("INSERT INTO test_table (id, name) VALUES ( NULL, '$value' )");
+  $insert = $app['pdo']->prepare("INSERT INTO test_table (id,btc,eth,pct,btc_vol,eth_vol,pct_vol,eth_price,btc_rwd,eth_rwd,pct_rwd,btc_tx,btc_nodes) VALUES ( NULL,'$v1','$v2','$v3','$v4','$v5','$v6','$v7','$v8','$v9','$v10','$v11','$v12' )");
   $insert->execute();
-  */
 
   return $v1.'<br>'
   .$v2.'<br>'
