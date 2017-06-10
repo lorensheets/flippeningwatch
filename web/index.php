@@ -39,7 +39,7 @@ $app->get('/script1', function() use($app) {
 });
 
 $app->get('/hello/{number}', function($number) use($app) {
-    return 'Your number: '.$app->escape($number);
+    return 'Your number: '.$app->$number;
 });
 
 
