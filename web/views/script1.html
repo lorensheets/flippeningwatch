@@ -50,7 +50,7 @@ function apiy(btc_tx) {
   $.getJSON("https://bitnodes.21.co/api/v1/snapshots/latest/", function( data ) {
     btc_nodes = data.total_nodes;
     apiz(btc_nodes);
-  }
+  });
 }
 
 function apiz(btc_nodes) {
