@@ -53,6 +53,18 @@ $app->get('/db/', function() use($app) {
   $row = $st->fetch(PDO::FETCH_ASSOC);
   array_push($btc, $row['btc']);
   array_push($btc, $row['eth']);
+  array_push($btc, $row['pct']);
+  array_push($btc, $row['btc_vol']);
+  array_push($btc, $row['eth_vol']);
+  array_push($btc, $row['pct_vol']);
+  array_push($btc, $row['eth_price']);
+  array_push($btc, $row['btc_rwd']);
+  array_push($btc, $row['eth_rwd']);
+  array_push($btc, $row['pct_rwd']);
+  array_push($btc, $row['btc_tx']);
+  array_push($btc, $row['btc_nodes']);
+
+
 
   return $app['twig']->render('database.twig', array(
     'btc' => $btc
