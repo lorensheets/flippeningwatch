@@ -1,8 +1,13 @@
 {% extends "layout.html" %}
 
 {% block content %}
-<p>Got these rows from the database:</p>
-{{ btc[5] }}
+
+<p></p>
+
+{% for b in btc %}
+<script> console.log( {{ b }} )</script>
+{% endfor %}
+
 <ul>
 {% for v in btc %}
   <li> {{ v }} </li>
