@@ -51,7 +51,7 @@ $app->get('/db/', function() use($app) {
   $values = array();
   while ($row = $st->fetch(PDO::FETCH_ASSOC)) {
     //$app['monolog']->addDebug('Row ' . $row['name']);
-    $values[0] = $row['btc'];
+    $values[] = $row['btc'];
   }
 
   return $app['twig']->render('database.twig', array(
