@@ -125,7 +125,7 @@ $app->get('/api/{mkt_cap}/{btc}/{eth}/{pct}/{btc_vol}/{eth_vol}/{pct_vol}/{eth_p
   $insert = $app['pdo']->prepare("INSERT INTO crypto (id,mkt_cap,btc,eth,pct,btc_vol,eth_vol,pct_vol,eth_price,btc_rwd,eth_rwd,pct_rwd,btc_tx,btc_nodes) VALUES ( NULL,'$v0','$v1','$v2','$v3','$v4','$v5','$v6','$v7','$v8','$v9','$v10','$v11','$v12' )");
   $insert->execute();
 
-  return $v0.'<br'
+  return $v0.'<br>'
   .$v1.'<br>'
   .$v2.'<br>'
   .$v3.'<br>'
