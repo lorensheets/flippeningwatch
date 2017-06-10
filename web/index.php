@@ -48,8 +48,11 @@ $app->get('/db/', function() use($app) {
   $st = $app['pdo']->prepare('SELECT * FROM test_table');
   $st->execute();
 
+  $btc = array();
+
   $row = $st->fetch(PDO::FETCH_ASSOC);
-  $btc = $row['btc'];
+  array_push($btc, $row['btc']);
+  array_push($btc, $row['eth']);
 
   return $app['twig']->render('database.twig', array(
     'btc' => $btc
