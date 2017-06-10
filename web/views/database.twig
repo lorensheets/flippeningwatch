@@ -204,6 +204,20 @@
   $('#btc_mkt_cap').html( "$" + btc.toLocaleString('en-US') );
   $('#eth_mkt_cap').html( "$" + eth.toLocaleString('en-US') );
   $("#eth_btc_pct").html( pct.toFixed(1) + "%" );
+  if (pct < 100) {
+    $("#eth_btc_pct").parent().css({
+      'background': '#13ff00',
+      'background': '-webkit-linear-gradient(left top, #03fcfe, #13ff00)',
+      'background': '-o-linear-gradient(bottom right, #03fcfe, #13ff00)',
+      'background': '-moz-linear-gradient(bottom right, #03fcfe, #13ff00)',
+      'background': 'linear-gradient(to bottom right, #03fcfe, #13ff00)'
+    });
+    $("#eth_btc_pct").css({ "color": "#fff", "font-size": "1.2em", "font-weight": "800" });
+  }
+
+  $("#btc_vol").html( "$" + btc_vol.toLocaleString('en-US')  );
+  $("#eth_vol").html( "$" + eth_vol.toLocaleString('en-US')  );
+  $("#pct_vol").html( pct_vol.toFixed(1) + "%" );
 
 </script>
 
