@@ -64,16 +64,38 @@ $app->get('/script1', function() use($app) {
   return $app['twig']->render('script1.html');
 });
 
-$app->get('/api/{btc}/{eth}', function($btc,$eth) use($app) {
-  $value1 = $app->escape($btc);
-  $value2 = $app->escape($eth);
+$app->get('/api/{btc}/{eth}/{pct}/{btc_vol}/{eth_vol}/{pct_vol}/{eth_price}/{btc_rwd}/{eth_rwd}/{pct_rwd}/{btc_tx}/{btc_nodes}', function($btc,$eth,$pct,$btc_vol,$eth_vol,$pct_vol,$eth_price,$btc_rwd,$eth_rwd,$pct_rwd,$btc_tx,$btc_nodes) use($app) {
+  $v1 = $app->escape($btc);
+  $v2 = $app->escape($eth);
+  $v3 = $app->escape($pct);
+  $v4 = $app->escape($btc_vol);
+  $v5 = $app->escape($eth_vol);
+  $v6 = $app->escape($pct_vol);
+  $v7 = $app->escape($eth_price);
+  $v8 = $app->escape($btc_rwd);
+  $v9 = $app->escape($eth_rwd);
+  $v10 = $app->escape($pct_rwd);
+  $v11 = $app->escape($btc_tx);
+  $v12 = $app->escape($btc_nodes);
+
 
   /*
   $insert = $app['pdo']->prepare("INSERT INTO test_table (id, name) VALUES ( NULL, '$value' )");
   $insert->execute();
   */
 
-  return 'Your number: '.$value1.' '.$value2;
+  return $v1.'<br>'
+  .$v2.'<br>'
+  .$v3.'<br>'
+  .$v4.'<br>'
+  .$v5.'<br>'
+  .$v6.'<br>'
+  .$v7.'<br>'
+  .$v8.'<br>'
+  .$v9.'<br>'
+  .$v10.'<br>'
+  .$v11.'<br>'
+  .$v12;
 });
 
 

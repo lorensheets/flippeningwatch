@@ -4,6 +4,7 @@
 values = [];
 
   $.getJSON( "https://api.coinmarketcap.com/v1/ticker/", function( data ) {
+
     btc = parseInt( data[0].market_cap_usd );
     eth = parseInt( data[1].market_cap_usd );
     pct = (eth / btc) * 100;
@@ -12,25 +13,52 @@ values = [];
     pct_vol = (eth_vol / btc_vol) * 100;
     eth_price = parseInt ( data[1].price_usd );
     btc_rwd = parseInt( data[0].price_usd ) * 1800;
+
     api(btc, eth, pct, btc_vol, eth_vol, pct_vol, eth_price, btc_rwd);
 
   });
 
 function api(btc, eth, pct, btc_vol, eth_vol, pct_vol, eth_price, btc_rwd) {
+
   values.push(btc, eth, pct, btc_vol, eth_vol, pct_vol, eth_price, btc_rwd);
 
   $.getJSON( "https://etherchain.org/api/miningEstimator", function ( data ) {
     eth_rwd = 86400 / parseInt( data.data[0].blockTime ) * 5 * eth_price;
     pct_rwd = (eth_rwd / btc_rwd) * 100;
+
     apix(eth_rwd, pct_rwd);
+
   });
 
-  //window.location.href = "/api/" + num1 + "/" + num2;
 }
 
 function apix(eth_rwd, pct_rwd) {
+
   values.push(eth_rwd, pct_rwd);
-  console.log(values);
+
+  $.getJSON( "https://blockchain.info/q/24hrtransactioncount?&cors=true", function ( data ) {
+    btc_tx = parseInt( data );
+    apiy(btc_tx);
+  });
+
+}
+
+function apiy(btc_tx) {
+
+  values.push(btc_tx);
+
+  $.getJSON("https://bitnodes.21.co/api/v1/snapshots/latest/", function( data ) {
+    btc_nodes = data.total_nodes;
+    apiz(btc_nodes);
+  }
+}
+
+function apiz(btc_nodes) {
+
+  values.push(btc_nodes);
+
+  window.location.href = "/api/" + values[0] + "/" + values[1] + "/" + values[2] + "/" + values[3] + "/" + values[4] + "/" + values[5] + "/" + values[6] + "/" + values[7] + "/" + values[8] + "/" + values[9] + "/" + values[10] + "/" + values[11];
+
 }
 
 </script>
