@@ -1,0 +1,26 @@
+1)  Go to your "flippening-watch" folder/directory,
+    which you should have on your desktop.
+
+2)  Click, "arcane-earth-23673", and then open one of the
+    files using ATOM editor. (In order to get the full 'tree'
+    view in ATOM, you have to open a file in the parent directory).
+
+3)  Open the CLI (command line interface) by clicking on the + sign
+    in the bottom left hand corner.
+
+4)  Make sure you've logged into Heroku:
+
+    'heroku login'
+
+5)  Once you've made changes, add the edited files to the git staging area:
+
+    'git add .' <adds all changed files
+    'git add [filename]' <adds just the specified file
+
+6)  Commit staged files to the master branch:
+
+    'git commit -m "[enter a detailed description of changes]"'
+
+7)  Push commits to server:
+
+    'git push heroku master'
