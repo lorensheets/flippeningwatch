@@ -3,7 +3,7 @@
   $.getJSON( "https://api.coinmarketcap.com/v1/ticker/", function( data ) {
     btc = parseInt( data[0].market_cap_usd );
     eth = parseInt( data[1].market_cap_usd );
-    console.log(btc);
+    window.location.href = "/api/" + btc;
   });
-  //window.location.href = "/api/";
+
 </script>
