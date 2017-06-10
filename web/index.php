@@ -39,7 +39,12 @@ $app->get('/script1', function() use($app) {
 });
 
 $app->get('/hello/{number}', function($number) use($app) {
-    return 'Your number: '.$app->$number;
+  $value = $app->escape($number);
+
+  $abc = $app['pdo']->prepare('INSERT INTO test_table (name) VALUES ( $value )');
+  $abc->execute();
+
+  return 'Your number: '.$value;
 });
 
 
@@ -63,11 +68,6 @@ $app->get('/db/', function() use($app) {
     name int(11) NOT NULL
   )');
   $in->execute();
-
-
-
-  $abc = $app['pdo']->prepare('INSERT INTO test_table (name) VALUES (  )');
-  $abc->execute();
 
   $st = $app['pdo']->prepare('SELECT name FROM test_table');
   $st->execute();
