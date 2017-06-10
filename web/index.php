@@ -46,7 +46,7 @@ $app->register(new Csanquer\Silex\PdoServiceProvider\Provider\PDOServiceProvider
                    )
                )
 );
-$app->get('/db/', methods=['GET', 'POST'], function() use($app) {
+$app->get('/db/', function() use($app) {
   $in = $app['pdo']->prepare('CREATE TABLE IF NOT EXISTS test_table (
     id bigserial primary key,
     name int(11) NOT NULL
