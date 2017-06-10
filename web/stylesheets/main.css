@@ -138,6 +138,9 @@ p {
   .portrait-only {
     display: block;
   }
+  #last_updated {
+    display: none;
+  }
 }
 
 @media (min-width: 600px) {
