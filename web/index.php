@@ -48,26 +48,26 @@ $app->get('/db/', function() use($app) {
   $st = $app['pdo']->prepare('SELECT * FROM test_table');
   $st->execute();
 
-  $btc = array();
+  $api = array();
 
   $row = $st->fetch(PDO::FETCH_ASSOC);
-  array_push($btc, $row['btc']);
-  array_push($btc, $row['eth']);
-  array_push($btc, $row['pct']);
-  array_push($btc, $row['btc_vol']);
-  array_push($btc, $row['eth_vol']);
-  array_push($btc, $row['pct_vol']);
-  array_push($btc, $row['eth_price']);
-  array_push($btc, $row['btc_rwd']);
-  array_push($btc, $row['eth_rwd']);
-  array_push($btc, $row['pct_rwd']);
-  array_push($btc, $row['btc_tx']);
-  array_push($btc, $row['btc_nodes']);
+  array_push($api, $row['btc']);
+  array_push($api, $row['eth']);
+  array_push($api, $row['pct']);
+  array_push($api, $row['btc_vol']);
+  array_push($api, $row['eth_vol']);
+  array_push($api, $row['pct_vol']);
+  array_push($api, $row['eth_price']);
+  array_push($api, $row['btc_rwd']);
+  array_push($api, $row['eth_rwd']);
+  array_push($api, $row['pct_rwd']);
+  array_push($api, $row['btc_tx']);
+  array_push($api, $row['btc_nodes']);
 
 
 
   return $app['twig']->render('database.twig', array(
-    'btc' => $btc
+    'api' => $api
   ));
 
   /*
