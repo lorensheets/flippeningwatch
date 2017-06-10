@@ -163,7 +163,7 @@
 
   <div class="row updated">
     <div class="col-xs-12">
-      <p>*Last updated: June 7th, 2017 4:45pm UTC−4:00</p>
+      <p id="last_updated"></p>
     </div>
   </div>
   <div class="row portrait-only">
@@ -207,6 +207,9 @@
     var eth_nodes = 25835; // ETH Nodes
     var btc_trends = 75; // BTC google trends
     var eth_trends = 28; // ETH google trends
+    var last_updated = "*Last updated: June 9th, 2017 7:35am UTC−4:00";
+
+    $('#last_updated').html( last_updated );
 
     $('#btc_mkt_cap').html( "$" + btc.toLocaleString('en-US') );
     $('#eth_mkt_cap').html( "$" + eth.toLocaleString('en-US') );
