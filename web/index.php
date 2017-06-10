@@ -34,9 +34,15 @@ $app->get('/update', function() use($app) {
 
 // Database connection
 
+$app->get('/script1', function() use($app) {
+  return $app['twig']->render('script1.py');
+});
+
 $app->get('/hello/{number}', function($number) use($app) {
     return 'Your number: '.$app->escape($number);
 });
+
+
 
 $dbopts = parse_url(getenv('DATABASE_URL'));
 $app->register(new Csanquer\Silex\PdoServiceProvider\Provider\PDOServiceProvider('pdo'),
