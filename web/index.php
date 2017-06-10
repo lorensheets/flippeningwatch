@@ -34,21 +34,6 @@ $app->get('/update', function() use($app) {
 
 // Database connection
 
-$app->get('/script1', function() use($app) {
-  return $app['twig']->render('script1.html');
-});
-
-$app->get('/hello/{number}', function($number) use($app) {
-  $value = $app->escape($number);
-
-  $abc = $app['pdo']->prepare('INSERT INTO test_table (name) VALUES ("$value")');
-  $abc->execute();
-
-  return 'Your number: '.$value;
-});
-
-
-
 $dbopts = parse_url(getenv('DATABASE_URL'));
 $app->register(new Csanquer\Silex\PdoServiceProvider\Provider\PDOServiceProvider('pdo'),
                array(
@@ -84,6 +69,20 @@ $app->get('/db/', function() use($app) {
 });
 
 
+
+
+$app->get('/script1', function() use($app) {
+  return $app['twig']->render('script1.html');
+});
+
+$app->get('/hello/{number}', function($number) use($app) {
+  $value = $app->escape($number);
+
+  $abc = $app['pdo']->prepare('INSERT INTO test_table (name) VALUES ("$value")');
+  $abc->execute();
+
+  return 'Your number: '.$value;
+});
 
 
 
