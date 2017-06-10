@@ -7,12 +7,12 @@ var btc;
     btc = parseInt( data[0].market_cap_usd );
     eth = parseInt( data[1].market_cap_usd );
 
-    api(btc);
-    
+    api(btc, eth);
+
   });
 
-function api(num) {
-  window.location.href = "/api/" + num;
+function api(num1, num2) {
+  window.location.href = "/api/" + num1 + "/" + num2;
 }
 
 

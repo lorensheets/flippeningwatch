@@ -64,15 +64,16 @@ $app->get('/script1', function() use($app) {
   return $app['twig']->render('script1.html');
 });
 
-$app->get('/api/{number}', function($number) use($app) {
-  $value = $app->escape($number);
+$app->get('/api/{btc}/{eth}', function($btc,$eth) use($app) {
+  $value1 = $app->escape($btc);
+  $value2 = $app->escape($eth);
 
   /*
   $insert = $app['pdo']->prepare("INSERT INTO test_table (id, name) VALUES ( NULL, '$value' )");
   $insert->execute();
   */
 
-  return 'Your number: '.$value;
+  return 'Your number: '.$value1.' '.$value2;
 });
 
 
