@@ -2,12 +2,11 @@
 
 {% block content %}
 
-<p></p>
+<p id="target"></p>
 
-{% for b in btc %}
-<script> console.log( {{ b }} )</script>
-{% endfor %}
+<script> $('#target').html( {{ btc }} ); </script>
 
+<!--
 <ul>
 {% for v in btc %}
   <li> {{ v }} </li>
@@ -15,5 +14,6 @@
   <li>No data</li>
 {% endfor %}
 </ul>
+-->
 
 {% endblock %}
