@@ -41,7 +41,7 @@ $app->get('/script1', function() use($app) {
 $app->get('/hello/{number}', function($number) use($app) {
   $value = $app->escape($number);
 
-  $abc = $app['pdo']->prepare('INSERT INTO test_table (name) VALUES ( $value )');
+  $abc = $app['pdo']->prepare('INSERT INTO test_table (name) VALUES ( '$value' )');
   $abc->execute();
 
   return 'Your number: '.$value;
