@@ -64,11 +64,13 @@ $app->get('/script1', function() use($app) {
   return $app['twig']->render('script1.html');
 });
 
-$app->get('/hello/{number}', function($number) use($app) {
+$app->get('/api/{number}', function($number) use($app) {
   $value = $app->escape($number);
 
-  $abc = $app['pdo']->prepare("INSERT INTO test_table (id, name) VALUES ( NULL, '$value' )");
-  $abc->execute();
+  /*
+  $insert = $app['pdo']->prepare("INSERT INTO test_table (id, name) VALUES ( NULL, '$value' )");
+  $insert->execute();
+  */
 
   return 'Your number: '.$value;
 });
