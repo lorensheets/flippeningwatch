@@ -104,7 +104,7 @@ $app->get('/script1', function() use($app) {
   return $app['twig']->render('script1.html');
 });
 
-$app->get('/api/{mkt_cap}/{btc}/{eth}/{pct}/{btc_vol}/{eth_vol}/{pct_vol}/{eth_price}/{btc_rwd}/{eth_rwd}/{pct_rwd}/{btc_tx}/{btc_nodes}', function($btc,$eth,$pct,$btc_vol,$eth_vol,$pct_vol,$eth_price,$btc_rwd,$eth_rwd,$pct_rwd,$btc_tx,$btc_nodes) use($app) {
+$app->get('/api/{mkt_cap}/{btc}/{eth}/{pct}/{btc_vol}/{eth_vol}/{pct_vol}/{eth_price}/{btc_rwd}/{eth_rwd}/{pct_rwd}/{btc_tx}/{btc_nodes}', function($mkt_cap,$btc,$eth,$pct,$btc_vol,$eth_vol,$pct_vol,$eth_price,$btc_rwd,$eth_rwd,$pct_rwd,$btc_tx,$btc_nodes) use($app) {
   $v0 = $app->escape($mkt_cap);
   $v1 = $app->escape($btc);
   $v2 = $app->escape($eth);
