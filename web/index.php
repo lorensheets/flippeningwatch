@@ -53,7 +53,7 @@ $app->get('/db/', function() use($app) {
   )');
   $in->execute();
 
-  $value = $_GET['number'];
+  $value = $app['number'];
 
   $abc = $app['pdo']->prepare('INSERT INTO test_table (name) VALUES ($value)');
   $abc->execute();
