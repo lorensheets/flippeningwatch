@@ -23,7 +23,7 @@ function api(btc, eth, pct, btc_vol, eth_vol, pct_vol, eth_price, btc_rwd) {
     eth_rwd = 86400 / parseInt( data.data[0].blockTime ) * 5 * eth_price;
     pct_rwd = (eth_rwd / btc_rwd) * 100;
     apix(eth_rwd, pct_rwd);
-  }
+  });
 
   //window.location.href = "/api/" + num1 + "/" + num2;
 }
