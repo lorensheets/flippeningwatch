@@ -105,7 +105,7 @@ $app->get('/script1', function() use($app) {
 });
 
 $app->get('/api/{mkt_cap}/{btc}/{eth}/{pct}/{btc_vol}/{eth_vol}/{pct_vol}/{eth_price}/{btc_rwd}/{eth_rwd}/{pct_rwd}/{btc_tx}/{btc_nodes}', function($mkt_cap,$btc,$eth,$pct,$btc_vol,$eth_vol,$pct_vol,$eth_price,$btc_rwd,$eth_rwd,$pct_rwd,$btc_tx,$btc_nodes) use($app) {
-  $v0 = $app->escape($mkt_cap);
+  $v = $app->escape($mkt_cap);
   $v1 = $app->escape($btc);
   $v2 = $app->escape($eth);
   $v3 = $app->escape($pct);
@@ -122,10 +122,10 @@ $app->get('/api/{mkt_cap}/{btc}/{eth}/{pct}/{btc_vol}/{eth_vol}/{pct_vol}/{eth_p
   $truncate = $app['pdo']->prepare('TRUNCATE crypto');
   $truncate->execute();
 
-  $insert = $app['pdo']->prepare("INSERT INTO crypto (id,mkt_cap,btc,eth,pct,btc_vol,eth_vol,pct_vol,eth_price,btc_rwd,eth_rwd,pct_rwd,btc_tx,btc_nodes) VALUES ( NULL,'$v0','$v1','$v2','$v3','$v4','$v5','$v6','$v7','$v8','$v9','$v10','$v11','$v12' )");
+  $insert = $app['pdo']->prepare("INSERT INTO crypto (id,mkt_cap,btc,eth,pct,btc_vol,eth_vol,pct_vol,eth_price,btc_rwd,eth_rwd,pct_rwd,btc_tx,btc_nodes) VALUES ( NULL,'$v','$v1','$v2','$v3','$v4','$v5','$v6','$v7','$v8','$v9','$v10','$v11','$v12' )");
   $insert->execute();
 
-  return $v0.'<br>'
+  return $v.'<br>'
   .$v1.'<br>'
   .$v2.'<br>'
   .$v3.'<br>'
