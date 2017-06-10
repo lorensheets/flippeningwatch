@@ -55,7 +55,7 @@ $app->get('/db/', function(Request $request) use($app) {
   )');
   $in->execute();
 
-  $value = $request->get('number');
+  $value = $request->request->get('number');
 
   $abc = $app['pdo']->prepare('INSERT INTO test_table (name) VALUES ($value)');
   $abc->execute();
