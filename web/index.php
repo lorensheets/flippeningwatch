@@ -62,7 +62,7 @@ $app->get('/db/', function() use($app) {
   ));
 });
 
-/*
+
 $app->get('/script1', function() use($app) {
   return $app['twig']->render('script1.html');
 });
@@ -75,7 +75,7 @@ $app->get('/hello/{number}', function($number) use($app) {
 
   return 'Your number: '.$value;
 });
-*/
+
 
 
 $app->run();
