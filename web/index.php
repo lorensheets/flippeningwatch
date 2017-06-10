@@ -122,7 +122,7 @@ $app->get('/api/{mkt_cap}/{btc}/{eth}/{pct}/{btc_vol}/{eth_vol}/{pct_vol}/{eth_p
   $truncate = $app['pdo']->prepare('TRUNCATE crypto');
   $truncate->execute();
 
-  $insert = $app['pdo']->prepare("INSERT INTO crypto (id,mkt_cap,btc,eth,pct,btc_vol,eth_vol,pct_vol,eth_price,btc_rwd,eth_rwd,pct_rwd,btc_tx,btc_nodes) VALUES ( NULL,'$v','$v1','$v2','$v3','$v4','$v5','$v6','$v7','$v8','$v9','$v10','$v11','$v12' )");
+  $insert = $app['pdo']->prepare("INSERT INTO crypto (mkt_cap,btc,eth,pct,btc_vol,eth_vol,pct_vol,eth_price,btc_rwd,eth_rwd,pct_rwd,btc_tx,btc_nodes) VALUES ( '$v','$v1','$v2','$v3','$v4','$v5','$v6','$v7','$v8','$v9','$v10','$v11','$v12' )");
   $insert->execute();
 
   return $v.'<br>'
