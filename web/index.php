@@ -50,7 +50,7 @@ $app->get('/db/', function() use($app) {
   )');
   $in->execute();
 
-  $abc = $app['pdo']->prepare('INSERT INTO test_table (name) VALUES ('11')');
+  $abc = $app['pdo']->prepare('INSERT INTO test_table (id, name) VALUES (NULL, 11)');
   $abc->execute();
 
   $st = $app['pdo']->prepare('SELECT name FROM test_table');
