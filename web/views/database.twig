@@ -2,7 +2,189 @@
 
 {% block content %}
 
-<p id="target"></p>
+<div class="container-fluid">
+
+  <div class="row ticker">
+    <div class="col-xs-0 col-sm-1"></div>
+    <div class="col-xs-12 col-sm-10">
+      <div class="row">
+        <div class="col-xs-4">
+          <p>BTC Dom: 45.3%</p>
+        </div>
+        <div class="col-xs-4">
+          <p>ETH Dom: 24.3%</p>
+        </div>
+        <div class="col-xs-4">
+          <p>ETH/BTC: 53.1%</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-xs-0 col-sm-1"></div>
+  </div>
+
+  <div class="row">
+    <div class="col-xs-12 title">
+      <img class="logo" src="favicon/apple-icon.png" alt="logo"/>
+      <h1>Flippening Watch</h1>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-xs-12 ad">
+      <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- Flippening Watch top -->
+      <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3200453829299141" data-ad-slot="5045649924" data-ad-format="auto"></ins>
+      <script>
+      (adsbygoogle = window.adsbygoogle || []).push({});
+      </script>
+    </div>
+  </div>
+
+</div>
+
+<div class="container-fluid table-container">
+
+  <div class="row">
+
+    <div class="table-header col-xs-3 col-sm-3 border-top-left">
+      <img src="images/metrics.png" alt="metrics"/>
+      <p>Metrics</p>
+    </div>
+    <div class="table-header col-xs-3 col-sm-3 crypto crypto-block border-top-left">
+      <img src="images/ethereum.png" alt="ethereum"/>
+      <p>ethereum</p>
+    </div>
+    <div class="table-header col-xs-3 col-sm-3 crypto crypto-block border-top-left">
+      <img src="images/bitcoin.png" alt="bitcoin"/>
+      <p>bitcoin</p>
+    </div>
+    <div class="table-header col-xs-3 col-sm-3 border-top-left-right">
+      <img src="favicon/apple-icon.png" alt="percentage"/>
+      <p>flippening</p>
+    </div>
+  </div>
+
+  <div class="row">
+
+    <div class="col align-rt col-xs-3 col-sm-3 border-top-left">
+      <p>Market Cap</p>
+    </div>
+    <div class="col col-xs-3 col-sm-3 crypto border-top-left">
+      <p id="eth_mkt_cap"></p>
+    </div>
+    <div class="col col-xs-3 col-sm-3 crypto border-top-left">
+      <p id="btc_mkt_cap"></p>
+    </div>
+    <div class="col col-xs-3 col-sm-3 border-top-left-right pct">
+      <p id="eth_btc_pct"></p>
+    </div>
+  </div>
+
+  <div class="row">
+
+    <div class="col align-rt col-xs-3 col-sm-3 border-top-left">
+      <p>Transactions (24H)</p>
+    </div>
+    <div class="col col-xs-3 col-sm-3 crypto border-top-left">
+      <p id="eth_tx"></p>
+    </div>
+    <div class="col col-xs-3 col-sm-3 crypto border-top-left">
+      <p id="btc_tx"></p>
+    </div>
+    <div class="col col-xs-3 col-sm-3 border-top-left-right pct">
+      <p id="pct_tx"></p>
+    </div>
+  </div>
+
+  <div class="row">
+
+    <div class="col align-rt col-xs-3 col-sm-3 border-top-left">
+      <p>Trading Volume (24H)</p>
+    </div>
+    <div class="col col-xs-3 col-sm-3 crypto border-top-left">
+      <p id="eth_vol"></p>
+    </div>
+    <div class="col col-xs-3 col-sm-3 crypto border-top-left">
+      <p id="btc_vol"></p>
+    </div>
+    <div class="col col-xs-3 col-sm-3 border-top-left-right pct">
+      <p id="pct_vol"></p>
+    </div>
+  </div>
+
+  <div class="row">
+
+    <div class="col align-rt col-xs-3 col-sm-3 border-top-left">
+      <p>Mining Reward (24H)</p>
+    </div>
+    <div class="col col-xs-3 col-sm-3 crypto border-top-left">
+      <p id="eth_rwd"></p>
+    </div>
+    <div class="col col-xs-3 col-sm-3 crypto border-top-left">
+      <p id="btc_rwd"></p>
+    </div>
+    <div class="col col-xs-3 col-sm-3 border-top-left-right pct">
+      <p id="pct_rwd"></p>
+    </div>
+  </div>
+
+  <div class="row">
+
+    <div class="col align-rt col-xs-3 col-sm-3 border-top-left">
+      <p>Nodes</p>
+    </div>
+    <div class="col col-xs-3 col-sm-3 crypto border-top-left">
+      <p id="ethNodes"></p>
+    </div>
+    <div class="col col-xs-3 col-sm-3 crypto border-top-left">
+      <p id="btcNodes"></p>
+    </div>
+    <div class="col col-xs-3 col-sm-3 border-top-left-right pct">
+      <p id="pctNodes"></p>
+    </div>
+  </div>
+
+  <div class="row">
+
+    <div class="col align-rt col-xs-3 col-sm-3 border-top-left-bottom">
+      <p>Google Trends</p>
+    </div>
+    <div class="col col-xs-3 col-sm-3 crypto border-top-left-bottom">
+      <p id="eth_trends"></p>
+    </div>
+    <div class="col col-xs-3 col-sm-3 crypto border-top-left-bottom">
+      <p id="btc_trends"></p>
+    </div>
+    <div class="col col-xs-3 col-sm-3 border-all pct">
+      <p id="pct_trends"></p>
+    </div>
+  </div>
+
+
+  <div class="row updated">
+    <div class="col-xs-12">
+      <p>*Last updated: June 7th, 2017 4:45pm UTC−4:00</p>
+    </div>
+  </div>
+  <div class="row portrait-only">
+    <div class="col-xs-12">
+      <p>Switch to landscape for full table view</p>
+    </div>
+  </div>
+
+</div>
+
+  <footer>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-xs-2"></div>
+        <div class="col-xs-8">
+          <p class="copyright">Copyright &copy; Flippening Watch - 2017</p>
+        </div>
+        <div class="col-xs-2"></div>
+      </div>
+    <div>
+  </footer>
 
 <script>
 
@@ -19,7 +201,8 @@
   var btc_tx    = {{ api[10] }};
   var btc_nodes = {{ api[11] }};
 
-  $('#target').html( "$" + btc.toLocaleString('en-US') );
+  $('#btc_mkt_cap').html( "$" + btc.toLocaleString('en-US') );
+  $('#eth_mkt_cap').html( "$" + eth.toLocaleString('en-US') );
 
 </script>
 
