@@ -218,10 +218,10 @@
 
     // set manually
     var eth_tx    = 215831; // 24 hour ETH transaction volume
-    var eth_nodes = 25835; // ETH Nodes
-    var btc_trends = 75; // BTC google trends
-    var eth_trends = 28; // ETH google trends
-    var last_updated = "*Last updated: June 10th, 2017 3:35am UTC−4:00";
+    var eth_nodes = 25736; // ETH Nodes
+    var btc_trends = 73; // BTC google trends
+    var eth_trends = 30; // ETH google trends
+    var last_updated = "*Last updated: June 10th, 2017 12:30pm UTC−4:00";
 
     $('#last_updated').html( last_updated );
 
@@ -229,7 +229,7 @@
     var eth_dom = (eth / mkt_cap) * 100;
     var pct_dom = (eth / btc) * 100;
 
-    $('#btc_dom').html("BCT DOM: " + btc_dom.toFixed(1) + "%");
+    $('#btc_dom').html("BTC DOM: " + btc_dom.toFixed(1) + "%");
     $('#eth_dom').html("ETH DOM: " + eth_dom.toFixed(1) + "%");
     $('#pct_dom').html("ETH/BTC: " + pct_dom.toFixed(1) + "%");
 
