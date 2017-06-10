@@ -16,16 +16,6 @@ $app->register(new Silex\Provider\TwigServiceProvider(), array(
     'twig.path' => __DIR__.'/views',
 ));
 
-// Our web handlers
-
-$app->get('/', function() use($app) {
-  $app['monolog']->addDebug('logging output.');
-  return $app['twig']->render('index.twig');
-});
-
-
-
-
 
 
 // Database connection
@@ -43,6 +33,40 @@ $app->register(new Csanquer\Silex\PdoServiceProvider\Provider\PDOServiceProvider
                    )
                )
 );
+
+// Our web handlers
+
+$app->get('/', function() use($app) {
+  $app['monolog']->addDebug('logging output.');
+
+  $st = $app['pdo']->prepare('SELECT * FROM test_table');
+  $st->execute();
+
+  $api = array();
+
+  $row = $st->fetch(PDO::FETCH_ASSOC);
+  array_push($api, $row['btc']);
+  array_push($api, $row['eth']);
+  array_push($api, $row['pct']);
+  array_push($api, $row['btc_vol']);
+  array_push($api, $row['eth_vol']);
+  array_push($api, $row['pct_vol']);
+  array_push($api, $row['eth_price']);
+  array_push($api, $row['btc_rwd']);
+  array_push($api, $row['eth_rwd']);
+  array_push($api, $row['pct_rwd']);
+  array_push($api, $row['btc_tx']);
+  array_push($api, $row['btc_nodes']);
+
+
+
+  return $app['twig']->render('index.twig', array(
+    'api' => $api
+  ));
+
+});
+
+
 $app->get('/db/', function() use($app) {
 
   $st = $app['pdo']->prepare('SELECT * FROM test_table');
@@ -69,18 +93,6 @@ $app->get('/db/', function() use($app) {
   return $app['twig']->render('database.twig', array(
     'api' => $api
   ));
-
-  /*
-  $names = array();
-  while ($row = $st->fetch(PDO::FETCH_ASSOC)) {
-    $app['monolog']->addDebug('Row ' . $row['name']);
-    $names[] = $row;
-   }
-
-  return $app['twig']->render('database.twig', array(
-    'names' => $names
-  ));
-  */
 
 
 });
