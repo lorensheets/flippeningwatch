@@ -53,7 +53,9 @@ $app->get('/db/', function() use($app) {
   )');
   $in->execute();
 
-  $abc = $app['pdo']->prepare('INSERT INTO test_table (name) VALUES (10)');
+  $value = $_GET['number'];
+
+  $abc = $app['pdo']->prepare('INSERT INTO test_table (name) VALUES ($value)');
   $abc->execute();
 
   $st = $app['pdo']->prepare('SELECT name FROM test_table');
