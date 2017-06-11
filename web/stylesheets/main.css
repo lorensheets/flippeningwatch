@@ -56,15 +56,10 @@ p {
   border-right: none;
   border-left: 1px solid #ccc;
 }
-.ticker .price {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  text-align: center;
-}
 .ticker .price p, .ticker .price img {
   display: inline-block;
-  margin: 0px 3px;
+  vertical-align: middle;
+  margin: 0 3px;
 }
 .ticker .price img {
   height: 15px;
