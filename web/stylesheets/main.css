@@ -43,6 +43,9 @@ p {
   margin: 0px;
   border-bottom: 1px solid #ddd;
 }
+.ticker .row {
+  width: 100% !important;
+}
 .ticker div {
   margin: 0;
   padding: 0;
