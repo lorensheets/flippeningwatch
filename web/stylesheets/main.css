@@ -61,11 +61,11 @@ p {
   vertical-align: middle;
   margin: 0;
 }
-.ticker .price p:first-child {
-  margin-right: 5px;
-}
 .ticker .price img {
   height: 15px;
+}
+#btc_price {
+  margin-right: 5px;
 }
 .title {
   padding: 15px 0px 0px 0px;
