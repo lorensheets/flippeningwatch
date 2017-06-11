@@ -180,6 +180,10 @@ p {
   .ticker {
     width: 100% !important;
   }
+  .ticker .col-sm-3 {
+    border: none;
+    padding-bottom: 5px;
+  }
   .logo {
     height: 70px !important;
   }
