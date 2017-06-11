@@ -24,17 +24,18 @@ function ticker(mkt_cap) {
     btc_vol = parseInt( data[0]["24h_volume_usd"] );
     eth_vol = parseInt( data[1]["24h_volume_usd"] );
     pct_vol = (eth_vol / btc_vol) * 100;
-    eth_price = parseInt ( data[1].price_usd );
+    btc_price = parseInt( data[0].price_usd );
+    eth_price = parseInt( data[1].price_usd );
     btc_rwd = parseInt( data[0].price_usd ) * 1800;
 
-    api(btc, eth, pct, btc_vol, eth_vol, pct_vol, eth_price, btc_rwd);
+    api(btc, eth, pct, btc_vol, eth_vol, pct_vol, btc_price, eth_price, btc_rwd);
 
   });
 }
 
-function api(btc, eth, pct, btc_vol, eth_vol, pct_vol, eth_price, btc_rwd) {
+function api(btc, eth, pct, btc_vol, eth_vol, pct_vol, btc_price, eth_price, btc_rwd) {
 
-  values.push(btc, eth, pct, btc_vol, eth_vol, pct_vol, eth_price, btc_rwd);
+  values.push(btc, eth, pct, btc_vol, eth_vol, pct_vol, btc_price, eth_price, btc_rwd);
 
   $.getJSON( "https://etherchain.org/api/miningEstimator", function ( data ) {
     eth_rwd = 86400 / parseInt( data.data[0].blockTime ) * 5 * eth_price;
@@ -71,7 +72,8 @@ function apiz(btc_nodes) {
 
   values.push(btc_nodes);
 
-  window.location.href = "/api/" + values[0] + "/" + values[1] + "/" + values[2] + "/" + values[3] + "/" + values[4] + "/" + values[5] + "/" + values[6] + "/" + values[7] + "/" + values[8] + "/" + values[9] + "/" + values[10] + "/" + values[11] + "/" + values[12];
+  window.location.href = "/api/" + values[0] + "/" + values[1] + "/" + values[2] + "/" + values[3] + "/" + values[4] + "/" + values[5] + "/" + values[6] + "/" + values[7] + "/" + values[8] + "/" + values[9] + "/" + values[10] + "/" + values[11] + "/" + values[12] +
+  "/" + values[13];
 
 }
 

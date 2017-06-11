@@ -58,6 +58,7 @@ $app->get('/', function() use($app) {
   array_push($api, $row['btc_tx']);
   array_push($api, $row['btc_nodes']);
   array_push($api, $row['mkt_cap']);
+  array_push($api, $row['btc_price']);
 
 
 
@@ -104,7 +105,7 @@ $app->get('/script1', function() use($app) {
   return $app['twig']->render('script1.html');
 });
 
-$app->get('/api/{mkt_cap}/{btc}/{eth}/{pct}/{btc_vol}/{eth_vol}/{pct_vol}/{eth_price}/{btc_rwd}/{eth_rwd}/{pct_rwd}/{btc_tx}/{btc_nodes}', function($mkt_cap,$btc,$eth,$pct,$btc_vol,$eth_vol,$pct_vol,$eth_price,$btc_rwd,$eth_rwd,$pct_rwd,$btc_tx,$btc_nodes) use($app) {
+$app->get('/api/{mkt_cap}/{btc}/{eth}/{pct}/{btc_vol}/{eth_vol}/{pct_vol}/{btc_price}/{eth_price}/{btc_rwd}/{eth_rwd}/{pct_rwd}/{btc_tx}/{btc_nodes}', function($mkt_cap,$btc,$eth,$pct,$btc_vol,$eth_vol,$pct_vol,$btc_price,$eth_price,$btc_rwd,$eth_rwd,$pct_rwd,$btc_tx,$btc_nodes) use($app) {
   $v = $app->escape($mkt_cap);
   $v1 = $app->escape($btc);
   $v2 = $app->escape($eth);
@@ -118,11 +119,12 @@ $app->get('/api/{mkt_cap}/{btc}/{eth}/{pct}/{btc_vol}/{eth_vol}/{pct_vol}/{eth_p
   $v10 = $app->escape($pct_rwd);
   $v11 = $app->escape($btc_tx);
   $v12 = $app->escape($btc_nodes);
+  $v13 = $app->escape($btc_price);
 
   $truncate = $app['pdo']->prepare('TRUNCATE crypto');
   $truncate->execute();
 
-  $insert = $app['pdo']->prepare("INSERT INTO crypto (mkt_cap,btc,eth,pct,btc_vol,eth_vol,pct_vol,eth_price,btc_rwd,eth_rwd,pct_rwd,btc_tx,btc_nodes) VALUES ( '$v','$v1','$v2','$v3','$v4','$v5','$v6','$v7','$v8','$v9','$v10','$v11','$v12' )");
+  $insert = $app['pdo']->prepare("INSERT INTO crypto (mkt_cap,btc,eth,pct,btc_vol,eth_vol,pct_vol,eth_price,btc_rwd,eth_rwd,pct_rwd,btc_tx,btc_nodes,btc_price) VALUES ( '$v','$v1','$v2','$v3','$v4','$v5','$v6','$v7','$v8','$v9','$v10','$v11','$v12','$v13' )");
   $insert->execute();
 
   return $v.'<br>'
@@ -137,7 +139,8 @@ $app->get('/api/{mkt_cap}/{btc}/{eth}/{pct}/{btc_vol}/{eth_vol}/{pct_vol}/{eth_p
   .$v9.'<br>'
   .$v10.'<br>'
   .$v11.'<br>'
-  .$v12;
+  .$v12.'<br>'
+  .$v13;
 });
 
 
