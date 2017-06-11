@@ -48,6 +48,7 @@ p {
   padding: 0;
   text-align: center !important;
   background: none;
+  letter-spacing: 1px;
 }
 
 .ticker .border-rt {
