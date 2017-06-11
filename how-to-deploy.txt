@@ -14,7 +14,7 @@
 
     'heroku login'
 
-5)  Once you've made changes, add the edited files to the git staging area:
+5)  Once you've made changes, save the file, then add the edited files to the git staging area:
 
     'git add .' <adds all changed files
     'git add [filename]' <adds just the specified file
