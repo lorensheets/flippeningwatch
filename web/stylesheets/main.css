@@ -54,7 +54,7 @@ p {
   border-right: 1px solid #ccc;
 }
 .ticker .col-sm-3 {
-  padding-bottom: 5px;
+  padding-bottom: 8px;
 }
 .ticker .price p, .ticker .price img {
   display: inline-block;
