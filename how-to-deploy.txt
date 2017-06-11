@@ -1,4 +1,3 @@
-THIS IS THE FORKED FILE
 
 1)  Go to your "flippening-watch" folder/directory,
     which you should have on your desktop.
