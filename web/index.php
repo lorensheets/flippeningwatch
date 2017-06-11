@@ -67,7 +67,7 @@ $app->get('/', function() use($app) {
 
 });
 
-
+/*
 $app->get('/db/', function() use($app) {
 
   $st = $app['pdo']->prepare('SELECT * FROM crypto');
@@ -98,7 +98,7 @@ $app->get('/db/', function() use($app) {
 
 
 });
-
+*/
 
 $app->get('/script1', function() use($app) {
   return $app['twig']->render('script1.html');
