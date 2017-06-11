@@ -49,15 +49,14 @@ p {
   text-align: center !important;
   background: none;
 }
+/*
 .ticker .col-xs-12 .row div {
   border-right: 1px solid #ccc;
 }
 .ticker .col-xs-12 .row div:last-child {
   border-right: none;
 }
-.ticker .col-xs-3 {
-  white-space: nowrap;
-}
+*/
 .ticker .price p, .ticker .price img {
   display: inline-block;
   vertical-align: middle;
