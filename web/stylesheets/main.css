@@ -50,10 +50,12 @@ p {
   background: none;
 }
 
-.ticker .border-rt, .ticker .col-sm-3 {
+.ticker .border-rt {
   border-right: 1px solid #ccc;
 }
-
+.ticker .col-sm-3 {
+  padding-bottom: 5px;
+}
 .ticker .price p, .ticker .price img {
   display: inline-block;
   vertical-align: middle;
@@ -181,8 +183,8 @@ p {
     width: 100% !important;
   }
   .ticker .col-sm-3 {
-    border: none;
-    padding-bottom: 5px;
+    border-right: 1px solid #ccc;
+    padding: 0;
   }
   .logo {
     height: 70px !important;
