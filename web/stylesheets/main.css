@@ -134,6 +134,7 @@ p {
   }
   .ticker {
     font-size: 0.7em;
+    letter-spacing: 0px;
   }
   .portrait-only {
     display: block;
