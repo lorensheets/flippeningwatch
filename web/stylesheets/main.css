@@ -59,7 +59,9 @@ p {
 .ticker .price p, .ticker .price img {
   display: inline-block;
   vertical-align: middle;
-  margin: 0 3px;
+}
+.ticker .price p:first-child {
+  margin-right: 5px;
 }
 .ticker .price img {
   height: 15px;
