@@ -14,15 +14,19 @@
 
     'heroku login'
 
-5)  Once you've made changes, save the file, then add the edited files to the git staging area:
+5)  Be sure to pull the most recent version of the code from Heroku:
+
+    'git pull heroku master'
+
+6)  Once you've made changes, save the file, then add the edited files to the git staging area:
 
     'git add .' <adds all changed files
     'git add [filename]' <adds just the specified file
 
-6)  Commit staged files to the master branch:
+7)  Commit staged files to the master branch:
 
     'git commit -m "[enter a detailed description of changes]"'
 
-7)  Push commits to server:
+8)  Push commits to server:
 
     'git push heroku master'
