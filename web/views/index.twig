@@ -246,6 +246,8 @@
     var eth_dom = (eth / mkt_cap) * 100;
     var pct_dom = (eth / btc) * 100;
 
+    eth_price = eth_price.toFixed(2);
+
     $('#eth_price').html("$" + eth_price.toLocaleString('en-US') );
     $('#btc_price').html("$" + btc_price.toLocaleString('en-US') );
     $('#btc_dom').html("BTC DOM: " + btc_dom.toFixed(1) + "%");
