@@ -24,8 +24,8 @@ function ticker(mkt_cap) {
     btc_vol = parseInt( data[0]["24h_volume_usd"] );
     eth_vol = parseInt( data[1]["24h_volume_usd"] );
     pct_vol = (eth_vol / btc_vol) * 100;
-    btc_price = parseInt( data[0].price_usd );
-    eth_price = parseInt( data[1].price_usd );
+    btc_price = data[0].price_usd;
+    eth_price = data[1].price_usd;
     btc_rwd = parseInt( data[0].price_usd ) * 1800;
 
     api(btc, eth, pct, btc_vol, eth_vol, pct_vol, btc_price, eth_price, btc_rwd);
