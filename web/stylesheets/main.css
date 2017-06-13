@@ -171,6 +171,9 @@ p {
   padding: 10px 0px !important;
   color: var(--link-hover) !important;
 }
+.col-currency div {
+  white-space: nowrap;
+}
 .col-currency div img, .col-currency div p {
   display: inline-block !important;
   vertical-align: middle;
