@@ -200,6 +200,9 @@ p {
     border-right: 1px solid #ccc;
     padding: 0;
   }
+  .title .link {
+    font-size: 1.1em;
+  }
   .logo {
     height: 70px !important;
   }
