@@ -600,7 +600,11 @@
     $('.currency_name').each(function() {
       var name = $(this).text();
       var src = 'images/currencylogos/' + name.toLowerCase() + '.png';
-      $(this).parent('div').children('img').attr('src', src)
+      $(this).parent('div').children('img').attr('src', src);
+      if (name.toLowerCase() == "ethereum classic") {
+        name = "ethereum<br>classic";
+        $(this).html(name);
+      }
     });
 
     $('.currency_price').each(function() {
