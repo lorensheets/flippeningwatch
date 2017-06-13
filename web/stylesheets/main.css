@@ -56,6 +56,9 @@ p {
   max-width: 1150px;
   background: var(--main-bg-color);
 }
+.transparent {
+  background: none;
+}
 .ticker {
   width: 100% !important;
   max-width: none !important;
@@ -166,6 +169,15 @@ p {
   text-align: center !important;
   padding: 10px 0px !important;
   color: var(--link-hover) !important;
+}
+.col-currency div img, .col-currency div p {
+  display: inline-block;
+  vertical-align: middle;
+}
+.col-currency img {
+  width: 25px;
+  height: auto;
+  margin: 0;
 }
 
 @media (orientation: portrait) {
