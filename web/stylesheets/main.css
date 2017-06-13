@@ -79,10 +79,10 @@ p {
   text-transform: uppercase;
   text-decoration: underline;
   letter-spacing: 1px;
-  color: #4466ff;
+  color: #00f;
 }
 .title .link:hover {
-  color: #0000ff;
+  color: #222;
 }
 .ad {
   padding: 15px 0px;
