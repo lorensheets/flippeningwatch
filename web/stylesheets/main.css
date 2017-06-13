@@ -74,6 +74,15 @@ p {
 .title {
   padding: 15px 0px 0px 0px;
 }
+.title .link {
+  font-size: 1em;
+  letter-spacing: 1px;
+  text-transform: none;
+  color: #555;
+}
+.title .link:hover {
+  color: #00f;
+}
 .ad {
   padding: 15px 0px;
 }
