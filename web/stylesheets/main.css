@@ -57,7 +57,7 @@ p {
   background: var(--main-bg-color);
 }
 .transparent {
-  background: none;
+  background: none !important;
 }
 .ticker {
   width: 100% !important;
