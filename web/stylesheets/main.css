@@ -18,7 +18,7 @@ html, body {
   background: var(--main-bg-color);
 }
 #toggle-color {
-  position: fixed;
+  position: fixed !important;
   top: 0px;
   right: 10px;
   height: 30px;
