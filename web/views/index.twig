@@ -579,7 +579,7 @@
     }
 
     var pct_nodes = (eth_nodes / btc_nodes) * 100;
-    $("#btcNodes").html( btc_nodes.toLocaleString('en-US') );
+    $("#btcNodes").html( btc_nodes.toLocaleString('en-US') + "*" );
     $("#ethNodes").html( eth_nodes.toLocaleString('en-US') + "*" );
     $("#pctNodes").html( pct_nodes.toFixed(1) + "%" );
     if (pct_nodes > 100) {
