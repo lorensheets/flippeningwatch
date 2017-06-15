@@ -21,7 +21,8 @@ $('#toggle-color').click(function() {
     document.body.style.setProperty('--table-bg', '#07090a');
     document.body.style.setProperty('--ticker-color', '#ccc');
     document.body.style.setProperty('--link-color', '#eee');
-    document.body.style.setProperty('--link-bg', '#111');
+    document.body.style.setProperty('--link-bg', '#222');
+    document.body.style.setProperty('--link-border', '2px solid #444');
     document.body.style.setProperty('--light-grey', '#aaa');
     document.body.style.setProperty('--border', '1px solid #444');
     document.body.style.setProperty('--dark-border', '1px solid #333');
@@ -45,6 +46,7 @@ $('#toggle-color').click(function() {
     document.body.style.setProperty('--ticker-color', '#444');
     document.body.style.setProperty('--link-color', '#444');
     document.body.style.setProperty('--link-bg', '#f5f6f7');
+    document.body.style.setProperty('--link-border', '2px solid #ddd');
     document.body.style.setProperty('--light-grey', '#888');
     document.body.style.setProperty('--border', '1px solid #ddd');
     document.body.style.setProperty('--dark-border', '1px solid #ccc');

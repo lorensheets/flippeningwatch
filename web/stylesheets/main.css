@@ -5,6 +5,7 @@
   --ticker-color: #444;
   --link-color: #444;
   --link-bg: #f5f6f7;
+  --link-border: 2px solid #ddd;
   --light-grey: #888;
   --border: 1px solid #ddd;
   --dark-border: 1px solid #ccc;
@@ -119,7 +120,7 @@ p {
   text-decoration: none;
   letter-spacing: 1px;
   background: var(--link-bg);
-  border: 2px solid #ddd;
+  border: var(--link-border);
   border-radius: 10px;
   color: var(--link-color);
 }
