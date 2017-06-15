@@ -61,7 +61,10 @@ p {
 }
 .transparent {
   background: none !important;
-  margin-bottom: 15px;
+  margin: 15px auto;
+}
+.transparent h2 {
+  margin: 0 auto;
 }
 .ticker {
   width: 100% !important;
