@@ -50,7 +50,7 @@ p {
   border-bottom: var(--border);
 }
 .market-share-comparison {
-  padding: 0px 0px !important;
+  padding: 0px 0px 20px 0px !important;
 }
 .row {
   text-align: center;
