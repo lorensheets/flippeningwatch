@@ -3,8 +3,8 @@
   --main-text-color: #222;
   --table-bg: #f6f6f6;
   --ticker-color: #444;
-  --link-color: #00f;
-  --link-hover: #222;
+  --link-color: #444;
+  --link-bg: #f5f6f7;
   --light-grey: #888;
   --border: 1px solid #ddd;
   --dark-border: 1px solid #ccc;
@@ -107,11 +107,20 @@ p {
 .title {
   padding: 15px 0px 0px 0px;
 }
+.title div {
+  margin-top: 0px;
+}
 .title .link {
+  display: inline-block;
+  padding: 5px;
+  margin: 0px 3px 5px 3px;
   font-size: 1em;
   text-transform: uppercase;
-  text-decoration: underline;
+  text-decoration: none;
   letter-spacing: 1px;
+  background: var(--link-bg);
+  border: 2px solid #ddd;
+  border-radius: 10px;
   color: var(--link-color);
 }
 .title .link:hover {
@@ -247,6 +256,9 @@ p {
   }
   .logo {
     height: 70px !important;
+  }
+  .title div {
+    margin-top: 0px;
   }
   .transparent h2 {
     font-size: 3em;
