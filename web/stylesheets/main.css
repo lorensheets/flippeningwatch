@@ -251,9 +251,6 @@ p {
     border-right: var(--dark-border);
     padding: 0;
   }
-  .title .link {
-    font-size: 1.25em;
-  }
   .logo {
     height: 70px !important;
   }
