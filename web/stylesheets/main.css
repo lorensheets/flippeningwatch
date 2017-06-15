@@ -248,6 +248,9 @@ p {
   .logo {
     height: 70px !important;
   }
+  .transparent h2 {
+    font-size: 3em;
+  }
 }
 
 /* Medium devices (desktops, 992px and up) */
