@@ -210,7 +210,8 @@
 
   <div class="row transparent">
     <div class="col-xs-12">
-      <h2>Market Share Comparison</h2>
+      <h2>Market Share</h2>
+      <p>Total: $<span id="total_market_share"></span></p>
     </div>
   </div>
 
@@ -594,9 +595,11 @@
       $("#pctNodes").css({ "color": "#fff", "font-size": "1.2em", "font-weight": "800" });
     }
 
-    /* format prices */
+    /* format market share table */
     var market_shares = [];
     var i = 0;
+
+    $('#total_market_share').html(mkt_cap.toLocaleString('en-US'));
 
     $('.currency_name').each(function() {
       var name = $(this).text();
