@@ -124,7 +124,7 @@ p {
   color: var(--link-color);
 }
 .title .link:hover {
-  color: var(--link-hover);
+  text-decoration: underline;
 }
 .ad {
   padding: 15px 0px;
