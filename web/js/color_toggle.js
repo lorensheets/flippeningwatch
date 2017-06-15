@@ -2,7 +2,6 @@ var day = true;
 
 var scroll = function() {
   var scrollTop = window.pageYOffset;
-  console.log(scrollTop);
   if (scrollTop > 100) {
     $('#toggle-color').fadeOut();
   } else {
