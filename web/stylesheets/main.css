@@ -221,6 +221,12 @@ p {
   }
 }
 
+@media (orientation: landscape) {
+  .title div {
+    margin-top: 10px;
+  }
+}
+
 @media (min-width: 600px) {
   .align-rt {
     padding-right: 10px;
