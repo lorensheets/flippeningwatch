@@ -61,6 +61,7 @@ p {
 }
 .transparent {
   background: none !important;
+  margin-bottom: 10px;
 }
 .ticker {
   width: 100% !important;
