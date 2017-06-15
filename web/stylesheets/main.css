@@ -221,7 +221,7 @@ p {
   }
 }
 
-@media screen only and (orientation: landscape) {
+@media (orientation: landscape) {
   .title div {
     margin-top: 10px;
   }
