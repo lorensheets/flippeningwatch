@@ -274,8 +274,6 @@ canvas.addEventListener( 'mouseup', function( e ) {
 });
 
 // once the window loads, we are ready for some fireworks!
-console.log(pct);
 if ( pct > 100 ) {
-	$('#toggle-color').trigger('click');
   window.onload = loop;
 }
