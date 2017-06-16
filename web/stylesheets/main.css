@@ -18,6 +18,14 @@ html, body {
   color: var(--main-text-color);
   background: var(--main-bg-color);
 }
+#canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  background: none;
+  pointer-events: none;
+}
 #toggle-color {
   position: fixed !important;
   top: 0px;
