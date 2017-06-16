@@ -275,6 +275,6 @@ canvas.addEventListener( 'mouseup', function( e ) {
 
 // once the window loads, we are ready for some fireworks!
 console.log(pct);
-if ( pct < 100 ) {
+if ( pct > 100 ) {
   window.onload = loop;
 }
