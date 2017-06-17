@@ -9,6 +9,7 @@
   --light-grey: #888;
   --border: 1px solid #ddd;
   --dark-border: 1px solid #ccc;
+  --pct: #eee;
 }
 html, body {
   font-family: "Raleway", sans-serif;
@@ -209,6 +210,21 @@ p {
   height: auto;
   margin: 0;
 }
+
+/* percentage filler */
+
+.progress {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 0%;
+    border-radius: 0;
+    z-index: 0;
+    background: var(--pct);
+}
+
+/* media queries */
 
 @media (orientation: portrait) {
   .crypto {

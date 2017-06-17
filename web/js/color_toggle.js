@@ -31,6 +31,7 @@ function checkCookie() {
       document.body.style.setProperty('--light-grey', '#aaa');
       document.body.style.setProperty('--border', '1px solid #444');
       document.body.style.setProperty('--dark-border', '1px solid #333');
+      document.body.style.setProperty('--pct', '#333');
     }
 }
 
@@ -62,6 +63,7 @@ if (mode == "day") {
     document.body.style.setProperty('--light-grey', '#aaa');
     document.body.style.setProperty('--border', '1px solid #444');
     document.body.style.setProperty('--dark-border', '1px solid #333');
+    document.body.style.setProperty('--pct', '#333');
 
     $('.invert').css({
       'filter' : 'invert(100%)',
@@ -86,6 +88,7 @@ if (mode == "day") {
     document.body.style.setProperty('--light-grey', '#888');
     document.body.style.setProperty('--border', '1px solid #ddd');
     document.body.style.setProperty('--dark-border', '1px solid #ccc');
+    document.body.style.setProperty('--pct', '#eee');
 
     $('.invert').css({
       'filter' : 'invert(0%)',
