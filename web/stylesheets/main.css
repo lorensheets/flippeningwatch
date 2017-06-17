@@ -179,6 +179,8 @@ p {
   padding-right: 20px;
 }
 .pct {
+  position: relative;
+  z-index: 1;
   font-size: 1.4em;
 }
 .updated, .portrait-only {
