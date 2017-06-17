@@ -180,8 +180,11 @@ p {
 }
 .pct {
   position: relative;
-  z-index: 1;
   font-size: 1.4em;
+}
+.pct p {
+  position: relative;
+  z-index: 1;
 }
 .updated, .portrait-only {
   background: none;
