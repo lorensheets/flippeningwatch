@@ -9,6 +9,7 @@
   --light-grey: #888;
   --border: 1px solid #ddd;
   --dark-border: 1px solid #ccc;
+  --pct: #eee;
 }
 html, body {
   font-family: "Raleway", sans-serif;
@@ -18,10 +19,12 @@ html, body {
   color: var(--main-text-color);
   background: var(--main-bg-color);
 }
-#canvas {
+#confetti {
   position: fixed !important;
   top: 0;
   left: 0;
+  height: 100vh;
+  width: 100vw;
   z-index: 10;
   background: none;
   pointer-events: none;
@@ -176,7 +179,12 @@ p {
   padding-right: 20px;
 }
 .pct {
+  position: relative;
   font-size: 1.4em;
+}
+.pct p {
+  position: relative;
+  z-index: 1;
 }
 .updated, .portrait-only {
   background: none;
@@ -207,6 +215,21 @@ p {
   height: auto;
   margin: 0;
 }
+
+/* percentage filler */
+
+.progress {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 0%;
+    border-radius: 0;
+    z-index: 0;
+    background: var(--pct);
+}
+
+/* media queries */
 
 @media (orientation: portrait) {
   .crypto {

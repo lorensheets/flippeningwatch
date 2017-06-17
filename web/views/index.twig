@@ -97,6 +97,7 @@
       <p id="btc_mkt_cap"></p>
     </div>
     <div class="col col-xs-3 col-sm-3 border-top-left-right pct">
+      <div class="progress"></div>
       <p id="eth_btc_pct"></p>
     </div>
   </div>
@@ -113,7 +114,8 @@
       <p id="btc_tx"></p>
     </div>
     <div class="col col-xs-3 col-sm-3 border-top-left-right pct">
-      <p id="pct_tx"></p>
+      <div class="progress"></div>
+    <p id="pct_tx"></p>
     </div>
   </div>
 
@@ -129,7 +131,8 @@
       <p id="btc_vol"></p>
     </div>
     <div class="col col-xs-3 col-sm-3 border-top-left-right pct">
-      <p id="pct_vol"></p>
+      <div class="progress"></div>
+    <p id="pct_vol"></p>
     </div>
   </div>
 
@@ -145,7 +148,8 @@
       <p id="btc_rwd"></p>
     </div>
     <div class="col col-xs-3 col-sm-3 border-top-left-right pct">
-      <p id="pct_rwd"></p>
+      <div class="progress"></div>
+    <p id="pct_rwd"></p>
     </div>
   </div>
 
@@ -161,7 +165,8 @@
       <p id="btcNodes"></p>
     </div>
     <div class="col col-xs-3 col-sm-3 border-top-left-right pct">
-      <p id="pctNodes"></p>
+      <div class="progress"></div>
+    <p id="pctNodes"></p>
     </div>
   </div>
 
@@ -177,7 +182,8 @@
       <p id="btc_trends"></p>
     </div>
     <div class="col col-xs-3 col-sm-3 border-all pct">
-      <p id="pct_trends"></p>
+      <div class="progress"></div>
+    <p id="pct_trends"></p>
     </div>
   </div>
 
@@ -595,6 +601,18 @@
       });
       $("#pctNodes").css({ "color": "#fff", "font-size": "1.2em", "font-weight": "800" });
     }
+
+
+    /* percentage progress bar */
+    $('.progress').each(function() {
+      var percentwidth = $(this).siblings('p').text();
+      console.log(parseFloat(percentwidth));
+      if (parseFloat(percentwidth) < 100) {
+        $(this).animate({
+          'width' : parseFloat(percentwidth) + '%'
+        }, 1200, "easeInOutCubic");
+      }
+    });
 
     /* format market share table */
     var market_shares = [];
