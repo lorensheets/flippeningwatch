@@ -32,6 +32,13 @@ function checkCookie() {
       document.body.style.setProperty('--border', '1px solid #444');
       document.body.style.setProperty('--dark-border', '1px solid #333');
       document.body.style.setProperty('--pct', '#333');
+      $('.invert').css({
+        'filter' : 'invert(100%)',
+        '-webkit-filter' : 'invert(100%)',
+        '-moz-filter' : 'invert(100%)',
+        '-ms-filter' : 'invert(100%)',
+        '-o-filter' : 'invert(100%)'
+      });
     }
 }
 
