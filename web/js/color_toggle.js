@@ -1,4 +1,40 @@
-var day = true;
+var mode;
+
+function getCookie(cname) {
+    var name = cname + "=";
+    var ca = document.cookie.split(';');
+    for(var i = 0; i < ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0) == ' ') {
+            c = c.substring(1);
+        }
+        if (c.indexOf(name) == 0) {
+            return c.substring(name.length, c.length);
+        }
+    }
+    return "";
+}
+
+function checkCookie() {
+    mode = getCookie("mode");
+    if (mode == "") {
+      document.cookie = "mode=day; expires=100";
+    } else if (mode == "night") {
+      $('#toggle-color').attr('src', 'images/moon.svg');
+      document.body.style.setProperty('--main-bg-color', '#131517');
+      document.body.style.setProperty('--main-text-color', '#eee');
+      document.body.style.setProperty('--table-bg', '#07090a');
+      document.body.style.setProperty('--ticker-color', '#ccc');
+      document.body.style.setProperty('--link-color', '#eee');
+      document.body.style.setProperty('--link-bg', '#222');
+      document.body.style.setProperty('--link-border', '2px solid #444');
+      document.body.style.setProperty('--light-grey', '#aaa');
+      document.body.style.setProperty('--border', '1px solid #444');
+      document.body.style.setProperty('--dark-border', '1px solid #333');
+    }
+}
+
+checkCookie();
 
 var scroll = function() {
   var scrollTop = window.pageYOffset;
@@ -12,8 +48,8 @@ window.onscroll = scroll;
 
 
 $('#toggle-color').click(function() {
-  if (day == true) {
-
+if (mode == "day") {
+    document.cookie = "mode=night; expires=100";
     $(this).attr('src', 'images/moon.svg');
 
     document.body.style.setProperty('--main-bg-color', '#131517');
@@ -35,9 +71,9 @@ $('#toggle-color').click(function() {
       '-o-filter' : 'invert(100%)'
     });
 
-    day = false;
+    mode = "night";
   } else {
-
+    document.cookie = "mode=day; expires=100";
     $(this).attr('src', 'images/sun.png');
 
     document.body.style.setProperty('--main-bg-color', '#fff');
@@ -59,6 +95,6 @@ $('#toggle-color').click(function() {
       '-o-filter' : 'invert(0%)'
     });
 
-    day = true;
+    mode = "day";
   }
 });
