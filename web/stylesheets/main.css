@@ -18,10 +18,12 @@ html, body {
   color: var(--main-text-color);
   background: var(--main-bg-color);
 }
-#canvas {
+#confetti {
   position: fixed !important;
   top: 0;
   left: 0;
+  height: 100vh;
+  width: 100vw;
   z-index: 10;
   background: none;
   pointer-events: none;
