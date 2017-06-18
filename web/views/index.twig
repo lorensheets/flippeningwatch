@@ -256,6 +256,7 @@
       <p class="currency_cap">{{ api[15] }}</p>
     </div>
     <div class="col col-xs-3 col-sm-3 border-top-left-right pct">
+      <div class="progress"></div>
       <p class="market_share"></p>
     </div>
   </div>
@@ -274,6 +275,7 @@
       <p class="currency_cap">{{ api[18] }}</p>
     </div>
     <div class="col col-xs-3 col-sm-3 border-top-left-right pct">
+      <div class="progress"></div>
       <p class="market_share"></p>
     </div>
   </div>
@@ -292,6 +294,7 @@
       <p class="currency_cap">{{ api[21] }}</p>
     </div>
     <div class="col col-xs-3 col-sm-3 border-top-left-right pct">
+      <div class="progress"></div>
       <p class="market_share"></p>
     </div>
   </div>
@@ -310,6 +313,7 @@
       <p class="currency_cap">{{ api[24] }}</p>
     </div>
     <div class="col col-xs-3 col-sm-3 border-top-left-right pct">
+      <div class="progress"></div>
       <p class="market_share"></p>
     </div>
   </div>
@@ -328,6 +332,7 @@
       <p class="currency_cap">{{ api[27] }}</p>
     </div>
     <div class="col col-xs-3 col-sm-3 border-top-left-right pct">
+      <div class="progress"></div>
       <p class="market_share"></p>
     </div>
   </div>
@@ -346,6 +351,7 @@
       <p class="currency_cap">{{ api[30] }}</p>
     </div>
     <div class="col col-xs-3 col-sm-3 border-top-left-right pct">
+      <div class="progress"></div>
       <p class="market_share"></p>
     </div>
   </div>
@@ -364,6 +370,7 @@
       <p class="currency_cap">{{ api[33] }}</p>
     </div>
     <div class="col col-xs-3 col-sm-3 border-top-left-right pct">
+      <div class="progress"></div>
       <p class="market_share"></p>
     </div>
   </div>
@@ -382,6 +389,7 @@
       <p class="currency_cap">{{ api[36] }}</p>
     </div>
     <div class="col col-xs-3 col-sm-3 border-top-left-right pct">
+      <div class="progress"></div>
       <p class="market_share"></p>
     </div>
   </div>
@@ -400,6 +408,7 @@
       <p class="currency_cap">{{ api[39] }}</p>
     </div>
     <div class="col col-xs-3 col-sm-3 border-top-left-right pct">
+      <div class="progress"></div>
       <p class="market_share"></p>
     </div>
   </div>
@@ -418,6 +427,7 @@
       <p class="currency_cap">{{ api[42] }}</p>
     </div>
     <div class="col col-xs-3 col-sm-3 border-top-left-right pct">
+      <div class="progress"></div>
       <p class="market_share"></p>
     </div>
   </div>
@@ -436,6 +446,7 @@
       <p class="currency_cap">{{ api[45] }}</p>
     </div>
     <div class="col col-xs-3 col-sm-3 border-all pct">
+      <div class="progress"></div>
       <p class="market_share"></p>
     </div>
   </div>
@@ -603,17 +614,6 @@
     }
 
 
-    /* percentage progress bar */
-    $('.progress').each(function() {
-      var percentwidth = $(this).siblings('p').text();
-      console.log(parseFloat(percentwidth));
-      if (parseFloat(percentwidth) < 100) {
-        $(this).animate({
-          'width' : parseFloat(percentwidth) + '%'
-        }, 1200, "easeInOutCubic");
-      }
-    });
-
     /* format market share table */
     var market_shares = [];
     var i = 0;
@@ -645,6 +645,18 @@
     $('.market_share').each(function() {
       $(this).html(market_shares[i].toFixed(2) + "%");
       i++;
+    });
+
+
+    /* percentage progress bar */
+    $('.progress').each(function() {
+      var percentwidth = $(this).siblings('p').text();
+      console.log(parseFloat(percentwidth));
+      if (parseFloat(percentwidth) < 100) {
+        $(this).animate({
+          'width' : parseFloat(percentwidth) + '%'
+        }, 1200, "easeInOutCubic");
+      }
     });
 
   </script>
