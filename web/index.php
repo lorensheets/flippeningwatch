@@ -163,7 +163,6 @@ $app->get('/api/{mkt_cap}/{btc}/{eth}/{pct}/{btc_vol}/{eth_vol}/{pct_vol}/{btc_p
   $btc1 = (int)$obj[0]->market_cap_usd;
   $eth1 = (int)$obj[1]->market_cap_usd;
   $pct1 = ($eth/$btc)*100;
-  $btc_vol1 = $obj[0]["24h_volume_usd"];
 
 
   $currencies = array();
@@ -188,14 +187,7 @@ $app->get('/api/{mkt_cap}/{btc}/{eth}/{pct}/{btc_vol}/{eth_vol}/{pct_vol}/{btc_p
     $table2_insert->execute();
   }
 
-
-  return $mktcap.'<br>'
-  .$btc1.'<br>'
-  .$eth1.'<br>'
-  .$pct1.'<br>'
-  .$btc_vol1.'<br>';
   /* print results */
-  /*
   return $mktcap.'<br>'
   .$v1.'<br>'
   .$v2.'<br>'
