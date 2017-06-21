@@ -159,6 +159,9 @@ $app->get('/api/{mkt_cap}/{btc}/{eth}/{pct}/{btc_vol}/{eth_vol}/{pct_vol}/{btc_p
 
   $obj = json_decode($result);
 
+  $btc = $obj[0]->market_cap_usd;
+
+
   $currencies = array();
   $prices = array();
   $caps = array();
@@ -182,8 +185,10 @@ $app->get('/api/{mkt_cap}/{btc}/{eth}/{pct}/{btc_vol}/{eth_vol}/{pct_vol}/{btc_p
   }
 
 
-
+  return $mktcap.'<br>'
+  .$btc;
   /* print results */
+  /*
   return $mktcap.'<br>'
   .$v1.'<br>'
   .$v2.'<br>'
@@ -193,7 +198,7 @@ $app->get('/api/{mkt_cap}/{btc}/{eth}/{pct}/{btc_vol}/{eth_vol}/{pct_vol}/{btc_p
   .$v6.'<br>'
   .$v7.'<br>'
   .$v8.'<br>'
-  .$v9.'<br><br>'
+  .$v9.'<br>'
   .$v10.'<br>'
   .$v11.'<br>'
   .$v12.'<br><br>'
@@ -208,6 +213,8 @@ $app->get('/api/{mkt_cap}/{btc}/{eth}/{pct}/{btc_vol}/{eth_vol}/{pct_vol}/{btc_p
   $currencies[8]." ".$prices[8]." ".$caps[8]."<br>".
   $currencies[9]." ".$prices[9]." ".$caps[9]."<br>".
   $currencies[10]." ".$prices[10]." ".$caps[10];
+  */
+
 });
 
 
