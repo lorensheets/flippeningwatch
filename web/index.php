@@ -212,7 +212,7 @@ $app->get('/api/{mkt_cap}/{btc}/{eth}/{pct}/{btc_vol}/{eth_vol}/{pct_vol}/{btc_p
   $currencies[8]." ".$prices[8]." ".$caps[8]."<br>".
   $currencies[9]." ".$prices[9]." ".$caps[9]."<br>".
   $currencies[10]." ".$prices[10]." ".$caps[10];
-  */
+  
 
 });
 
