@@ -159,16 +159,6 @@ $app->get('/api/{mkt_cap}/{btc}/{eth}/{pct}/{btc_vol}/{eth_vol}/{pct_vol}/{btc_p
 
   $obj = json_decode($result);
 
-  $btc = $obj[0]->market_cap_usd;
-  $eth = $obj[1]->market_cap_usd;
-  $pct = ($eth / $btc) * 100;
-  $btc_vol = $obj[0]["24h_volume_usd"];
-  $eth_vol = $obj[1]["24h_volume_usd"];
-  $pct_vol = ($eth_vol / $btc_vol) * 100;
-  $btc_price = $obj[0]->price_usd;
-  $eth_price = $obj[1]->price_usd;
-  $btc_rwd = ($obj[0]->price_usd) * 1800;
-
   $currencies = array();
   $prices = array();
   $caps = array();
@@ -195,15 +185,15 @@ $app->get('/api/{mkt_cap}/{btc}/{eth}/{pct}/{btc_vol}/{eth_vol}/{pct_vol}/{btc_p
 
   /* print results */
   return $mktcap.'<br>'
-  .$btc.'<br>'
-  .$eth.'<br>'
-  .$pct.'<br>'
-  .$btc_vol.'<br>'
-  .$eth_vol.'<br>'
-  .$pct_vol.'<br>'
-  .$btc_price.'<br>'
-  .$eth_price.'<br>'
-  .$btc_rwd.'<br><br>'
+  .$v1.'<br>'
+  .$v2.'<br>'
+  .$v3.'<br>'
+  .$v4.'<br>'
+  .$v5.'<br>'
+  .$v6.'<br>'
+  .$v7.'<br>'
+  .$v8.'<br>'
+  .$v9.'<br><br>'
   .$v10.'<br>'
   .$v11.'<br>'
   .$v12.'<br><br>'
