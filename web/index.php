@@ -192,7 +192,8 @@ $app->get('/api/{mkt_cap}/{btc}/{eth}/{pct}/{btc_vol}/{eth_vol}/{pct_vol}/{btc_p
   return $mktcap.'<br>'
   .$btc1.'<br>'
   .$eth1.'<br>'
-  .$pct1.'<br>';
+  .$pct1.'<br>'
+  .$btc_vol1.'<br>';
   /* print results */
   /*
   return $mktcap.'<br>'
