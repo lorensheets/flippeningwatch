@@ -38,7 +38,7 @@ function api(btc, eth, pct, btc_vol, eth_vol, pct_vol, btc_price, eth_price, btc
   values.push(btc, eth, pct, btc_vol, eth_vol, pct_vol, btc_price, eth_price, btc_rwd);
 
   $.getJSON( "https://etherchain.org/api/miningEstimator", function ( data ) {
-    eth_rwd = 86400 / parseInt( data.data[0].blockTime ) * 5 * eth_price;
+    eth_rwd = 86400 / parseInt( data.data[0].blockTime ) * 5 * parseInt(eth_price);
     pct_rwd = (eth_rwd / btc_rwd) * 100;
 
     apix(eth_rwd, pct_rwd);
