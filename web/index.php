@@ -135,6 +135,19 @@ $app->get('/api/{mkt_cap}/{btc}/{eth}/{pct}/{btc_vol}/{eth_vol}/{pct_vol}/{btc_p
   $insert = $app['pdo']->prepare("INSERT INTO crypto (mkt_cap,btc,eth,pct,btc_vol,eth_vol,pct_vol,eth_price,btc_rwd,eth_rwd,pct_rwd,btc_tx,btc_price) VALUES ( '$v','$v1','$v2','$v3','$v4','$v5','$v6','$v7','$v8','$v9','$v10','$v11','$v12' )");
   $insert->execute();
 
+  /* table 1 api */
+  $ax = curl_init();
+  curl_setopt($ax, CURLOPT_SSL_VERIFYPEER, false);
+  curl_setopt($ax, CURLOPT_RETURNTRANSFER, true);
+  curl_setopt($ax, CURLOPT_URL, 'https://api.coinmarketcap.com/v1/global/');
+  $result1 = curl_exec($ax);
+  curl_close($ax);
+
+  $obj1 = json_decode($result1);
+  $mktcap = $obj1->total_market_cap_usd;
+
+
+
   /* table 2 api */
   /* json api for currencies from coinmarketcap */
   $ch = curl_init();
@@ -145,6 +158,16 @@ $app->get('/api/{mkt_cap}/{btc}/{eth}/{pct}/{btc_vol}/{eth_vol}/{pct_vol}/{btc_p
   curl_close($ch);
 
   $obj = json_decode($result);
+
+  $btc = $obj[0]->market_cap_usd;
+  $eth = $obj[1]->market_cap_usd;
+  $pct = ($eth / $btc) * 100;
+  $btc_vol = $obj[0]["24h_volume_usd"];
+  $eth_vol = $obj[1]["24h_volume_usd"];
+  $pct_vol = ($eth_vol / $btc_vol) * 100;
+  $btc_price = $obj[0]->price_usd;
+  $eth_price = $obj[1]->price_usd;
+  $btc_rwd = ($obj[0]->price_usd) * 1800;
 
   $currencies = array();
   $prices = array();
@@ -171,19 +194,19 @@ $app->get('/api/{mkt_cap}/{btc}/{eth}/{pct}/{btc_vol}/{eth_vol}/{pct_vol}/{btc_p
 
 
   /* print results */
-  return $v.'<br>'
-  .$v1.'<br>'
-  .$v2.'<br>'
-  .$v3.'<br>'
-  .$v4.'<br>'
-  .$v5.'<br>'
-  .$v6.'<br>'
-  .$v7.'<br>'
-  .$v8.'<br>'
-  .$v9.'<br>'
+  return $mktcap.'<br>'
+  .$btc.'<br>'
+  .$eth.'<br>'
+  .$pct.'<br>'
+  .$btc_vol.'<br>'
+  .$eth_vol.'<br>'
+  .$pct_vol.'<br>'
+  .$btc_price.'<br>'
+  .$eth_price.'<br>'
+  .$btc_rwd.'<br><br>'
   .$v10.'<br>'
   .$v11.'<br>'
-  .$v12.'<br>'
+  .$v12.'<br><br>'
   .$currencies[0]." ".$prices[0]." ".$caps[0]."<br>".
   $currencies[1]." ".$prices[1]." ".$caps[1]."<br>".
   $currencies[2]." ".$prices[2]." ".$caps[2]."<br>".
