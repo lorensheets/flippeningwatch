@@ -158,6 +158,7 @@ $app->get('/api/{mkt_cap}/{btc}/{eth}/{pct}/{btc_vol}/{eth_vol}/{pct_vol}/{btc_p
   curl_close($ch);
 
   $obj = json_decode($result);
+  $obj = array_values($obj);
 
   $btc = (int)$obj[0]->market_cap_usd;
   $eth = (int)$obj[1]->market_cap_usd;
