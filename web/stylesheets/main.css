@@ -242,10 +242,10 @@ p {
     margin: 0 0 0 0 !important;
   }
   .table-container {
-    padding: 0 0 0 0;
+    padding: 10px 0 0 0 !important;
   }
   .market-share-comparison {
-    padding: 20px 0 0 0;
+    padding: 20px 0 0 0 !important;
   }
   .ticker {
     letter-spacing: 0px;
