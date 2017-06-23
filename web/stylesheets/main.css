@@ -139,10 +139,10 @@ p {
   text-decoration: underline;
 }
 .ad {
-  padding: 5px 0px;
+  padding: 0px;
 }
 .fivepx-top-padding {
-  padding-top: 5px;
+  padding-top: 0px;
 }
 .table-header {
   height: 100px;
@@ -306,6 +306,9 @@ p {
   }
   .ad {
     padding: 15px 0px;
+  }
+  .fivepx-top-padding {
+    padding-top: 5px;
   }
 }
 
