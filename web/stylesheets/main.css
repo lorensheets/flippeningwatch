@@ -139,7 +139,7 @@ p {
   text-decoration: underline;
 }
 .ad {
-  padding: 15px 0px;
+  padding: 5px 0px;
 }
 .fivepx-top-padding {
   padding-top: 5px;
@@ -303,6 +303,9 @@ p {
   }
   .transparent h2 {
     font-size: 3em;
+  }
+  .ad {
+    padding: 15px 0px;
   }
 }
 
