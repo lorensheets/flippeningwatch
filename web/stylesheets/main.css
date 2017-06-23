@@ -117,7 +117,7 @@ p {
   margin-right: 15px;
 }
 .title {
-  padding: 15px 0px 0px 0px;
+  padding: 5px 0px 0px 0px;
 }
 .title div {
   margin: 0px;
@@ -294,6 +294,9 @@ p {
   }
   .logo {
     height: 70px !important;
+  }
+  .title {
+    padding: 15px 0px 0px 0px;
   }
   .title div {
     margin-top: 10px;
