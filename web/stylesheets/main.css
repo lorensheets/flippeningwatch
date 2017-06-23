@@ -57,7 +57,7 @@ p {
 }
 .table-container {
   background: var(--table-bg);
-  padding: 20px 0px !important;
+  padding: 10px 0px !important;
   border-top: var(--border);
   border-bottom: var(--border);
 }
@@ -241,12 +241,6 @@ p {
   .logo {
     margin: 0 0 0 0 !important;
   }
-  .table-container {
-    padding: 10px 0 0 0 !important;
-  }
-  .market-share-comparison {
-    padding: 20px 0 0 0 !important;
-  }
   .ticker {
     letter-spacing: 0px;
   }
@@ -303,6 +297,9 @@ p {
   }
   .title div {
     margin-top: 10px;
+  }
+  .table-container {
+    padding: 20px 0 0 0;
   }
   .transparent h2 {
     font-size: 3em;
