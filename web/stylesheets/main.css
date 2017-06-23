@@ -242,6 +242,9 @@ p {
     margin: 0 0 0 0 !important;
   }
   .table-container {
+    padding: 0 0 0 0;
+  }
+  .market-share-comparison {
     padding: 20px 0 0 0;
   }
   .ticker {
@@ -257,7 +260,7 @@ p {
 
 @media (orientation: landscape) {
   .title div {
-    margin-top: 10px;
+    margin-top: 5px;
   }
 }
 
