@@ -140,10 +140,10 @@ p {
   text-decoration: underline;
 }
 .ad {
-  padding: 0px;
+  padding: 5px 0;
 }
-.fivepx-top-padding {
-  padding-top: 0px;
+.no-padding {
+  padding: 0 0 0 0;
 }
 .table-header {
   height: 100px;
@@ -309,8 +309,8 @@ p {
   .ad {
     padding: 15px 0px;
   }
-  .fivepx-top-padding {
-    padding-top: 5px;
+  .no-padding {
+    padding: 5px 0 0 0;
   }
 }
 
