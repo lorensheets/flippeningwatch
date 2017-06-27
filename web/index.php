@@ -324,7 +324,7 @@ $app->get('/api/{mkt_cap}/{btc}/{eth}/{pct}/{btc_vol}/{eth_vol}/{pct_vol}/{btc_p
   }
 
   /* print results */
-  /*
+
   return $mktcap.'<br>'
   .$v1.'<br>'
   .$v2.'<br>'
@@ -349,8 +349,8 @@ $app->get('/api/{mkt_cap}/{btc}/{eth}/{pct}/{btc_vol}/{eth_vol}/{pct_vol}/{btc_p
   $currencies[8]." ".$prices[8]." ".$caps[8]."<br>".
   $currencies[9]." ".$prices[9]." ".$caps[9]."<br>".
   $currencies[10]." ".$prices[10]." ".$caps[10];
-  */
 
+  /*
   return $mktcap."<br>"
   .$btc1."<br>"
   .$eth1."<br>"
@@ -364,7 +364,7 @@ $app->get('/api/{mkt_cap}/{btc}/{eth}/{pct}/{btc_vol}/{eth_vol}/{pct_vol}/{btc_p
   .$ethrwd."<br>"
   .$pctrwd."<br>"
   .$btctx;
-
+  */
 });
 
 
