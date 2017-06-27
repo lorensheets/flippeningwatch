@@ -118,8 +118,8 @@ $app->get('/apiupdate/',
   foreach ($obj[1] as $key => $value) {
     array_push($ethvolarray, $value);
   }
-  $btcvol = $btcvolarray[6];
-  $ethvol = $ethvolarray[6];
+  $btcvol = (int)$btcvolarray[6];
+  $ethvol = (int)$ethvolarray[6];
   $pctvol = ($ethvol/$btcvol)*100;
   $btcprice = $obj[0]->price_usd;
   $ethprice = $obj[1]->price_usd;
