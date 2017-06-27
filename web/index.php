@@ -121,8 +121,8 @@ $app->get('/apiupdate/',
   $btcvol = $btcvolarray[6];
   $ethvol = $ethvolarray[6];
   $pctvol = ($ethvol/$btcvol)*100;
-  $btcprice = (int)$obj[0]->price_usd;
-  $ethprice = (int)$obj[1]->price_usd;
+  $btcprice = $obj[0]->price_usd;
+  $ethprice = $obj[1]->price_usd;
   $btcrwd = $btcprice * 1800;
 
   /* api for ethereum block time from etherchain */
