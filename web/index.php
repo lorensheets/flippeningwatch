@@ -164,9 +164,7 @@ $app->get('/api/{mkt_cap}/{btc}/{eth}/{pct}/{btc_vol}/{eth_vol}/{pct_vol}/{btc_p
   $pct1 = ($eth/$btc)*100;
 
   foreach ($obj[0] as $key => $value) {
-    if $key == "24h_volume_usd" {
-      $vol = $value;
-    }
+    $vol = $key;
   }
 
   $currencies = array();
