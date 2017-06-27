@@ -162,12 +162,39 @@ $app->get('/api/{mkt_cap}/{btc}/{eth}/{pct}/{btc_vol}/{eth_vol}/{pct_vol}/{btc_p
   $btc1 = (int)$obj[0]->market_cap_usd;
   $eth1 = (int)$obj[1]->market_cap_usd;
   $pct1 = ($eth/$btc)*100;
-
-  $vol = array();
-
+  $btcvol = array();
+  $ethvol = array();
   foreach ($obj[0] as $key => $value) {
-    array_push($vol, $key);
+    array_push($btcvol, $value);
   }
+  foreach ($obj[1] as $key => $value) {
+    array_push($ethvol, $value);
+  }
+  $pctvol = ($ethvol[6]/$btcvol[6])*100;
+  $btcprice = (int)$obj[0]->price_usd;
+  $ethprice = (int)$obj[1]->price_usd;
+  $btcrwd = $btcprice * 1800;
+
+  $eh = curl_init();
+  curl_setopt($eh, CURLOPT_SSL_VERIFYPEER, false);
+  curl_setopt($eh, CURLOPT_RETURNTRANSFER, true);
+  curl_setopt($eh, CURLOPT_URL, 'https://etherchain.org/api/miningEstimator');
+  $result2 = curl_exec($eh);
+  curl_close($eh);
+
+  $obj2 = json_decode($result2);
+  $ethrwd = (int)(86400 / (int)( $obj2->data[0]->blockTime ) * 5 * $ethprice);
+  $pctrwd = ($ethrwd/$btcrwd)*100;
+
+  $fh = curl_init();
+  curl_setopt($fh, CURLOPT_SSL_VERIFYPEER, false);
+  curl_setopt($fh, CURLOPT_RETURNTRANSFER, true);
+  curl_setopt($fh, CURLOPT_URL, 'https://blockchain.info/q/24hrtransactioncount?&cors=true');
+  $result3 = curl_exec($fh);
+  curl_close($fh);
+
+  $obj3 = json_decode($result3);
+  $btctx = (int)$obj3;
 
   $currencies = array();
   $prices = array();
@@ -219,7 +246,19 @@ $app->get('/api/{mkt_cap}/{btc}/{eth}/{pct}/{btc_vol}/{eth_vol}/{pct_vol}/{btc_p
   $currencies[10]." ".$prices[10]." ".$caps[10];
   */
 
-  return $vol[6];
+  return $mktcap."<br>"
+  .$btc1."<br>"
+  .$eth1."<br>"
+  .$pct1."<br>"
+  .$btcvol[6]."<br>"
+  .$ethvol[6]."<br>"
+  .$pctvol."<br>"
+  .$btcprice."<br>"
+  .$ethprice."<br>"
+  .$btcrwd."<br>"
+  .$ethrwd."<br>"
+  .$pctrwd."<br>"
+  .$btctx;
 
 });
 
