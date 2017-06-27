@@ -109,7 +109,7 @@ $app->get('/apiupdate/',
 
   $btc1 = (int)$obj[0]->market_cap_usd;
   $eth1 = (int)$obj[1]->market_cap_usd;
-  $pct1 = ($eth/$btc)*100;
+  $pct1 = ($eth1/$btc1)*100;
   $btcvolarray = array();
   $ethvolarray = array();
   foreach ($obj[0] as $key => $value) {
@@ -120,7 +120,7 @@ $app->get('/apiupdate/',
   }
   $btcvol = $btcvolarray[6];
   $ethvol = $ethvolarray[6];
-  $pctvol = ($ethvol[6]/$btcvol[6])*100;
+  $pctvol = ($ethvol/$btcvol)*100;
   $btcprice = (int)$obj[0]->price_usd;
   $ethprice = (int)$obj[1]->price_usd;
   $btcrwd = $btcprice * 1800;
