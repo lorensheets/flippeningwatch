@@ -188,12 +188,12 @@ $app->get('/apiupdate/',
   .$btcvol."<br>"
   .$ethvol."<br>"
   .$pctvol."<br>"
-  .$btcprice."<br>"
   .$ethprice."<br>"
   .$btcrwd."<br>"
   .$ethrwd."<br>"
   .$pctrwd."<br>"
-  .$btctx."<br><br>"
+  .$btctx."<br>"
+  .$btcprice."<br><br>"
   .$currencies[0]." ".$prices[0]." ".$caps[0]."<br>".
   $currencies[1]." ".$prices[1]." ".$caps[1]."<br>".
   $currencies[2]." ".$prices[2]." ".$caps[2]."<br>".
