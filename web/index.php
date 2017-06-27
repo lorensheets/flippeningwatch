@@ -214,7 +214,7 @@ $app->get('/api/{mkt_cap}/{btc}/{eth}/{pct}/{btc_vol}/{eth_vol}/{pct_vol}/{btc_p
   $currencies[10]." ".$prices[10]." ".$caps[10];
   */
 
-  return $obj[1];
+  return $obj[1]->"24h_volume_usd";
 
 });
 
