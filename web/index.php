@@ -75,6 +75,23 @@ $app->get('/', function() use($app) {
 });
 
 
+/* test */
+
+$app->get('/graphtest/', function() use($app) {
+
+  $mk = curl_init();
+  curl_setopt($mk, CURLOPT_SSL_VERIFYPEER, false);
+  curl_setopt($mk, CURLOPT_RETURNTRANSFER, true);
+  curl_setopt($mk, CURLOPT_URL, 'https://blockchain.info/charts/market-cap?timespan=all&format=json');
+  $result_mktcap = curl_exec($mk);
+  curl_close($mk);
+  $data1 = json_decode($result_mktcap);
+  $values = $data1->'description';
+
+  return $values;
+});
+
+
 /* graphs */
 /*
 $app->get('/graphdata/', function() use($app) {
