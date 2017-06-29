@@ -77,7 +77,7 @@ $app->get('/', function() use($app) {
 
 /* graphs */
 $app->get('/graphdata/', function() use($app) {
-  return "<h1>data</h1>";
+  return $app['twig']->render('graph.twig');
 });
 
 
