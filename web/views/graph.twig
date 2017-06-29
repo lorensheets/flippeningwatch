@@ -63,10 +63,10 @@ var pct = 0;
 
 labelArray = [];
 data_set_one = [];
-for (var i=0; i<{{ dataset|length }}; i++) {
-  labelArray.push("");
-  data_set_one.push( {{ dataset[i] }} );
-}
+{% for item in dataset %}
+      labelArray.push( {{ item }} );
+      data_set_one.push( {{ item }} );
+{% endfor %}
 
 var ctx = document.getElementById("myChart").getContext('2d');
 
