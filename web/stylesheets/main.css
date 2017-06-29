@@ -40,6 +40,12 @@ html, body {
 #toggle-color:hover {
   cursor: pointer;
 }
+.chart-container {
+  position: relative;
+  height:40vh;
+  width:90vw;
+  margin: 0 auto;
+}
 h1 {
   display: inline-block;
   vertical-align: middle;
