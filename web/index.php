@@ -76,6 +76,7 @@ $app->get('/', function() use($app) {
 
 
 /* graphs */
+/*
 $app->get('/graphdata/', function() use($app) {
 
   $mk = curl_init();
@@ -97,7 +98,7 @@ $app->get('/graphdata/', function() use($app) {
     'dataset' => $dataset
   ));
 });
-
+*/
 
 
 /* api update */
