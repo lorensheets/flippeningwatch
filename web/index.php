@@ -78,7 +78,20 @@ $app->get('/', function() use($app) {
 /* graphs */
 $app->get('/graphdata/', function() use($app) {
 
-  $dataset = [1,2,3,4,5,6];
+  $mk = curl_init();
+  curl_setopt($mk, CURLOPT_SSL_VERIFYPEER, false);
+  curl_setopt($mk, CURLOPT_RETURNTRANSFER, true);
+  curl_setopt($mk, CURLOPT_URL, 'https://blockchain.info/charts/market-cap?timespan=all&format=json');
+  $result_mktcap = curl_exec($mk);
+  curl_close($mk);
+  $data1 = json_decode($result_mktcap);
+  $values = $data1->"values";
+
+  $dataset = array();
+
+  foreach($val as $values){
+    array_push($dataset, $val->"y");
+  }
 
   return $app['twig']->render('graph.twig', array(
     'dataset' => $dataset
