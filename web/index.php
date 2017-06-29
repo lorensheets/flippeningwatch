@@ -77,7 +77,12 @@ $app->get('/', function() use($app) {
 
 /* graphs */
 $app->get('/graphdata/', function() use($app) {
-  return $app['twig']->render('graph.twig');
+
+  $dataset = [1,2,3,4,5,6];
+
+  return $app['twig']->render('graph.twig', array(
+    'dataset' => $dataset
+  ));
 });
 
 
