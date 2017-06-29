@@ -63,9 +63,9 @@ var pct = 0;
 
 labelArray = [];
 data_set_one = [];
-for (var i=0; i<dataset.length; i++) {
+for (var i=0; i<{{ dataset.length }}; i++) {
   labelArray.push("");
-  data_set_one.push(dataset[i]);
+  data_set_one.push( {{ dataset[i] }} );
 }
 
 var ctx = document.getElementById("myChart").getContext('2d');
