@@ -76,7 +76,7 @@ $app->get('/', function() use($app) {
 
 
 /* graphs */
-/*
+
 $app->get('/graphdata/', function() use($app) {
 
   $mk = curl_init();
@@ -90,7 +90,7 @@ $app->get('/graphdata/', function() use($app) {
 
   $dataset = array();
 
-  foreach($val as $values){
+  foreach($values as $val){
     array_push($dataset, $val->"y");
   }
 
@@ -98,7 +98,7 @@ $app->get('/graphdata/', function() use($app) {
     'dataset' => $dataset
   ));
 });
-*/
+
 
 
 /* api update */
