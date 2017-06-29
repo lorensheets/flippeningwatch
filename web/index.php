@@ -76,9 +76,9 @@ $app->get('/', function() use($app) {
 
 
 /* graphs */
-$app->get('/graphdata/'), function() use($app) {
+$app->get('/graphdata/', function() use($app) {
   return "<h1>data</h1>";
-}
+});
 
 
 
