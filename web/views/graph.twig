@@ -58,12 +58,16 @@
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script>
 <script>
+labelArray = [];
+for (var i=0; i<6; i++) {
+  labelArray.push("");
+}
 var ctx = document.getElementById("myChart").getContext('2d');
 var pct = 0;
 var myChart = new Chart(ctx, {
     type: 'line',
     data: {
-        labels: generateLabels,
+        labels: labelArray,
         datasets: [{
             label: '# of Votes',
             data: [12, 19, 3, 5, 2, 3],
