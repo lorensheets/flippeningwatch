@@ -75,7 +75,7 @@ var myChart = new Chart(ctx, {
     data: {
         labels: labelArray,
         datasets: [{
-            label: 'Market Cap: ',
+            label: 'Market Cap',
             data: data_set_one,
             backgroundColor: [
                 'rgba(255, 99, 132, 0.2)',
@@ -126,6 +126,9 @@ var myChart = new Chart(ctx, {
                     beginAtZero:true
                 }
             }]
+            xAxes: [
+              display: false
+            ]
         }
     }
 });
