@@ -63,19 +63,27 @@ var pct = 0;
 
 var labelArray = [];
 var data_set = [];
+var times = [];
+
 {% for item in dataset %}
       data_set.push( {{ item }} );
 {% endfor %}
+
 {% for time in times %}
       labelArray.push( {{ time }} );
 {% endfor %}
+
+for (var i = 0; i < labelArray.length; i++) {
+  var newTime = new Date(labelArray[i] * 1000);
+  times.push(newTime);
+}
 
 var ctx = document.getElementById("myChart").getContext('2d');
 Chart.defaults.global.defaultColor = 'rgba(0,0,0,0)';
 var myChart = new Chart(ctx, {
     type: 'line',
     data: {
-        labels: labelArray,
+        labels: times,
         datasets: [{
             label: 'Bitcoin Market Cap',
             data: data_set,
