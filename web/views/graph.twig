@@ -69,7 +69,7 @@ data_set_one = [];
 {% endfor %}
 
 var ctx = document.getElementById("myChart").getContext('2d');
-Chart.defaults.global.defaultColor = rgba(0,0,0,0);
+Chart.defaults.global.defaultColor = 'rgba(0,0,0,0)';
 var myChart = new Chart(ctx, {
     type: 'line',
     data: {
