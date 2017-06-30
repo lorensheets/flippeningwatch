@@ -115,7 +115,7 @@ var myChart = new Chart(ctx, {
             intersect: false,
             callbacks: {
               label: function(tooltipItem, data) {
-                return "$" + Number(tooltipItem.yLabel).toFixed(-9).replace(/./g, function(c, i, a) {
+                return "$" + Number(tooltipItem.yLabel/1000000000).toFixed(0).replace(/./g, function(c, i, a) {
                   return i > 0 && c !== "." && (a.length - i) % 3 === 0 ? "," + c : c;
                 });
               }
