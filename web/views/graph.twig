@@ -126,7 +126,9 @@ var myChart = new Chart(ctx, {
                 });
               },
               title: function(tooltipItem, data) {
-                return data.labels[tooltipItem[0].index];
+                newDate = data.labels[tooltipItem[0].index];
+
+                return moment(newDate).format('MMMM YYYY');
               }
             }
         },
