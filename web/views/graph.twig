@@ -125,7 +125,7 @@ var myChart = new Chart(ctx, {
                   return i > 0 && c !== "." && (a.length - i) % 3 === 0 ? "," + c : c;
                 });
               },
-              label: function(tooltipItem, data) {
+              title: function(tooltipItem, data) {
                 return "New Date";
               }
             }
