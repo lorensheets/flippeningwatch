@@ -110,9 +110,15 @@ $app->get('/graphdata/', function() use($app) {
   $values = $data1->values;
 
   $dataset = array();
-
+  $interval = 0;
   foreach($values as $val){
-    array_push($dataset, $val->y);
+    if ($interval == 0) {
+      array_push($dataset, $val->y);
+    }
+    $interval++
+    if ($interval > 5) {
+      $interval = 0;
+    }
   }
 
   return $app['twig']->render('graph.twig', array(
