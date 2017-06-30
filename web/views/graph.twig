@@ -75,10 +75,6 @@ var times = [];
       labelArray.push( {{ time }} );
 {% endfor %}
 
-for (var i = 0; i < data_set.length; i++) {
-  data_set[i] = data_set[i].toLocaleString('en-US');
-}
-
 for (var i = 0; i < labelArray.length; i++) {
   var newTime = moment.utc(labelArray[i] * 1000).format('MMMM Do YYYY');
   times.push(newTime);
@@ -116,7 +112,14 @@ var myChart = new Chart(ctx, {
     },
     options: {
       tooltips: {
-            intersect: false
+            intersect: false,
+            callbacks: {
+              label: function(tooltipItem, data) {
+                return "$" + Number(tooltipItem.yLabel).toFixed(0).replace(/./g, function(c, i, a) {
+                  return i > 0 && c !== "." && (a.length - i) % 3 === 0 ? "," + c : c;
+                });
+              }
+            }
         },
       elements: {
             line: {
