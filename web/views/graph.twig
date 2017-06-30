@@ -76,7 +76,7 @@ var times = [];
 {% endfor %}
 
 for (var i = 0; i < labelArray.length; i++) {
-  var newTime = moment.utc(labelArray[i] * 1000).format('MMMM Do YYYY');
+  var newTime = moment.utc(labelArray[i] * 1000).format('MMMM YYYY');
   times.push(newTime);
 }
 
