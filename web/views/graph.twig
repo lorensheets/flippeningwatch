@@ -124,6 +124,9 @@ var myChart = new Chart(ctx, {
                 return "$" + Number(tooltipItem.yLabel).toFixed(0).replace(/./g, function(c, i, a) {
                   return i > 0 && c !== "." && (a.length - i) % 3 === 0 ? "," + c : c;
                 });
+              },
+              label: function(tooltipItem, data) {
+                return "New Date";
               }
             }
         },
@@ -145,12 +148,6 @@ var myChart = new Chart(ctx, {
             xAxes: [{
               gridLines: {
                 color: "#FFFFFF"
-              },
-              ticks: {
-                  callback: function(value, index, values) {
-                      newVal = moment(value).format('MMMM YYYY');
-                      return newVal;
-                  }
               }
             }]
         }
