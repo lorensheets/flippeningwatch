@@ -135,8 +135,8 @@ var myChart = new Chart(ctx, {
               },
               ticks: {
                 callback: function(value, index, values) {
-                    value = moment(value).format("YYYY");
-                    return value;
+                    newValue = moment.utc(value).format("YYYY");
+                    return newValue;
                 }
               }
             }]
