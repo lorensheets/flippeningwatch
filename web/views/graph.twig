@@ -65,7 +65,7 @@ labelArray = [];
 data_set_one = [];
 {% for item in dataset %}
       labelArray.push("");
-      data_set_one.push( {{ item }}.toLocaleString('en-US') );
+      data_set_one.push( '{{ item }}'.toLocaleString('en-US') );
 {% endfor %}
 
 var ctx = document.getElementById("myChart").getContext('2d');
