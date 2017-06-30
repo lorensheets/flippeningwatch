@@ -129,7 +129,7 @@ var myChart = new Chart(ctx, {
               },
               title: function(tooltipItem, data) {
                 newDate = data.labels[tooltipItem[0].index];
-                return moment.utc(newDate).format('MMMM YYYY');
+                return moment.utc(newDate).format('MMMM Do YYYY');
               }
             }
         },
