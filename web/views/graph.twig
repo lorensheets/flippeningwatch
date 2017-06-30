@@ -75,6 +75,10 @@ var times = [];
       labelArray.push( {{ time }} );
 {% endfor %}
 
+for (var i = 0; i < data_set.length; i++) {
+  data_set[i] = '$' + data_set[i].toLocaleString('en-US');
+}
+
 for (var i = 0; i < labelArray.length; i++) {
   var newTime = moment.utc(labelArray[i] * 1000).format('MMMM Do YYYY');
   times.push(newTime);
@@ -132,12 +136,6 @@ var myChart = new Chart(ctx, {
             xAxes: [{
               gridLines: {
                 color: "#FFFFFF"
-              },
-              ticks: {
-                  callback: function(value, index, values) {
-                    value = value.toLocaleString('en-US');
-                    return '$' + value;
-                  }
               }
             }]
         }
