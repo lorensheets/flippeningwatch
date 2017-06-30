@@ -86,9 +86,13 @@ $app->get('/graphtest/', function() use($app) {
   $result_mktcap = curl_exec($mk);
   curl_close($mk);
   $data1 = json_decode($result_mktcap);
-  $values = $data1->description;
+  $values = $data1->values;
+  $dataset = array();
+  foreach($values as $val){
+    array_push($dataset, $val->y);
+  }
 
-  return $values;
+  return $dataset;
 });
 
 
