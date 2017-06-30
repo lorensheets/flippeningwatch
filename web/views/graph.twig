@@ -145,6 +145,13 @@ var myChart = new Chart(ctx, {
             xAxes: [{
               gridLines: {
                 color: "#FFFFFF"
+              },
+              ticks: {
+                  callback: function(value, index, values) {
+                      /*value = value.toLocaleString('en-US');*/
+                      newVal = moment(value).format(MMMM YYYY);
+                      return newVal;
+                  }
               }
             }]
         }
