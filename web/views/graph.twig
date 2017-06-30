@@ -64,7 +64,7 @@ var pct = 0;
 labelArray = [];
 data_set_one = [];
 {% for item in dataset %}
-      labelArray.push( {{ item }} );
+      labelArray.push("");
       data_set_one.push( {{ item }} );
 {% endfor %}
 
@@ -75,7 +75,7 @@ var myChart = new Chart(ctx, {
     data: {
         labels: labelArray,
         datasets: [{
-            label: '# of Votes',
+            label: 'Market Cap: ',
             data: data_set_one,
             backgroundColor: [
                 'rgba(255, 99, 132, 0.2)',
@@ -96,8 +96,8 @@ var myChart = new Chart(ctx, {
             borderWidth: 1
         },
         {
-        label: '# of Votes',
-        data: [1, 2, 3, 6, 12, 13],
+        label: '',
+        data: [],
         backgroundColor: [
             'rgba(255, 99, 132, 0.2)',
             'rgba(54, 162, 235, 0.2)',
