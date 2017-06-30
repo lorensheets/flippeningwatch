@@ -76,9 +76,12 @@ var times = [];
 {% endfor %}
 
 for (var i = 0; i < labelArray.length; i++) {
-  var newTime = moment.utc(labelArray[i] * 1000).format('MM / YYYY');
+  var newTime = labelArray[i]*1000;
+  /*var newTime = moment.utc(labelArray[i] * 1000).format('MM / YYYY');*/
+
   times.push(newTime);
 }
+
 
 var ctx = document.getElementById("myChart").getContext('2d');
 Chart.defaults.global.defaultColor = 'rgba(0,0,0,0)';
@@ -128,7 +131,7 @@ var myChart = new Chart(ctx, {
               title: function(tooltipItem, data) {
                 newDate = data.labels[tooltipItem[0].index];
 
-                return moment(newDate).format('MMMM YYYY');
+                return moment.utc(newDate).format('MMMM YYYY');
               }
             }
         },
@@ -142,7 +145,6 @@ var myChart = new Chart(ctx, {
                 ticks: {
                     beginAtZero:true,
                     callback: function(value, index, values) {
-                        /*value = value.toLocaleString('en-US');*/
                         return '$' + value/1000000000 + "B";
                     }
                 }
