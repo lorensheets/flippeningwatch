@@ -131,7 +131,7 @@ var myChart = new Chart(ctx, {
                 ticks: {
                     beginAtZero:true,
                     callback: function(value, index, values) {
-                        value = value.toLocaleString('en-US');
+                        /*value = value.toLocaleString('en-US');*/
                         return '$' + value/1000000000 + "B";
                     }
                 }
