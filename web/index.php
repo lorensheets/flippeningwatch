@@ -115,7 +115,7 @@ $app->get('/graphdata/', function() use($app) {
     if ($interval == 0) {
       array_push($dataset, $val->y);
     }
-    $interval++
+    $interval++;
     if ($interval > 5) {
       $interval = 0;
     }
