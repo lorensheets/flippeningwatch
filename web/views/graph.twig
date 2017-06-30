@@ -67,8 +67,9 @@ data_set_one = [];
       labelArray.push("");
       data_set_one.push( {{ item }} );
 {% endfor %}
-for (d in data_set_one) {
-  d.toLocaleString('en-US');
+
+for (var i = 0, len = data_set_one.length; i < len; i++) {
+      data_set_one[i].toLocaleString('en-US');
 }
 
 var ctx = document.getElementById("myChart").getContext('2d');
