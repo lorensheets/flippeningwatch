@@ -78,7 +78,6 @@ var times = [];
 for (var i = 0; i < labelArray.length; i++) {
   var newTime = labelArray[i]*1000;
   /*var newTime = moment.utc(labelArray[i] * 1000).format('MM / YYYY');*/
-
   times.push(newTime);
 }
 
@@ -130,7 +129,6 @@ var myChart = new Chart(ctx, {
               },
               title: function(tooltipItem, data) {
                 newDate = data.labels[tooltipItem[0].index];
-
                 return moment.utc(newDate).format('MMMM YYYY');
               }
             }
@@ -152,7 +150,13 @@ var myChart = new Chart(ctx, {
             xAxes: [{
               gridLines: {
                 color: "#FFFFFF"
+              },
+              ticks: {
+                  callback: function(value, index, values) {
+                      return moment.utc(value).format('MM / YYYY');
+                  }
               }
+
             }]
         }
     }
