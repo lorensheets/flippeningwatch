@@ -61,16 +61,14 @@
 
 var pct = 0;
 
-labelArray = [];
-data_set_one = [];
+var labelArray = [];
+var data_set = [];
 {% for item in dataset %}
       labelArray.push("");
-      data_set_one.push( {{ item }} );
+      data_set.push( {{ item }} );
 {% endfor %}
 
-for (var i = 0, len = data_set_one.length; i < len; i++) {
-      data_set_one[i].toLocaleString('en-US');
-}
+var data_set_one = data_set.toLocaleString('en-US');
 
 var ctx = document.getElementById("myChart").getContext('2d');
 Chart.defaults.global.defaultColor = 'rgba(0,0,0,0)';
