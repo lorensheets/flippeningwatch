@@ -134,9 +134,9 @@ var myChart = new Chart(ctx, {
                 color: "#FFFFFF"
               },
               ticks: {
-                callback: function(value, index, values) {
-                    newValue = moment.utc(value).format("YYYY");
-                    return newValue;
+                  callback: function(value, index, values) {
+                    value = value.toLocaleString('en-US');
+                    return '$' + value;
                 }
               }
             }]
