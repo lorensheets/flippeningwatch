@@ -127,11 +127,17 @@ var myChart = new Chart(ctx, {
                         value = value.toLocaleString('en-US');
                         return '$' + value;
                     }
-                },
+                }
             }],
             xAxes: [{
               gridLines: {
                 color: "#FFFFFF"
+              },
+              ticks: {
+                callback: function(value, index, values) {
+                    value = moment(value).format("YYYY");
+                    return value;
+                }
               }
             }]
         }
