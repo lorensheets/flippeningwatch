@@ -112,6 +112,7 @@ var myChart = new Chart(ctx, {
                 ticks: {
                     beginAtZero:true,
                     callback: function(value, index, values) {
+                        value = value.toLocaleString('en-US');
                         return '$' + value;
                     }
                 },
