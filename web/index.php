@@ -110,10 +110,12 @@ $app->get('/graphdata/', function() use($app) {
   $values = $data1->values;
 
   $dataset = array();
+  $times = array();
   $interval = 0;
   foreach($values as $val){
     if ($interval == 0) {
       array_push($dataset, $val->y);
+      array_push($times, $val->x);
     }
     $interval++;
     if ($interval > 2) {
@@ -122,7 +124,8 @@ $app->get('/graphdata/', function() use($app) {
   }
 
   return $app['twig']->render('graph.twig', array(
-    'dataset' => $dataset
+    'dataset' => $dataset,
+    'times' => $times
   ));
 });
 

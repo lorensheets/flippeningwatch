@@ -64,8 +64,10 @@ var pct = 0;
 var labelArray = [];
 var data_set = [];
 {% for item in dataset %}
-      labelArray.push("");
       data_set.push( {{ item }} );
+{% endfor %}
+{% for time in times %}
+      labelArray.push( {{ time }} );
 {% endfor %}
 
 var ctx = document.getElementById("myChart").getContext('2d');
