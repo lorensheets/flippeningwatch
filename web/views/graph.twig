@@ -126,7 +126,7 @@ var myChart = new Chart(ctx, {
                 });
               },
               title: function(tooltipItem, data) {
-                return Number(tooltipItem.yLabel);
+                return tooltipItem.title;
               }
             }
         },
