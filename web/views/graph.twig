@@ -126,9 +126,11 @@ var myChart = new Chart(ctx, {
                     beginAtZero:true
                 }
             }],
-            xAxes: [
-              display: false
-            ]
+            xAxes: [{
+              gridlines: {
+                display:false
+              }
+            }]
         }
     }
 });
