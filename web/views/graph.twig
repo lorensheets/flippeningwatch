@@ -94,7 +94,7 @@ var myChart = new Chart(ctx, {
                 'rgba(255, 159, 64, 1)'
             ],
             borderWidth: 1,
-            pointRadius: 0.01
+            pointRadius: 0
         },
         {
         label: '',
@@ -124,6 +124,9 @@ var myChart = new Chart(ctx, {
             yAxes: [{
                 ticks: {
                     beginAtZero:true
+                },
+                gridlines: {
+                  display:false
                 }
             }],
             xAxes: [{
