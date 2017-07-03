@@ -43,11 +43,9 @@ html, body {
 .chart-container {
   position: relative;
   height: auto;
-  width:80vw;
+  width: 90vw;
   margin: 0 auto;
-  background: #ccc;
 }
-
 h1 {
   display: inline-block;
   vertical-align: middle;
