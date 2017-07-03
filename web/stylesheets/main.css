@@ -42,11 +42,12 @@ html, body {
 }
 .chart-container {
   position: relative;
-  height: 40vh;
+  height: auto;
   width:80vw;
   margin: 0 auto;
   background: #ccc;
 }
+
 h1 {
   display: inline-block;
   vertical-align: middle;
