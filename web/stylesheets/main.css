@@ -45,6 +45,7 @@ html, body {
   height:35vh;
   width:80vw;
   margin: 0 auto;
+  border: 1px solid #eee;
 }
 h1 {
   display: inline-block;
