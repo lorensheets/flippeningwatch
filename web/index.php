@@ -98,7 +98,7 @@ $app->get('/graphtest/', function() use($app) {
 
 /* graphs */
 
-$app->get('/graphdata/', function() use($app) {
+$app->get('/graphs/', function() use($app) {
 
   $mk = curl_init();
   curl_setopt($mk, CURLOPT_SSL_VERIFYPEER, false);
