@@ -65,6 +65,8 @@
 
 <script>
 
+/* graph data */
+
 var pct = 0;
 
 var labelArray = [];
@@ -165,6 +167,28 @@ var myChart = new Chart(ctx, {
         }
     }
 });
+
+
+
+/* price ticker data */
+
+var btc       = {{ api[0] }};
+var eth       = {{ api[1] }};
+var eth_price = {{ api[2] }};
+var btc_price = {{ api[3] }};
+var mkt_cap   = {{ api[4] }};
+
+var btc_dom = (btc / mkt_cap) * 100;
+var eth_dom = (eth / mkt_cap) * 100;
+var pct_dom = (eth / btc) * 100;
+
+eth_price = eth_price.toFixed(2);
+
+$('#eth_price').html("$" + eth_price.toLocaleString('en-US') );
+$('#btc_price').html("$" + btc_price.toLocaleString('en-US') );
+$('#btc_dom').html("BTC DOM: " + btc_dom.toFixed(1) + "%");
+$('#eth_dom').html("ETH DOM: " + eth_dom.toFixed(1) + "%");
+$('#pct_dom').html("ETH/BTC: " + pct_dom.toFixed(1) + "%");
 
 </script>
 

@@ -100,6 +100,18 @@ $app->get('/graphtest/', function() use($app) {
 
 $app->get('/graphs/', function() use($app) {
 
+  $st = $app['pdo']->prepare('SELECT * FROM crypto');
+  $st->execute();
+
+  $api = array();
+
+  $row = $st->fetch(PDO::FETCH_ASSOC);
+  array_push($api, $row['btc']);
+  array_push($api, $row['eth']);
+  array_push($api, $row['eth_price']);
+  array_push($api, $row['btc_price']);
+  array_push($api, $row['mkt_cap']);
+
   $mk = curl_init();
   curl_setopt($mk, CURLOPT_SSL_VERIFYPEER, false);
   curl_setopt($mk, CURLOPT_RETURNTRANSFER, true);
@@ -127,7 +139,8 @@ $app->get('/graphs/', function() use($app) {
 
   return $app['twig']->render('graph.twig', array(
     'dataset' => $dataset,
-    'times' => $times
+    'times' => $times,
+    'api' => $api
   ));
 });
 
