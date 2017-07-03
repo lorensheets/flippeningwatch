@@ -45,7 +45,7 @@ html, body {
   height: 40vh;
   width:80vw;
   margin: 0 auto;
-  border: 1px solid #00f;
+  background: #ccc;
 }
 h1 {
   display: inline-block;
