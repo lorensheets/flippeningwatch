@@ -42,10 +42,10 @@ html, body {
 }
 .chart-container {
   position: relative;
-  height:auto;
+  height: 100%;
   width:80vw;
   margin: 0 auto;
-  border: 1px solid #eee;
+  border: 1px solid #00f;
 }
 h1 {
   display: inline-block;
