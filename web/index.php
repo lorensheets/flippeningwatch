@@ -166,7 +166,7 @@ $app->get('/graphs/', function() use($app) {
   ));
   */
 
-  return $data1[0];
+  return $data1->name;
 });
 
 
