@@ -126,7 +126,7 @@ $app->get('/graphs/', function() use($app) {
   $dataset = array();
   $times = array();
   foreach($values as $val){
-      if($val->x > 1282089600) {
+      if($val->x > 1356998400) {
         array_push($dataset, $val->y);
         array_push($times, $val->x);
       }
