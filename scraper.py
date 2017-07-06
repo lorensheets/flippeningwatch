@@ -10,10 +10,12 @@ def page():
     for tr in soup.findAll('tr', {'class': 'text-right'}):
         td = tr.findAll('td')
         date = td[0]
-        mktcap = td[5]
+        mk = td[5]
+        mktcap = mk.string
+        mktcap = mktcap.replace(',', '')
         file = open("eth.html","a")
         file.write("\"" + date.string + "\":")
-        file.write("\"" + mktcap.string + "\",\n")
+        file.write("\"" + mktcap + "\",\n")
         file.close()
 
 page()
