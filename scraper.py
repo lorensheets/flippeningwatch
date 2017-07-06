@@ -10,7 +10,7 @@ def page():
     for tr in soup.findAll('tr', {'class': 'text-right'}):
         td = tr.findAll('td')
         date = td[0]
-        mk = td[5]
+        mk = td[6]
         mktcap = mk.string
         mktcap = mktcap.replace(',', '')
         file = open("eth.html","a")
