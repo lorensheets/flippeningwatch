@@ -11,9 +11,9 @@ def page():
         td = tr.findAll('td')
         date = td[0]
         mktcap = td[5]
-        file = open("eth.txt","a")
-        file.write(date.string + "\n")
-        file.write(mktcap.string + "\n")
+        file = open("eth.html","a")
+        file.write("\"" + date.string + "\":")
+        file.write("\"" + mktcap.string + "\",\n")
         file.close()
 
 page()
