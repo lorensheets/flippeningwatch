@@ -144,26 +144,23 @@ $app->get('/graphs/', function() use($app) {
   $et = curl_init();
   curl_setopt($et, CURLOPT_SSL_VERIFYPEER, false);
   curl_setopt($et, CURLOPT_RETURNTRANSFER, true);
-  curl_setopt($et, CURLOPT_URL, 'http://www.flippening.watch/jsondata');
+  curl_setopt($et, CURLOPT_URL, 'https://infinite-reef-88423.herokuapp.com/jsondata');
   $mktcap = curl_exec($et);
   curl_close($et);
   $ethdata = json_decode($mktcap);
   $ethvalues = $ethdata->values;
 
-  $eth_date = array();
-  $eth_data = array();
-  foreach($ethvalues as $values) {
-    array_push($eth_date, $values->date);
-    array_push($eth_data, $values->cap);
-  }
-
   /* render html with data */
+  /*
   return $app['twig']->render('graph.twig', array(
     'dataset' => $dataset,
     'times' => $times,
     'api' => $api,
     'ethdata' => $eth_data
   ));
+  */
+
+  return $ethvalues;
 
 
 });
