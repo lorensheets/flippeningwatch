@@ -151,15 +151,9 @@ $app->get('/graphs/', function() use($app) {
 
   $eth_data = array();
   $eth_dates = array();
-  $interval = 0;
   foreach($ethdata as $key => $val) {
-    if ($interval == 0) {
       array_push($eth_data, $val);
       array_push($eth_dates, $key);
-    }
-    $interval++;
-    if ($interval > 2) {
-      $interval = 0;
     }
   }
 
