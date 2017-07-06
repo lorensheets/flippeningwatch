@@ -147,7 +147,8 @@ $app->get('/graphs/', function() use($app) {
   curl_setopt($et, CURLOPT_URL, 'http://www.flippening.watch/jsondata');
   $et_mktcap = curl_exec($et);
   curl_close($et);
-  $etdata = json_decode($et_mktcap);
+  $data2 = json_decode($et_mktcap);
+  $etdata = $data2->values;
 
   $eth_date = array();
   $eth_data = array();
@@ -166,7 +167,7 @@ $app->get('/graphs/', function() use($app) {
   ));
   */
 
-  return $data1->name;
+  return $etdata[1];
 });
 
 
