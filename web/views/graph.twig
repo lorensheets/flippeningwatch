@@ -125,9 +125,10 @@ var eth_datapoints = eth_data.length;
 var diff = btc_datapoints - eth_datapoints;
 
 /* add difference to ethereum dataset with value of zero for each new point */
+/*
 for (var i = 0; i < diff; i++) {
   eth_data.push(0);
-}
+}*/
 
 /* reverse ethereum dataset so its earliest points to most recent points */
 eth_data.reverse();
