@@ -15,7 +15,7 @@ def page():
         mktcap = mktcap.replace(',', '')
         file = open("eth.html","a")
         file.write("\"" + date.string + "\":")
-        file.write("\"" + mktcap + "\",\n")
+        file.write(mktcap + ",\n")
         file.close()
 
 page()
