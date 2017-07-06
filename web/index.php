@@ -158,12 +158,16 @@ $app->get('/graphs/', function() use($app) {
   }*/
 
   /* render html with data */
+  /*
   return $app['twig']->render('graph.twig', array(
     'dataset' => $dataset,
     'times' => $times,
     'api' => $api,
     'ethdata' => $etdata
   ));
+  */
+
+  return $etdata;
 });
 
 
