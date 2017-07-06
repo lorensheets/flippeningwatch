@@ -488,5 +488,8 @@ $app->get('/currencies', function() use($app) {
 });
 */
 
+});
+
+
 
 $app->run();
