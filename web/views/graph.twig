@@ -79,10 +79,6 @@ var eth_times = [];
   eth_data.push( {{ cap }} );
 {% endfor %}
 
-{% for date in ethdates %}
-  eth_times.push( {{ date }} );
-{% endfor %}
-
 {% for item in dataset %}
       data_set.push( {{ item }} );
 {% endfor %}
