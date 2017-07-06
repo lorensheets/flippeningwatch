@@ -144,11 +144,11 @@ $app->get('/graphs/', function() use($app) {
   $et = curl_init();
   curl_setopt($et, CURLOPT_SSL_VERIFYPEER, false);
   curl_setopt($et, CURLOPT_RETURNTRANSFER, true);
-  curl_setopt($et, CURLOPT_URL, 'http://www.flippening.watch/jsondata');
+  curl_setopt($et, CURLOPT_URL, 'https://infinite-reef-88423.herokuapp.com/jsondata');
   $mktcap = curl_exec($et);
   curl_close($et);
   $ethdata = json_decode($mktcap);
-  $ethvalues = $ethdata[0]->cap;
+  $ethvalues = $ethdata->cap;
 
   /* render html with data */
   /*
