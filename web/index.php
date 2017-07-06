@@ -167,7 +167,7 @@ $app->get('/graphs/', function() use($app) {
   ));
   */
 
-  return $etdata[1];
+  return $data1[1];
 });
 
 
