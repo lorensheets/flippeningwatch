@@ -98,7 +98,7 @@ $app->get('/graphtest/', function() use($app) {
 
 /* graphs */
 
-$app->get('/graphs/', function() use($app) {
+$app->get('/charts/', function() use($app) {
 
   $st = $app['pdo']->prepare('SELECT * FROM crypto');
   $st->execute();
