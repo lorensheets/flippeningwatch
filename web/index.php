@@ -278,11 +278,14 @@ $app->get('/apiupdate/',
 });
 
 
-
+/*
 $app->get('/script1', function() use($app) {
   return $app['twig']->render('script1.html');
 });
+*/
 
-
+$app->get('/jsondata', function() use($app) {
+  return $app['twig']->render('json.html');
+});
 
 $app->run();
