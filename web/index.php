@@ -112,6 +112,8 @@ $app->get('/graphs/', function() use($app) {
   array_push($api, $row['btc_price']);
   array_push($api, $row['mkt_cap']);
 
+
+  /* bitcoin historical market cap data api */
   $mk = curl_init();
   curl_setopt($mk, CURLOPT_SSL_VERIFYPEER, false);
   curl_setopt($mk, CURLOPT_RETURNTRANSFER, true);
@@ -137,10 +139,30 @@ $app->get('/graphs/', function() use($app) {
     }
   }
 
+
+  /* ethereum historical market cap data api */
+  $et = curl_init();
+  curl_setopt($et, CURLOPT_SSL_VERIFYPEER, false);
+  curl_setopt($et, CURLOPT_RETURNTRANSFER, true);
+  curl_setopt($et, CURLOPT_URL, 'http://www.flippening.watch/jsondata');
+  $et_mktcap = curl_exec($et);
+  curl_close($et);
+  $etdata = json_decode($et_mktcap);
+
+  $eth_date = array();
+  $eth_data = array();
+  foreach($etdata as $key => $val) {
+    array_push($eth_date, $key);
+    array_push($eth_data, $val);
+  }
+
+  /* render html with data */ 
   return $app['twig']->render('graph.twig', array(
     'dataset' => $dataset,
     'times' => $times,
-    'api' => $api
+    'api' => $api,
+    'ethdate' => $eth_date,
+    'ethdata' => $eth_data
   ));
 });
 
