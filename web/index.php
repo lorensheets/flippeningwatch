@@ -162,7 +162,6 @@ $app->get('/graphs/', function() use($app) {
       $interval = 0;
     }
   }
-  $eth_data = array_reverse($eth_data);
 
   /* render html with data */
 

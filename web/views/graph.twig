@@ -93,6 +93,18 @@ for (var i = 0; i < labelArray.length; i++) {
   times.push(newTime);
 }
 
+/* difference number of datapoints in bitcoin and ethereum datasets */
+var btc_datapoints = data_set.length;
+var eth_datapoints = eth_data.length;
+var diff = btc_datapoints - eth_datapoints;
+
+/* add difference to ethereum dataset with value of zero for each new point */
+for (var i = 0; i < diff; i++) {
+  eth_data.push(0);
+}
+
+/* reverse ethereum dataset so its earliest points to most recent points */
+eth_data.reverse();
 
 var ctx = document.getElementById("myChart").getContext('2d');
 Chart.defaults.global.defaultColor = 'rgba(0,0,0,0)';
