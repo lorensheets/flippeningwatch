@@ -76,7 +76,8 @@ var eth_data = [];
 var eth_times = [];
 
 {% for cap in ethdata %}
-  eth_data.push(Number( {{ cap }} ));
+  console.log(Number({{ cap }}));
+  eth_data.push(Number({{ cap }}));
 {% endfor %}
 
 {% for item in dataset %}
