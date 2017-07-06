@@ -10,6 +10,21 @@
   </body>
 
   <script>
+
+  var jsonVar = {
+    "values": [
+      {
+        'date': 'Jul 04, 2017',
+        'cap': '687,691,000'
+      },
+      {
+        'date': 'Jul 03, 2017',
+        'cap': '851,408,000'
+      }
+    ]
+  };
+  
+  /*
   var jsonVar = { "values": [{
 'Jul 04, 2017':
 '687,691,000',
@@ -1409,6 +1424,7 @@
 '164,329'
 }]
 };
+*/
     var jsonStr = JSON.stringify(jsonVar);
     document.body.innerHTML = jsonStr;
 
