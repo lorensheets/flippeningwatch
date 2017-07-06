@@ -155,9 +155,10 @@ $app->get('/graphs/', function() use($app) {
     array_push($eth_data, $val);
     array_push($eth_dates, $key);
   }
+  $eth_data = array_reverse($eth_data);
 
   /* render html with data */
-  
+
   return $app['twig']->render('graph.twig', array(
     'dataset' => $dataset,
     'times' => $times,
