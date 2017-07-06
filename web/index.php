@@ -165,7 +165,7 @@ $app->get('/graphs/', function() use($app) {
     'ethdata' => $eth_data,
     'ethdates' => $eth_dates
   ));*/
-  return $ethdata[0];
+  return $eth_data[0];
 
 });
 
