@@ -150,22 +150,20 @@ $app->get('/graphs/', function() use($app) {
   $ethdata = json_decode($mktcap);
 
   $eth_data = array();
+  $eth_dates = array();
   foreach($ethdata as $key => $val) {
     array_push($eth_data, $val);
+    array_push($eth_dates, $key);
   }
 
   /* render html with data */
-  /*
   return $app['twig']->render('graph.twig', array(
     'dataset' => $dataset,
     'times' => $times,
     'api' => $api,
-    'ethdata' => $eth_data
+    'ethdata' => $eth_data,
+    'ethdates' => $eth_dates
   ));
-  */
-
-  return $eth_data[0];
-
 
 });
 
