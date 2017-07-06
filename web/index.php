@@ -145,14 +145,14 @@ $app->get('/graphs/', function() use($app) {
   curl_setopt($et, CURLOPT_SSL_VERIFYPEER, false);
   curl_setopt($et, CURLOPT_RETURNTRANSFER, true);
   curl_setopt($et, CURLOPT_URL, 'https://infinite-reef-88423.herokuapp.com/jsondata');
-  $et_mktcap = curl_exec($et);
+  $mktcap = curl_exec($et);
   curl_close($et);
-  $data2 = json_decode($et_mktcap);
-  $etdata = $data2->values;
+  $ethdata = json_decode($mktcap);
+  $ethvalues = $ethdata->values;
 
   $eth_date = array();
   $eth_data = array();
-  foreach($etdata as $values) {
+  foreach($ethvalues as $values) {
     array_push($eth_date, $values->date);
     array_push($eth_data, $values->cap);
   }
