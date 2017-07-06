@@ -148,7 +148,7 @@ $app->get('/graphs/', function() use($app) {
   $mktcap = curl_exec($et);
   curl_close($et);
   $ethdata = json_decode($mktcap);
-  $ethvalues = $ethdata->values;
+  $ethvalues = $ethdata[0]->cap;
 
   /* render html with data */
   /*
@@ -160,7 +160,7 @@ $app->get('/graphs/', function() use($app) {
   ));
   */
 
-  return $ethvalues[0][0]->date;
+  return $ethvalues;
 
 
 });
