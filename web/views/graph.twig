@@ -72,9 +72,15 @@ var pct = 0;
 var labelArray = [];
 var data_set = [];
 var times = [];
+var eth_data = [];
+var eth_times = [];
 
 {% for cap in ethdata %}
-  console.log( {{cap}} );
+  eth_data.push( {{ cap }} );
+{% endfor %}
+
+{% for date in ethdates %}
+  eth_times.push( {{ date }} );
 {% endfor %}
 
 {% for item in dataset %}
@@ -106,6 +112,18 @@ var myChart = new Chart(ctx, {
             ],
             borderColor: [
                 'rgba(240,175,50,1)'
+            ],
+            borderWidth: 2,
+            pointRadius: 0
+        },
+        {
+            label: 'Ethereum Market Cap',
+            data: eth_data,
+            backgroundColor: [
+                'rgba(50,175,240,0.4)'
+            ],
+            borderColor: [
+                'rgba(50,175,240,1)'
             ],
             borderWidth: 2,
             pointRadius: 0
