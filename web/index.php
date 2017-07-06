@@ -151,7 +151,7 @@ $app->get('/graphs/', function() use($app) {
 
   $eth_date = array();
   $eth_data = array();
-  foreach($etdata[0] as $key => $val) {
+  foreach($etdata as $key => $val) {
     array_push($eth_date, $key);
     array_push($eth_data, $val);
   }
@@ -166,7 +166,7 @@ $app->get('/graphs/', function() use($app) {
   ));
   */
 
-  return $eth_data[1];
+  return $data1[0];
 });
 
 
