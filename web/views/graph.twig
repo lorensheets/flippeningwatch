@@ -80,7 +80,15 @@
   <div class="row">
     <div class="col-xs-12">
       <div class="chart-container">
-          <canvas id="myChart"></canvas>
+          <canvas id="marketCapComparison"></canvas>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="chart-container">
+          <canvas id="marketCapRatio"></canvas>
       </div>
     </div>
   </div>
@@ -127,6 +135,7 @@ var data_set = [];
 var times = [];
 var eth_data = [];
 var eth_times = [];
+var flippening_ratio = [];
 
 {% for cap in ethdata %}
   eth_data.push({{ cap }});
@@ -140,7 +149,7 @@ var eth_times = [];
       labelArray.push( {{ time }} );
 {% endfor %}
 
-for (var i = 0; i < labelArray.length; i++) {
+for (let i = 0; i < labelArray.length; i++) {
   var newTime = labelArray[i]*1000;
   /*var newTime = moment.utc(labelArray[i] * 1000).format('MM / YYYY');*/
   times.push(newTime);
@@ -149,19 +158,23 @@ for (var i = 0; i < labelArray.length; i++) {
 /* difference number of datapoints in bitcoin and ethereum datasets */
 var btc_datapoints = data_set.length;
 var eth_datapoints = eth_data.length;
-console.log(btc_datapoints);
-console.log(eth_datapoints);
 var diff = btc_datapoints - eth_datapoints;
 
 /* add difference to ethereum dataset with value of zero for each new point */
-for (var i = 0; i < diff; i++) {
+for (let i = 0; i < diff; i++) {
   eth_data.push(0);
+}
+
+for (let i = 0; i < data_set.length; i++) {
+  var ratio = eth_data[i]/data_set[i];
+  flippening_ratio.push(ratio);
 }
 
 /* reverse ethereum dataset so its earliest points to most recent points */
 eth_data.reverse();
 
-var ctx = document.getElementById("myChart").getContext('2d');
+/* market cap comparison chart */
+var ctx = document.getElementById("marketCapComparison").getContext('2d');
 Chart.defaults.global.defaultColor = 'rgba(0,0,0,0)';
 var myChart = new Chart(ctx, {
     type: 'line',
@@ -241,6 +254,28 @@ var myChart = new Chart(ctx, {
             }]
         }
     }
+});
+
+/* market cap ratio chart */
+var ctxratio = document.getElementById("marketCapRatio").getContext('2d');
+var newChart = new Chart(ctxratio, {
+  type: 'line',
+  data: {
+    labels: times,
+    datasets: [{
+      label: 'Flippening Ratio',
+      data: flippening_ratio,
+      backgroundColor: 'rgba(0,0,0,0)',
+      borderColor: 'rgba(50,51,51,1)',
+      borderWidth: 2,
+      pointRadius: 0,
+      pointBackgroundColor: 'rgba(50,51,51,0.6)',
+      pointBorderColor: 'rgba(50,51,51,0.6)'
+    }]
+  },
+  options: {
+
+  }
 });
 
 
