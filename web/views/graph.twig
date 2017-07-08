@@ -86,8 +86,8 @@
 
   <div class="row transparent">
     <div class="col-xs-12">
-      <h2>Market Cap</h2>
-      <p>(Absolute)</p>
+      <h2>Market Caps</h2>
+      <p>(ETH vs. BTC)</p>
     </div>
   </div>
 
@@ -190,12 +190,8 @@ var myChart = new Chart(ctx, {
         datasets: [{
             label: 'Bitcoin Market Cap',
             data: data_set,
-            backgroundColor: [
-                'rgba(250,144,57,0.4)'
-            ],
-            borderColor: [
-                'rgba(250,144,57,1)'
-            ],
+            backgroundColor: 'rgba(250,144,57,0.4)',
+            borderColor: 'rgba(250,144,57,1)',
             borderWidth: 2,
             pointRadius: 0,
             pointBackgroundColor: 'rgba(250,144,57,0.4)',
@@ -204,12 +200,8 @@ var myChart = new Chart(ctx, {
         {
             label: 'Ethereum Market Cap',
             data: eth_data,
-            backgroundColor: [
-                'rgba(50,51,51,0.6)'
-            ],
-            borderColor: [
-                'rgba(50,51,51,1)'
-            ],
+            backgroundColor: 'rgba(50,51,51,0.6)',
+            borderColor: 'rgba(50,51,51,1)',
             borderWidth: 2,
             pointRadius: 0,
             pointBackgroundColor: 'rgba(50,51,51,0.6)',
