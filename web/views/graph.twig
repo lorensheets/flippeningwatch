@@ -315,7 +315,6 @@ var newChart = new Chart(ctxratio, {
 
 
 /* price ticker data */
-
 var btc       = {{ api[0] }};
 var eth       = {{ api[1] }};
 var eth_price = {{ api[2] }};
@@ -333,6 +332,10 @@ $('#btc_price').html("$" + btc_price.toLocaleString('en-US') );
 $('#btc_dom').html("BTC DOM: " + btc_dom.toFixed(1) + "%");
 $('#eth_dom').html("ETH DOM: " + eth_dom.toFixed(1) + "%");
 $('#pct_dom').html("ETH/BTC: " + pct_dom.toFixed(1) + "%");
+
+
+/* navigation indicator */
+$('.navigation-bar a:nth-child[2]').css('font-weight','800');
 
 </script>
 
