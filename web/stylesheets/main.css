@@ -138,6 +138,9 @@ p {
   text-decoration: none;
   color: var(--link-color);
 }
+.navigation-bar a:hover {
+  text-decoration: underline;
+}
 .subtitle div {
   margin: 5px 0;
 }
