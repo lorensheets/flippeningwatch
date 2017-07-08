@@ -178,8 +178,7 @@ var myChart = new Chart(ctx, {
             ],
             borderWidth: 2,
             pointRadius: 0,
-            pointColor: 'rgba(250,144,57,1)',
-            strokeColor: 'rgba(250,144,57,1)'
+            pointBackgroundColor: 'rgba(250,144,57,1)'
         },
         {
             label: 'Ethereum Market Cap',
@@ -192,8 +191,7 @@ var myChart = new Chart(ctx, {
             ],
             borderWidth: 2,
             pointRadius: 0,
-            pointColor: 'rgba(50,51,51,1)',
-            strokeColor: 'rgba(50,51,51,1)'
+            pointBackgroundColor: 'rgba(50,51,51,1)'
         }],
 
     },
@@ -201,7 +199,7 @@ var myChart = new Chart(ctx, {
       tooltips: {
             mode: 'x',
             intersect: false,
-            displayColors: false,
+            displayColors: true,
             callbacks: {
               label: function(tooltipItem, data) {
                 return "$" + Number(tooltipItem.yLabel).toFixed(0).replace(/./g, function(c, i, a) {
