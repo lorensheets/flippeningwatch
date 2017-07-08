@@ -165,13 +165,14 @@ for (let i = 0; i < diff; i++) {
   eth_data.push(0);
 }
 
-for (let i = 0; i < data_set.length; i++) {
-  var ratio = eth_data[i]/data_set[i];
-  flippening_ratio.push(ratio);
-}
-
 /* reverse ethereum dataset so its earliest points to most recent points */
 eth_data.reverse();
+
+/* create array of flippening ratios */
+for (let i = 0; i < data_set.length; i++) {
+  var ratio = (eth_data[i]/data_set[i])*100;
+  flippening_ratio.push(ratio);
+}
 
 /* market cap comparison chart */
 var ctx = document.getElementById("marketCapComparison").getContext('2d');
@@ -274,8 +275,23 @@ var newChart = new Chart(ctxratio, {
     }]
   },
   options: {
-
-  }
+    tooltips: {
+      mode: 'x',
+      intersect: false,
+      displayColors: true,
+    },
+    scales: {
+      xAxes: [{
+        gridLines: {
+          color: "#FFFFFF"
+        },
+        ticks: {
+          callback: function(value, index, values) {
+            return moment.utc(value).format('MM / YYYY');
+          }
+        }
+      }]
+    }
 });
 
 
