@@ -669,7 +669,6 @@
     /* percentage progress bar */
     $('.progress').each(function() {
       var percentwidth = $(this).siblings('p').text();
-      console.log(parseFloat(percentwidth));
       if (parseFloat(percentwidth) < 100) {
         $(this).animate({
           'width' : parseFloat(percentwidth) + '%'
