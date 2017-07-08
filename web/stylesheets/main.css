@@ -138,7 +138,7 @@ p {
   color: var(--link-color);
 }
 .subtitle div {
-  margin: 0px;
+  margin: 5px 0;
 }
 .subtitle .link {
   display: inline-block;
