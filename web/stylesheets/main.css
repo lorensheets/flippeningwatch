@@ -222,13 +222,13 @@ p {
   height: auto;
   margin: 0;
 }
-.main-link {
-  color: var(--main-text-color);
+a.main-link {
+  color: var(--main-text-color) !important;
   text-decoration: none;
 }
-.main-link:hover {
-  color: var(--main-text-color);
-  text-decoration: none;
+a.main-link:hover {
+  color: var(--main-text-color) !important;
+  text-decoration: none !important;
 }
 
 /* percentage filler */
