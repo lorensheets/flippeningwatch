@@ -19,14 +19,6 @@ html, body {
   color: var(--main-text-color);
   background: var(--main-bg-color);
 }
-.main-link {
-  color: var(--main-text-color);
-  text-decoration: none;
-}
-.main-link:hover {
-  color: var(--main-text-color);
-  text-decoration: none;
-}
 #confetti {
   position: fixed !important;
   top: 0;
@@ -229,6 +221,14 @@ p {
   width: 25px;
   height: auto;
   margin: 0;
+}
+.main-link {
+  color: var(--main-text-color);
+  text-decoration: none;
+}
+.main-link:hover {
+  color: var(--main-text-color);
+  text-decoration: none;
 }
 
 /* percentage filler */
