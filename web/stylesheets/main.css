@@ -126,10 +126,10 @@ p {
 .title {
   padding: 5px 0px 0px 0px;
 }
-.title div {
+.subtitle div {
   margin: 0px;
 }
-.title .link {
+.subtitle .link {
   display: inline-block;
   padding: 5px;
   margin: 0px 3px 5px 3px;
@@ -142,7 +142,7 @@ p {
   border-radius: 10px;
   color: var(--link-color);
 }
-.title .link:hover {
+.subtitle .link:hover {
   text-decoration: underline;
 }
 .ad {
