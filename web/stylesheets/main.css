@@ -53,6 +53,9 @@ h1 {
   margin: 0px auto;
   padding: 0 6px;
 }
+h3 {
+  margin: 0px auto;
+}
 p {
   font-size: 0.95em;
   margin: 0;
@@ -150,6 +153,9 @@ p {
 }
 .no-padding {
   padding: 0 0 0 0;
+}
+.padding-bottom {
+  padding: 0 0 10px 0;
 }
 .table-header {
   height: 100px;
