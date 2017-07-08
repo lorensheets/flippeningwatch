@@ -201,7 +201,7 @@ var myChart = new Chart(ctx, {
       tooltips: {
             mode: 'x',
             intersect: false,
-            displayColors: true,
+            displayColors: false,
             callbacks: {
               label: function(tooltipItem, data) {
                 return "$" + Number(tooltipItem.yLabel).toFixed(0).replace(/./g, function(c, i, a) {
