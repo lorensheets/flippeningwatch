@@ -125,17 +125,10 @@ $app->get('/charts/', function() use($app) {
 
   $dataset = array();
   $times = array();
-  $interval = 0;
   foreach($values as $val){
       if($val->x > 1438387200) {
-        if($interval == 0) {
-          array_push($dataset, $val->y);
-          array_push($times, $val->x);
-        }
-        $interval++;
-        if($interval > 1){
-          $interval = 0;
-        }
+        array_push($dataset, $val->y);
+        array_push($times, $val->x);
       }
   }
 
@@ -158,7 +151,7 @@ $app->get('/charts/', function() use($app) {
       array_push($eth_dates, $key);
     }
     $interval++;
-    if ($interval > 3) {
+    if ($interval > 1) {
       $interval = 0;
     }
   }
