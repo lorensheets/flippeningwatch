@@ -215,6 +215,16 @@ var myChart = new Chart(ctx, {
     data: {
         labels: times,
         datasets: [{
+              label: 'ETHEREUM',
+              data: eth_data,
+              backgroundColor: 'rgba(50,51,51,0.6)',
+              borderColor: 'rgba(50,51,51,1)',
+              borderWidth: 2,
+              pointRadius: 0,
+              pointBackgroundColor: 'rgba(50,51,51,0.6)',
+              pointBorderColor: 'rgba(50,51,51,0.6)'
+          },
+          {
             label: 'BITCOIN',
             data: data_set,
             backgroundColor: 'rgba(250,144,57,0.4)',
@@ -223,18 +233,7 @@ var myChart = new Chart(ctx, {
             pointRadius: 0,
             pointBackgroundColor: 'rgba(250,144,57,0.4)',
             pointBorderColor: 'rgba(250,144,57,0.4)'
-        },
-        {
-            label: 'ETHEREUM',
-            data: eth_data,
-            backgroundColor: 'rgba(50,51,51,0.6)',
-            borderColor: 'rgba(50,51,51,1)',
-            borderWidth: 2,
-            pointRadius: 0,
-            pointBackgroundColor: 'rgba(50,51,51,0.6)',
-            pointBorderColor: 'rgba(50,51,51,0.6)'
-        }],
-
+          }
     },
     options: {
       tooltips: {
