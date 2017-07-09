@@ -19,9 +19,6 @@ html, body {
   color: var(--main-text-color);
   background: var(--main-bg-color);
 }
-canvas {
-  height: 100%;
-}
 #confetti {
   position: fixed !important;
   top: 0;

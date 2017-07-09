@@ -81,7 +81,7 @@
   <div class="row">
     <div class="col-xs-12">
       <div class="chart-container">
-          <canvas id="marketCapRatio"></canvas>
+          <canvas id="marketCapRatio" class="chart"></canvas>
       </div>
     </div>
   </div>
@@ -117,7 +117,7 @@
   <div class="row">
     <div class="col-xs-12">
       <div class="chart-container">
-          <canvas id="marketCapComparison"></canvas>
+          <canvas id="marketCapComparison" class="chart"></canvas>
       </div>
     </div>
   </div>
@@ -335,6 +335,8 @@ var newChart = new Chart(ctxratio, {
     }
   }
 });
+
+$('.chart').css('height', '100%');
 
 
 
