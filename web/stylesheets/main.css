@@ -341,6 +341,9 @@ a.main-link:hover {
   .no-padding {
     padding: 5px 0 0 0;
   }
+  .chart-container {
+    min-height: 250px;
+  }
 }
 
 /* Medium devices (desktops, 992px and up) */
