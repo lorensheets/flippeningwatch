@@ -317,6 +317,7 @@ var newChart = new Chart(ctxratio, {
       yAxes: [{
         ticks: {
           beginAtZero:true,
+          max: 100,
           callback: function(value, index, values) {
             return value + "%";
           }
