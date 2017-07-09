@@ -42,7 +42,6 @@ html, body {
 }
 .chart-container {
   position: relative;
-  height: auto;
   width: 90vw;
   margin: 0 auto;
 }
@@ -280,11 +279,17 @@ a.main-link:hover {
   #last_updated {
     display: none;
   }
+  .chart-container {
+    height: 250px;
+  }
 }
 
 @media (orientation: landscape) {
   .title div {
     margin-top: 5px;
+  }
+  .chart-container {
+    height: auto;
   }
 }
 
@@ -342,7 +347,7 @@ a.main-link:hover {
     padding: 5px 0 0 0;
   }
   .chart-container {
-    height: 350px;
+    height: auto;
   }
 }
 
