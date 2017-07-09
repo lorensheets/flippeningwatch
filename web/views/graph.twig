@@ -185,6 +185,7 @@ for (let i = 0; i < data_set.length; i++) {
 /* market cap comparison chart */
 var ctx = document.getElementById("marketCapComparison").getContext('2d');
 Chart.defaults.global.defaultColor = 'rgba(0,0,0,0)';
+Chart.defaults.global.defaultFont = "Raleway";
 var myChart = new Chart(ctx, {
     type: 'line',
     data: {
