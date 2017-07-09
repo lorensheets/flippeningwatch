@@ -283,6 +283,10 @@ var myChart = new Chart(ctx, {
 
 /* market cap ratio chart */
 var ctxratio = document.getElementById("marketCapRatio").getContext('2d');
+var gradient = ctxratio.createLinearGradient(0, 0, 200, 0);
+gradient.addColorStop(0, '#03fcfe');
+gradient.addColorStop(1, '#13ff00');
+
 var newChart = new Chart(ctxratio, {
   type: 'line',
   data: {
@@ -290,11 +294,11 @@ var newChart = new Chart(ctxratio, {
     datasets: [{
       label: 'FLIPPENING RATIO',
       data: flippening_ratio,
-      backgroundColor: 'linear-gradient(to bottom right, #03fcfe, #13ff00)',
+      backgroundColor: gradient,
       borderColor: 'rgba(50,51,51,1)',
       borderWidth: 2,
       pointRadius: 0,
-      pointBackgroundColor: 'linear-gradient(to bottom right, #03fcfe, #13ff00)',
+      pointBackgroundColor: gradient,
       pointBorderColor: 'rgba(50,51,51,0.6)'
     }]
   },
