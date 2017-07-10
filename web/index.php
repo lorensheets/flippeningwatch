@@ -126,7 +126,7 @@ $app->get('/charts/', function() use($app) {
   $dataset = array();
   $times = array();
   foreach($values as $val){
-      if($val->x > 1438387200) {
+      if($val->x >= 1451606400) {
         array_push($dataset, $val->y);
         array_push($times, $val->x);
       }
