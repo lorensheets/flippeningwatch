@@ -184,16 +184,19 @@ for (let i = 0; i < labelArray.length; i++) {
   times.push(newTime);
 }
 
+/* reverse ethereum dataset so its earliest points to most recent points */
+eth_data.reverse();
+
 /* difference number of datapoints in bitcoin and ethereum datasets */
 var btc_datapoints = data_set.length;
 var eth_datapoints = eth_data.length;
 var diff = eth_datapoints - btc_datapoints;
 
+/* remove difference from eth dataset */
 eth_data.splice(0, diff);
 
+console.log(eth_data.length);
 
-/* reverse ethereum dataset so its earliest points to most recent points */
-eth_data.reverse();
 
 /* create array of flippening ratios */
 for (let i = 0; i < data_set.length; i++) {
