@@ -193,7 +193,7 @@ var eth_datapoints = eth_data.length;
 var diff = eth_datapoints - btc_datapoints;
 
 /* remove difference from eth dataset */
-eth_data.splice(0, diff - 1);
+eth_data.splice(0, diff);
 
 console.log(eth_data.length);
 
