@@ -323,6 +323,9 @@ a.main-link:hover {
   .logo {
     height: 70px !important;
   }
+  .navigation-bar a {
+    font-size: 1.1em;
+  }
   .title {
     padding: 15px 0px 0px 0px;
   }
