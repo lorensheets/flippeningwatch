@@ -184,7 +184,9 @@ for (let i = 0; i < labelArray.length; i++) {
   times.push(newTime);
 }
 
-/* reverse ethereum dataset so its earliest points to most recent points */
+/* reverse datasets so the earliest points to most recent points */
+times.reverse();
+data_set.reverse();
 eth_data.reverse();
 
 /* difference number of datapoints in bitcoin and ethereum datasets */
@@ -214,7 +216,7 @@ Chart.defaults.global.defaultFontColor = '#000';
 var myChart = new Chart(ctx, {
     type: 'line',
     data: {
-        labels: times,
+        labels: labelArray,
         datasets: [{
               label: 'ETHEREUM',
               data: eth_data,
@@ -291,7 +293,7 @@ gradient.addColorStop(1, '#13ff00');
 var newChart = new Chart(ctxratio, {
   type: 'line',
   data: {
-    labels: times,
+    labels: labelArray,
     datasets: [{
       label: '% TO FLIPPENING',
       data: flippening_ratio,
