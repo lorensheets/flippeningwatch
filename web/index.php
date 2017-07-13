@@ -210,7 +210,7 @@ $app->get('/testchart/', function() use($app) {
   return $app['twig']->render('testchart.twig', array(
     'dataset' => $dataset,
     'times' => $times,
-    'total_mktcap_dataset' => $total_mktcap_dataset
+    'total_mktcap_dataset' => $total_mktcap_dataset,
     'api' => $api
   ));
 
