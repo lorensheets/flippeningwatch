@@ -141,13 +141,83 @@
   var mkshChart = new Chart(mksh, {
     type: 'line',
     data: {
-
+      [{
+        label: 'BITCOIN',
+        data: data_set,
+        backgroundColor: 'rgba(250,144,57,0.4)',
+        borderColor: 'rgba(250,144,57,1)',
+        borderWidth: 2,
+        pointRadius: 0,
+        pointBackgroundColor: 'rgba(250,144,57,0.4)',
+        pointBorderColor: 'rgba(250,144,57,0.4)'
+      }]
     },
-    options {
+    options: {
+      tooltips: {
+            mode: 'x',
+            intersect: false,
+            displayColors: true,
+            callbacks: {
+              label: function(tooltipItem, data) {
+                return "$" + Number(tooltipItem.yLabel).toFixed(0).replace(/./g, function(c, i, a) {
+                  return i > 0 && c !== "." && (a.length - i) % 3 === 0 ? "," + c : c;
+                });
+              },
+              title: function(tooltipItem, data) {
+                newDate = data.labels[tooltipItem[0].index];
+                return moment.utc(newDate).format('MMMM Do YYYY');
+              }
+            }
+        },
+        elements: {
+            line: {
+                tension: 0, // disables bezier curves
+            }
+        },
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero:true,
+                    callback: function(value, index, values) {
+                        return '$' + value/1000000000 + "B";
+                    }
+                }
+            }],
+            xAxes: [{
+              gridLines: {
+                color: "#FFFFFF"
+              },
+              ticks: {
+                  callback: function(value, index, values) {
+                      return moment.utc(value).format('MM / YYYY');
+                  }
+              }
 
+            }]
+        }
     }
   }
 
+
+
+  /* price ticker data */
+  var btc       = {{ api[0] }};
+  var eth       = {{ api[1] }};
+  var eth_price = {{ api[2] }};
+  var btc_price = {{ api[3] }};
+  var mkt_cap   = {{ api[4] }};
+
+  var btc_dom = (btc / mkt_cap) * 100;
+  var eth_dom = (eth / mkt_cap) * 100;
+  var pct_dom = (eth / btc) * 100;
+
+  eth_price = eth_price.toFixed(2);
+
+  $('#eth_price').html("$" + eth_price.toLocaleString('en-US') );
+  $('#btc_price').html("$" + btc_price.toLocaleString('en-US') );
+  $('#btc_dom').html("BTC MS: " + btc_dom.toFixed(1) + "%");
+  $('#eth_dom').html("ETH MS: " + eth_dom.toFixed(1) + "%");
+  $('#pct_dom').html("ETH/BTC: " + pct_dom.toFixed(1) + "%");
 
 </script>
 
