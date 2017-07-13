@@ -123,11 +123,17 @@
   var pct = 0;
   var labelArray = [];
   var data_set = [];
+  var eth_data = [];
   var total_mktcap = [];
   var btc_mkt_cap_pct = [];
+  var eth_mkt_cap_pct = [];
 
   {% for item in dataset %}
         data_set.push( {{ item }} );
+  {% endfor %}
+
+  {% for cap in ethdata %}
+    eth_data.push({{ cap }});
   {% endfor %}
 
   {% for item in total_mktcap_dataset %}
@@ -141,6 +147,7 @@
 
   labelArray.reverse();
   data_set.reverse();
+  eth_data.reverse();
   total_mktcap.reverse();
 
   /* get difference between number of elements in data_set and total_mktcap */
@@ -150,12 +157,15 @@
 
   /* remove difference from eth dataset */
   data_set.splice(0, total_diff);
+  eth_data.splice(0, total_diff);
   labelArray.splice(0, total_diff);
 
   /* create array of market comparison ratios */
   for (let i = 0; i < data_set.length; i++) {
-    var ratio = (data_set[i]/total_mktcap[i])*100;
-    btc_mkt_cap_pct.push(ratio);
+    let btc_ratio = (data_set[i]/total_mktcap[i])*100;
+    let eth_ratio = (eth_data[i]/total_mktcap[i])*100;
+    btc_mkt_cap_pct.push(btc_ratio);
+    eth_mkt_cap_pct.push(eth_ratio);
   }
 
 
@@ -171,6 +181,16 @@
     data: {
       labels: labelArray,
       datasets: [
+        {
+          label: 'ETHEREUM',
+          data: eth_mkt_cap_pct,
+          backgroundColor: 'rgba(50,51,51,0.6)',
+          borderColor: 'rgba(50,51,51,1)',
+          borderWidth: 2,
+          pointRadius: 0,
+          pointBackgroundColor: 'rgba(50,51,51,0.6)',
+          pointBorderColor: 'rgba(50,51,51,0.6)'
+        },
         {
           label: 'BITCOIN',
           data: btc_mkt_cap_pct,

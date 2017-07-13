@@ -192,6 +192,20 @@ $app->get('/testchart/', function() use($app) {
     array_push($times, $key);
   }
 
+  /* ethereum historical market cap data api */
+  $et = curl_init();
+  curl_setopt($et, CURLOPT_SSL_VERIFYPEER, false);
+  curl_setopt($et, CURLOPT_RETURNTRANSFER, true);
+  curl_setopt($et, CURLOPT_URL, 'http://www.flippening.watch/ethjsondata');
+  $mktcap = curl_exec($et);
+  curl_close($et);
+  $ethdata = json_decode($mktcap);
+
+  $eth_data = array();
+  foreach($ethdata as $key => $val) {
+    array_push($eth_data, $val);
+  }
+
   /* total cryptocurrency historical market cap data api */
   $mktcap = curl_init();
   curl_setopt($mktcap, CURLOPT_SSL_VERIFYPEER, false);
@@ -211,6 +225,7 @@ $app->get('/testchart/', function() use($app) {
     'dataset' => $dataset,
     'times' => $times,
     'total_mktcap_dataset' => $total_mktcap_dataset,
+    'ethdata' => $eth_data,
     'api' => $api
   ));
 
