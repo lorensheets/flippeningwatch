@@ -117,19 +117,16 @@ $app->get('/charts/', function() use($app) {
   $mk = curl_init();
   curl_setopt($mk, CURLOPT_SSL_VERIFYPEER, false);
   curl_setopt($mk, CURLOPT_RETURNTRANSFER, true);
-  curl_setopt($mk, CURLOPT_URL, 'https://blockchain.info/charts/market-cap?timespan=all&format=json');
+  curl_setopt($mk, CURLOPT_URL, 'http://www.flippening.watch/btcjsondata');
   $result_mktcap = curl_exec($mk);
   curl_close($mk);
-  $data1 = json_decode($result_mktcap);
-  $values = $data1->values;
+  $values = json_decode($result_mktcap);
 
   $dataset = array();
   $times = array();
-  foreach($values as $val){
-      if($val->x >= 1451606400) {
-        array_push($dataset, $val->y);
-        array_push($times, $val->x);
-      }
+  foreach($values as $key => $val){
+    array_push($dataset, $val);
+    array_push($times, $key);
   }
 
 
@@ -137,24 +134,18 @@ $app->get('/charts/', function() use($app) {
   $et = curl_init();
   curl_setopt($et, CURLOPT_SSL_VERIFYPEER, false);
   curl_setopt($et, CURLOPT_RETURNTRANSFER, true);
-  curl_setopt($et, CURLOPT_URL, 'http://www.flippening.watch/jsondata');
+  curl_setopt($et, CURLOPT_URL, 'http://www.flippening.watch/ethjsondata');
   $mktcap = curl_exec($et);
   curl_close($et);
   $ethdata = json_decode($mktcap);
 
   $eth_data = array();
   $eth_dates = array();
-  $interval = 0;
   foreach($ethdata as $key => $val) {
-    if ($interval == 0) {
-      array_push($eth_data, $val);
-      array_push($eth_dates, $key);
-    }
-    $interval++;
-    if ($interval > 1) {
-      $interval = 0;
-    }
+    array_push($eth_data, $val);
+    array_push($eth_dates, $key);
   }
+
 
   /* render html with data */
 
@@ -308,8 +299,12 @@ $app->get('/script1', function() use($app) {
 });
 */
 
-$app->get('/jsondata', function() use($app) {
+$app->get('/ethjsondata', function() use($app) {
   return $app['twig']->render('eth.html');
+});
+
+$app->get('/btcjsondata', function() use($app) {
+  return $app['twig']->render('btc.html');
 });
 
 $app->run();
