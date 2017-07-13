@@ -140,18 +140,21 @@
 
   var mkshChart = new Chart(mksh, {
     type: 'line',
-    datasets: [
-      {
-        label: 'BITCOIN',
-        data: data_set,
-        backgroundColor: 'rgba(250,144,57,0.4)',
-        borderColor: 'rgba(250,144,57,1)',
-        borderWidth: 2,
-        pointRadius: 0,
-        pointBackgroundColor: 'rgba(250,144,57,0.4)',
-        pointBorderColor: 'rgba(250,144,57,0.4)'
-      }
-    ],
+    data: {
+      labels: labelArray,
+      datasets: [
+        {
+          label: 'BITCOIN',
+          data: data_set,
+          backgroundColor: 'rgba(250,144,57,0.4)',
+          borderColor: 'rgba(250,144,57,1)',
+          borderWidth: 2,
+          pointRadius: 0,
+          pointBackgroundColor: 'rgba(250,144,57,0.4)',
+          pointBorderColor: 'rgba(250,144,57,0.4)'
+        }
+      ]    
+    },
     options: {
       tooltips: {
             mode: 'x',
