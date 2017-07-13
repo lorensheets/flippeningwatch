@@ -142,9 +142,10 @@
   data_set.reverse();
   total_mktcap.reverse();
 
-  /* create array of flippening ratios */
+  /* create array of market comparison ratios */
   for (let i = 0; i < labelArray.length; i++) {
     var ratio = (data_set[i]/total_mktcap[i])*100;
+    console.log(ratio);
     btc_mkt_cap_pct.push(ratio);
   }
 
