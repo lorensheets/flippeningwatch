@@ -1,0 +1,110 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<div class="container-fluid">
+
+  <div class="row ticker">
+    <div class="col-xs-0 col-sm-1"></div>
+    <div class="col-xs-12 col-sm-10">
+      <div class="row">
+        <div class="col-xs-12 col-sm-3">
+          <div class="row">
+            <div class="col-xs-12 price">
+              <img src="../images/bitcoin.png"/>
+              <p id="btc_price"></p>
+              <img class="invert" src="../images/ethereum.png"/>
+              <p id="eth_price"></p>
+            </div>
+          </div>
+        </div>
+        <div class="col-xs-12 col-sm-9">
+          <div class="row">
+            <div class="col-xs-4 border-rt">
+              <p id="btc_dom"></p>
+            </div>
+            <div class="col-xs-4 border-rt">
+              <p id="eth_dom">%</p>
+            </div>
+            <div class="col-xs-4">
+              <p id="pct_dom"></p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <div class="col-xs-0 col-sm-1"></div>
+  </div>
+
+  <div class="row">
+    <div class="col-xs-12 title">
+      <a href="http://flippening.watch" class="main-link">
+        <img class="logo" src="../favicon/android-icon-192x192.png" alt="logo"/>
+        <h1>Flippening Watch</h1>
+      </a><br>
+    </div>
+    <div class="col-xs-12 navigation-bar">
+      <a href="/">Metrics</a>
+      <a href="/charts">Charts</a>
+      <a href="https://store.flippening.watch/">Store</a>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-xs-12 ad fivepx-top-padding">
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- Flippening Watch charts 1 -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-3200453829299141"
+     data-ad-slot="6619357522"
+     data-ad-format="auto"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+<footer>
+  <div class="container-fluid">
+    <div class="row twitter">
+      <div class="col-xs-12">
+        <a href="https://twitter.com/flippeningwatch" class="twitter-follow-button" data-size="large" data-show-count="true">Follow @flippeningwatc</a><script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-12">
+        <p>
+            <a class="link" href="https://store.flippening.watch" target="_blank"/>STORE</a> |
+            <a class="link" href="http://blog.flippening.watch/advertising/" target="_blank">ADVERTISE</a>
+        </p>
+        <p>
+            <a class="link" href="http://blog.flippening.watch/about/" target="_blank">ABOUT</a> |
+            <a class="link" href="http://blog.flippening.watch/contact/" target="_blank">CONTACT</a> |
+            <a class="link" href="http://blog.flippening.watch/sources-and-formulas/" target="_blank">SOURCES</a>
+        </p>
+        <p class="copyright">Donate ETH: flippeningwatch.eth</p>
+        <p class="copyright">0x00f2d1D2f91AD66Fb9828a0a6c299515aA969743</p>
+        <p class="copyright">&copy; 2017 <a href="http://poltavastreet.company/" target="_blank">poltava Street Company</a></p>
+      </div>
+    </div>
+  <div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script>
+<script type="text/javascript" src="../js/moment.js"></script>
+
+
+{%endblock%}
