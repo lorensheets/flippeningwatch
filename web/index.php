@@ -146,6 +146,35 @@ $app->get('/charts/', function() use($app) {
     array_push($eth_dates, $key);
   }
 
+  /* ripple historical market cap data api */
+  $xrp = curl_init();
+  curl_setopt($xrp, CURLOPT_SSL_VERIFYPEER, false);
+  curl_setopt($xrp, CURLOPT_RETURNTRANSFER, true);
+  curl_setopt($xrp, CURLOPT_URL, 'http://www.flippening.watch/xrpjsondata');
+  $xrpmktcap = curl_exec($xrp);
+  curl_close($xrp);
+  $xrpdata = json_decode($xrpmktcap);
+
+  $xrp_data = array();
+  foreach($xrpdata as $key => $val) {
+    array_push($xrp_data, $val);
+  }
+
+  /* total cryptocurrency historical market cap data api */
+  $mktcap = curl_init();
+  curl_setopt($mktcap, CURLOPT_SSL_VERIFYPEER, false);
+  curl_setopt($mktcap, CURLOPT_RETURNTRANSFER, true);
+  curl_setopt($mktcap, CURLOPT_URL, 'http://www.flippening.watch/mktcapjsondata');
+  $result_totalmktcap = curl_exec($mktcap);
+  curl_close($mktcap);
+  $total_mktcap_values = json_decode($result_totalmktcap);
+
+  $total_mktcap_dataset = array();
+
+  foreach($total_mktcap_values as $key => $val){
+    array_push($total_mktcap_dataset, $val);
+  }
+
 
   /* render html with data */
 
@@ -154,7 +183,9 @@ $app->get('/charts/', function() use($app) {
     'times' => $times,
     'api' => $api,
     'ethdata' => $eth_data,
-    'ethdates' => $eth_dates
+    'ethdates' => $eth_dates,
+    'total_mktcap_dataset' => $total_mktcap_dataset,
+    'xrpdata' => $xrp_data
   ));
 
 });
@@ -206,7 +237,7 @@ $app->get('/testchart/', function() use($app) {
     array_push($eth_data, $val);
   }
 
-  /* ethereum historical market cap data api */
+  /* ripple historical market cap data api */
   $xrp = curl_init();
   curl_setopt($xrp, CURLOPT_SSL_VERIFYPEER, false);
   curl_setopt($xrp, CURLOPT_RETURNTRANSFER, true);
