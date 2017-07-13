@@ -203,8 +203,8 @@ $app->get('/testchart/', function() use($app) {
 
   $total_mktcap_dataset = array();
 
-  foreach($values as $key => $val){
-    array_push($dataset, $val);
+  foreach($total_mktcap_values as $key => $val){
+    array_push($total_mktcap_dataset, $val);
   }
 
   return $app['twig']->render('testchart.twig', array(
