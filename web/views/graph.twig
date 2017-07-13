@@ -178,14 +178,8 @@ var flippening_ratio = [];
       labelArray.push("{{ time }}");
 {% endfor %}
 
-for (let i = 0; i < labelArray.length; i++) {
-  var newTime = labelArray[i]*1000;
-  /*var newTime = moment.utc(labelArray[i] * 1000).format('MM / YYYY');*/
-  times.push(newTime);
-}
-
 /* reverse datasets so the earliest points to most recent points */
-times.reverse();
+labelArray.reverse();
 data_set.reverse();
 eth_data.reverse();
 
