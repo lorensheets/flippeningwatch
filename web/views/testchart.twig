@@ -198,12 +198,13 @@
         },
         scales: {
             yAxes: [{
-                ticks: {
-                    beginAtZero:true,
-                    callback: function(value, index, values) {
-                        return '$' + value/1000000000 + "B";
-                    }
+              ticks: {
+                beginAtZero:true,
+                max: 100,
+                callback: function(value, index, values) {
+                  return value + "%";
                 }
+              }
             }],
             xAxes: [{
               gridLines: {
