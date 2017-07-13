@@ -1,9 +1,9 @@
 :root {
   --main-bg-color: #fff;
-  --main-text-color: #000;
+  --main-text-color: #111;
   --table-bg: #f6f6f6;
-  --ticker-color: #444;
-  --link-color: #444;
+  --ticker-color: #222;
+  --link-color: #222;
   --link-bg: #f5f6f7;
   --link-border: 2px solid #ddd;
   --light-grey: #888;
