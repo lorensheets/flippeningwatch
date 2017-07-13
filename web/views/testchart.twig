@@ -191,6 +191,16 @@
       labels: labelArray,
       datasets: [
         {
+          label: 'RIPPLE',
+          data: xrp_mkt_cap_pct,
+          backgroundColor: 'rgba(57,144,250,0.6)',
+          borderColor: 'rgba(57,144,250,1)',
+          borderWidth: 2,
+          pointRadius: 0,
+          pointBackgroundColor: 'rgba(57,144,250,0.6)',
+          pointBorderColor: 'rgba(57,144,250,0.6)'
+        },
+        {
           label: 'ETHEREUM',
           data: eth_mkt_cap_pct,
           backgroundColor: 'rgba(50,51,51,0.6)',
@@ -209,16 +219,6 @@
           pointRadius: 0,
           pointBackgroundColor: 'rgba(250,144,57,0.4)',
           pointBorderColor: 'rgba(250,144,57,0.4)'
-        },
-        {
-          label: 'RIPPLE',
-          data: xrp_mkt_cap_pct,
-          backgroundColor: 'rgba(57,144,250,0.4)',
-          borderColor: 'rgba(57,144,250,1)',
-          borderWidth: 2,
-          pointRadius: 0,
-          pointBackgroundColor: 'rgba(57,144,250,0.4)',
-          pointBorderColor: 'rgba(57,144,250,0.4)'
         }
       ]
     },
