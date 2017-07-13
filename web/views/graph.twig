@@ -175,7 +175,7 @@ var flippening_ratio = [];
 {% endfor %}
 
 {% for time in times %}
-      labelArray.push( {{ time }} );
+      labelArray.push("{{ time }}");
 {% endfor %}
 
 for (let i = 0; i < labelArray.length; i++) {
