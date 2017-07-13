@@ -192,9 +192,25 @@ $app->get('/testchart/', function() use($app) {
     array_push($times, $key);
   }
 
+  /* total cryptocurrency historical market cap data api */
+  $mktcap = curl_init();
+  curl_setopt($mktcap, CURLOPT_SSL_VERIFYPEER, false);
+  curl_setopt($mktcap, CURLOPT_RETURNTRANSFER, true);
+  curl_setopt($mktcap, CURLOPT_URL, 'http://www.flippening.watch/btcjsondata');
+  $result_totalmktcap = curl_exec($mktcap);
+  curl_close($mktcap);
+  $total_mktcap_values = json_decode($result_totalmktcap);
+
+  $total_mktcap_dataset = array();
+
+  foreach($values as $key => $val){
+    array_push($dataset, $val);
+  }
+
   return $app['twig']->render('testchart.twig', array(
     'dataset' => $dataset,
     'times' => $times,
+    'total_mktcap_dataset' => $total_mktcap_dataset
     'api' => $api
   ));
 
@@ -346,6 +362,10 @@ $app->get('/ethjsondata', function() use($app) {
 
 $app->get('/btcjsondata', function() use($app) {
   return $app['twig']->render('btc.html');
+});
+
+$app->get('/mktcapjsondata', function() use($app) {
+  return $app['twig']->render('totalmarketcap.html');
 });
 
 $app->run();

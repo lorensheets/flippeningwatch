@@ -123,10 +123,15 @@
   var pct = 0;
   var labelArray = [];
   var data_set = [];
+  var total_mktcap = [];
   var btc_mkt_cap_pct = [];
 
   {% for item in dataset %}
         data_set.push( {{ item }} );
+  {% endfor %}
+
+  {% for item in total_mktcap_dataset %}
+        total_mktcap.push( {{ item }} );
   {% endfor %}
 
   {% for time in times %}
@@ -135,10 +140,11 @@
 
   labelArray.reverse();
   data_set.reverse();
+  total_mktcap.reverse();
 
   /* create array of flippening ratios */
-  for (let i = 0; i < data_set.length; i++) {
-    var ratio = (data_set[i]/mkt_cap)*100;
+  for (let i = 0; i < labelArray.length; i++) {
+    var ratio = (data_set[i]/total_mktcap[i])*100;
     btc_mkt_cap_pct.push(ratio);
   }
 
@@ -157,7 +163,7 @@
       datasets: [
         {
           label: 'BITCOIN',
-          data: data_set,
+          data: btc_mkt_cap_pct,
           backgroundColor: 'rgba(250,144,57,0.4)',
           borderColor: 'rgba(250,144,57,1)',
           borderWidth: 2,
