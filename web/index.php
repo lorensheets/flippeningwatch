@@ -160,12 +160,43 @@ $app->get('/charts/', function() use($app) {
 });
 
 
-
+/* test chart page */
 $app->get('/testchart/', function() use($app) {
 
+  /* get ticker data from database */
+  $st = $app['pdo']->prepare('SELECT * FROM crypto');
+  $st->execute();
 
+  $api = array();
 
-  return $app['twig']->render('testchart.twig');
+  $row = $st->fetch(PDO::FETCH_ASSOC);
+  array_push($api, $row['btc']);
+  array_push($api, $row['eth']);
+  array_push($api, $row['eth_price']);
+  array_push($api, $row['btc_price']);
+  array_push($api, $row['mkt_cap']);
+
+  /* bitcoin historical market cap data api */
+  $mk = curl_init();
+  curl_setopt($mk, CURLOPT_SSL_VERIFYPEER, false);
+  curl_setopt($mk, CURLOPT_RETURNTRANSFER, true);
+  curl_setopt($mk, CURLOPT_URL, 'http://www.flippening.watch/btcjsondata');
+  $result_mktcap = curl_exec($mk);
+  curl_close($mk);
+  $values = json_decode($result_mktcap);
+
+  $dataset = array();
+  $times = array();
+  foreach($values as $key => $val){
+    array_push($dataset, $val);
+    array_push($times, $key);
+  }
+
+  return $app['twig']->render('testchart.twig', array(
+    'dataset' => $dataset,
+    'times' => $times,
+    'api' => $api
+  ));
 
 });
 

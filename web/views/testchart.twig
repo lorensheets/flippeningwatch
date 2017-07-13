@@ -67,14 +67,25 @@
   </div>
 </div>
 
+<!-- chart begins -->
+<div class="container-fluid table-container market-share-comparison">
 
+  <div class="row transparent">
+    <div class="col-xs-12">
+      <h2>Market Share</h2>
+      <p>ETH vs. BTC vs XRP</p>
+    </div>
+  </div>
 
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="chart-container">
+          <canvas id="marketShareComparison" class="chart"></canvas>
+      </div>
+    </div>
+  </div>
 
-
-
-
-
-
+</div>
 
 
 <footer>
@@ -106,5 +117,38 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script>
 <script type="text/javascript" src="../js/moment.js"></script>
 
+<!-- chart script -->
+<script>
+
+  var pct = 0;
+  var labelArray = [];
+  var data_set = [];
+
+  {% for item in dataset %}
+        data_set.push( {{ item }} );
+  {% endfor %}
+
+  {% for time in times %}
+        labelArray.push("{{ time }}");
+  {% endfor %}
+
+  var mksh = document.getElementById("marketShareComparison").getContext('2d');
+  Chart.defaults.global.defaultColor = 'rgba(0,0,0,0)';
+  Chart.defaults.global.defaultFont = "Raleway";
+  Chart.defaults.global.defaultFontSize = 14;
+  Chart.defaults.global.defaultFontColor = '#000';
+
+  var mkshChart = new Chart(mksh, {
+    type: 'line',
+    data: {
+
+    },
+    options {
+
+    }
+  }
+
+
+</script>
 
 {%endblock%}
