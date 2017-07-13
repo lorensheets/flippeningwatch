@@ -167,7 +167,7 @@ $app->get('/testchart/', function() use($app) {
 
   return $app['twig']->render('testchart.twig');
 
-}
+});
 
 
 
