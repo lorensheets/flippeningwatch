@@ -86,6 +86,21 @@
     </div>
   </div>
 
+  <div class="row transparent">
+    <div class="col-xs-12">
+      <h2>Market Share</h2>
+      <p>ETH, BTC, XRP</p>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="chart-container">
+          <canvas id="marketShareComparison" class="chart"></canvas>
+      </div>
+    </div>
+  </div>
+
 </div>
 
 <div class="container-fluid">
@@ -161,10 +176,15 @@ var pct = 0;
 
 var labelArray = [];
 var data_set = [];
-var times = [];
 var eth_data = [];
-var eth_times = [];
+var xrp_data = [];
+
 var flippening_ratio = [];
+
+var total_mktcap = [];
+var btc_mkt_cap_pct = [];
+var eth_mkt_cap_pct = [];
+var xrp_mkt_cap_pct = [];
 
 {% for cap in ethdata %}
   eth_data.push({{ cap }});
@@ -172,6 +192,14 @@ var flippening_ratio = [];
 
 {% for item in dataset %}
       data_set.push( {{ item }} );
+{% endfor %}
+
+{% for cap in xrpdata %}
+  xrp_data.push({{ cap }});
+{%endfor%}
+
+{% for item in total_mktcap_dataset %}
+  total_mktcap.push( {{ item }} );
 {% endfor %}
 
 {% for time in times %}
@@ -182,22 +210,30 @@ var flippening_ratio = [];
 labelArray.reverse();
 data_set.reverse();
 eth_data.reverse();
+xrp_data.reverse();
+total_mktcap.reverse();
 
-/* difference number of datapoints in bitcoin and ethereum datasets */
+/* get difference between number of elements in data_set and total_mktcap */
 var btc_datapoints = data_set.length;
-var eth_datapoints = eth_data.length;
-var diff = eth_datapoints - btc_datapoints;
+var total_mktcap_datapoints = total_mktcap.length;
+var total_diff = btc_datapoints - total_mktcap_datapoints;
 
-/* remove difference from eth dataset */
-eth_data.splice(0, diff);
-
-console.log(eth_data.length);
+//* remove difference from datasets */
+data_set.splice(0, total_diff);
+eth_data.splice(0, total_diff);
+labelArray.splice(0, total_diff);
 
 
 /* create array of flippening ratios */
 for (let i = 0; i < data_set.length; i++) {
-  var ratio = (eth_data[i]/data_set[i])*100;
+  let ratio = (eth_data[i]/data_set[i])*100;
+  let btc_ratio = (data_set[i]/total_mktcap[i])*100;
+  let eth_ratio = (eth_data[i]/total_mktcap[i])*100;
+  let xrp_ratio = (xrp_data[i]/total_mktcap[i])*100;
   flippening_ratio.push(ratio);
+  btc_mkt_cap_pct.push(btc_ratio);
+  eth_mkt_cap_pct.push(eth_ratio);
+  xrp_mkt_cap_pct.push(xrp_ratio);
 }
 
 /* market cap comparison chart */
@@ -337,6 +373,99 @@ var newChart = new Chart(ctxratio, {
     }
   }
 });
+
+
+/* market share chart */
+var mksh = document.getElementById("marketShareComparison").getContext('2d');
+Chart.defaults.global.defaultColor = 'rgba(0,0,0,0)';
+Chart.defaults.global.defaultFont = "Raleway";
+Chart.defaults.global.defaultFontSize = 14;
+Chart.defaults.global.defaultFontColor = '#000';
+
+var mkshChart = new Chart(mksh, {
+  type: 'line',
+  data: {
+    labels: labelArray,
+    datasets: [
+      {
+        label: 'RIPPLE',
+        data: xrp_mkt_cap_pct,
+        backgroundColor: 'rgba(10,50,200,0.6)',
+        borderColor: 'rgba(10,50,200,1)',
+        borderWidth: 2,
+        pointRadius: 0,
+        pointBackgroundColor: 'rgba(10,50,200,0.6)',
+        pointBorderColor: 'rgba(10,50,200,0.6)'
+      },
+      {
+        label: 'ETHEREUM',
+        data: eth_mkt_cap_pct,
+        backgroundColor: 'rgba(50,51,51,0.6)',
+        borderColor: 'rgba(50,51,51,1)',
+        borderWidth: 2,
+        pointRadius: 0,
+        pointBackgroundColor: 'rgba(50,51,51,0.6)',
+        pointBorderColor: 'rgba(50,51,51,0.6)'
+      },
+      {
+        label: 'BITCOIN',
+        data: btc_mkt_cap_pct,
+        backgroundColor: 'rgba(250,144,57,0.4)',
+        borderColor: 'rgba(250,144,57,1)',
+        borderWidth: 2,
+        pointRadius: 0,
+        pointBackgroundColor: 'rgba(250,144,57,0.4)',
+        pointBorderColor: 'rgba(250,144,57,0.4)'
+      }
+    ]
+  },
+  options: {
+    tooltips: {
+          mode: 'x',
+          intersect: false,
+          displayColors: true,
+          callbacks: {
+            label: function(tooltipItem, data) {
+              return "$" + Number(tooltipItem.yLabel).toFixed(0).replace(/./g, function(c, i, a) {
+                return i > 0 && c !== "." && (a.length - i) % 3 === 0 ? "," + c : c;
+              });
+            },
+            title: function(tooltipItem, data) {
+              newDate = data.labels[tooltipItem[0].index];
+              return moment.utc(newDate).format('MMMM Do YYYY');
+            }
+          }
+      },
+      elements: {
+          line: {
+              tension: 0, // disables bezier curves
+          }
+      },
+      scales: {
+          yAxes: [{
+            ticks: {
+              beginAtZero:true,
+              max: 100,
+              callback: function(value, index, values) {
+                return value + "%";
+              }
+            }
+          }],
+          xAxes: [{
+            gridLines: {
+              color: "#FFFFFF"
+            },
+            ticks: {
+                callback: function(value, index, values) {
+                    return moment.utc(value).format('MM / YYYY');
+                }
+            }
+
+          }]
+      }
+  }
+});
+
 
 
 /* price ticker data */
