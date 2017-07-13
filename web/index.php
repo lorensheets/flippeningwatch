@@ -163,11 +163,9 @@ $app->get('/charts/', function() use($app) {
 
 $app->get('/testchart/', function() use($app) {
 
-  
 
-  return $app['twig']->render('testchart.twig', array(
 
-  ));
+  return $app['twig']->render('testchart.twig');
 
 }
 
