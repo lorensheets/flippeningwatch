@@ -132,6 +132,7 @@
 
   {% for item in total_mktcap_dataset %}
         total_mktcap.push( {{ item }} );
+        console.log({{item}});
   {% endfor %}
 
   {% for time in times %}
@@ -145,7 +146,6 @@
   /* create array of market comparison ratios */
   for (let i = 0; i < labelArray.length; i++) {
     var ratio = (data_set[i]/total_mktcap[i])*100;
-    console.log(ratio);
     btc_mkt_cap_pct.push(ratio);
   }
 
