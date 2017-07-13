@@ -196,7 +196,7 @@ $app->get('/testchart/', function() use($app) {
   $mktcap = curl_init();
   curl_setopt($mktcap, CURLOPT_SSL_VERIFYPEER, false);
   curl_setopt($mktcap, CURLOPT_RETURNTRANSFER, true);
-  curl_setopt($mktcap, CURLOPT_URL, 'http://www.flippening.watch/btcjsondata');
+  curl_setopt($mktcap, CURLOPT_URL, 'http://www.flippening.watch/mktcapjsondata');
   $result_totalmktcap = curl_exec($mktcap);
   curl_close($mktcap);
   $total_mktcap_values = json_decode($result_totalmktcap);
