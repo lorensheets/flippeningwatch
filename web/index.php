@@ -206,6 +206,20 @@ $app->get('/testchart/', function() use($app) {
     array_push($eth_data, $val);
   }
 
+  /* ethereum historical market cap data api */
+  $xrp = curl_init();
+  curl_setopt($xrp, CURLOPT_SSL_VERIFYPEER, false);
+  curl_setopt($xrp, CURLOPT_RETURNTRANSFER, true);
+  curl_setopt($xrp, CURLOPT_URL, 'http://www.flippening.watch/xrpjsondata');
+  $xrpmktcap = curl_exec($xrp);
+  curl_close($xrp);
+  $xrpdata = json_decode($xrpmktcap);
+
+  $xrp_data = array();
+  foreach($xrpdata as $key => $val) {
+    array_push($xrp_data, $val);
+  }
+
   /* total cryptocurrency historical market cap data api */
   $mktcap = curl_init();
   curl_setopt($mktcap, CURLOPT_SSL_VERIFYPEER, false);
@@ -226,6 +240,7 @@ $app->get('/testchart/', function() use($app) {
     'times' => $times,
     'total_mktcap_dataset' => $total_mktcap_dataset,
     'ethdata' => $eth_data,
+    'xrpdata' => $xrp_data,
     'api' => $api
   ));
 
@@ -377,6 +392,10 @@ $app->get('/ethjsondata', function() use($app) {
 
 $app->get('/btcjsondata', function() use($app) {
   return $app['twig']->render('btc.html');
+});
+
+$app->get('/xrpjsondata', function() use($app) {
+  return $app['twig']->render('xrp.html');
 });
 
 $app->get('/mktcapjsondata', function() use($app) {
