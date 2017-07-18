@@ -196,6 +196,8 @@ p {
 }
 .crypto {
   display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 .align-rt {
   text-align: right;
