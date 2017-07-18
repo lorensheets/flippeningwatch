@@ -144,6 +144,7 @@ p {
 }
 .subtitle div {
   margin: 5px 0;
+  white-space: nowrap;
 }
 .subtitle .link {
   display: inline-block;
