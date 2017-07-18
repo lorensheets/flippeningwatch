@@ -246,10 +246,6 @@ a.main-link:hover {
   color: var(--main-text-color) !important;
   text-decoration: none !important;
 }
-.inline {
-  display: inline-block;
-  vertical-align: middle;
-}
 .chart-icon {
   display: inline-block;
   vertical-align: middle;

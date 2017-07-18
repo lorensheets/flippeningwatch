@@ -100,7 +100,7 @@
       <p>Market Cap</p>
     </div>
     <div class="col col-xs-3 col-sm-3 crypto border-top-left">
-      <p id="eth_mkt_cap" class="inline"></p>
+      <p id="eth_mkt_cap"></p>
     </div>
     <div class="col col-xs-3 col-sm-3 crypto border-top-left">
       <p id="btc_mkt_cap"></p>
@@ -549,8 +549,8 @@
 
     var chartLink = "<a class=\"chart-icon\" href=\"/charts#marketCapComparison_chart\"><img src=\"images/chart-icon.png\"/></a>";
 
-    $('#btc_mkt_cap').html( "$" + btc.toLocaleString('en-US') + chartLink);
-    $('#eth_mkt_cap').html( "$" + eth.toLocaleString('en-US') + chartLink);
+    $('#btc_mkt_cap').html( "$" + btc.toLocaleString('en-US'));
+    $('#eth_mkt_cap').html( "$" + eth.toLocaleString('en-US'));
     $("#eth_btc_pct").html( pct.toFixed(1) + "%" );
     if (pct > 100) {
       $("#eth_btc_pct").parent().css({
