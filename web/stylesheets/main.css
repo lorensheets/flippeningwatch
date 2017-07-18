@@ -246,6 +246,14 @@ a.main-link:hover {
   color: var(--main-text-color) !important;
   text-decoration: none !important;
 }
+.chart-icon {
+  display: inline-block;
+  margin-right: -20px;
+}
+.chart-icon img {
+  height: 20px;
+  width: 20px;
+}
 
 /* percentage filler */
 
