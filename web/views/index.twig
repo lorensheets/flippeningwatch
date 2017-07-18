@@ -547,9 +547,10 @@
     $('#eth_dom').html("ETH MS: " + eth_dom.toFixed(1) + "%");
     $('#pct_dom').html("ETH/BTC: " + pct_dom.toFixed(1) + "%");
 
+    var chartLink = "<a class=\"chart-icon\" href=\"/charts#marketCapComparison_chart\"><img src=\"images/chart-icon.png\"/></a>";
 
-    $('#btc_mkt_cap').html( "$" + btc.toLocaleString('en-US') );
-    $('#eth_mkt_cap').html( "$" + eth.toLocaleString('en-US') );
+    $('#btc_mkt_cap').html( "$" + btc.toLocaleString('en-US') + chartLink);
+    $('#eth_mkt_cap').html( "$" + eth.toLocaleString('en-US') + chartLink);
     $("#eth_btc_pct").html( pct.toFixed(1) + "%" );
     if (pct > 100) {
       $("#eth_btc_pct").parent().css({
