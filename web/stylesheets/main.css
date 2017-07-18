@@ -195,7 +195,7 @@ p {
   text-align: center;
 }
 .crypto {
-  display: inline;
+  display: flex;
 }
 .align-rt {
   text-align: right;
