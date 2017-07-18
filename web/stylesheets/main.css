@@ -58,6 +58,9 @@ p {
   margin: 0;
   padding: 0;
 }
+.inline {
+  display: inline;
+}
 .container-fluid {
   padding: 0 !important;
 }
