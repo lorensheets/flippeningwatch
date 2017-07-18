@@ -260,11 +260,14 @@ a.main-link:hover {
   -o-transition: 0.2s;
 }
 .chart-icon img:hover {
+  /*
   transform: scale(1.05);
   -webkit-transform: scale(1.05);
   -moz-transform: scale(1.05);
   -ms-transform: scale(1.05);
   -o-transform: scale(1.05);
+  */
+  margin-right: -25px;
   transition: 0.2s;
   -webkit-transition: 0.2s;
   -moz-transition: 0.2s;
