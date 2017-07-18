@@ -237,16 +237,6 @@ eth_data.reverse();
 xrp_data.reverse();
 total_mktcap.reverse();
 
-/* get difference between number of elements in data_set and total_mktcap */
-var btc_datapoints = data_set.length;
-var total_mktcap_datapoints = total_mktcap.length;
-var total_diff = btc_datapoints - total_mktcap_datapoints;
-
-//* remove difference from datasets */
-data_set.splice(0, total_diff);
-eth_data.splice(0, total_diff);
-labelArray.splice(0, total_diff);
-
 
 /* create array of flippening ratios */
 for (let i = 0; i < data_set.length; i++) {
