@@ -383,6 +383,9 @@ a.main-link:hover {
   .ad {
     padding: 0 0 10px 0px;
   }
+  .full-padding {
+    padding: 15px 0;
+  }
   .no-padding {
     padding: 5px 0 0 0;
   }
