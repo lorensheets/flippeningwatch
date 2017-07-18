@@ -58,9 +58,6 @@ p {
   margin: 0;
   padding: 0;
 }
-.inline {
-  display: inline-block;
-}
 .container-fluid {
   padding: 0 !important;
 }
@@ -198,7 +195,7 @@ p {
   text-align: center;
 }
 .crypto {
-  display: inline;
+  display: flex;
 }
 .align-rt {
   text-align: right;
