@@ -247,9 +247,8 @@ a.main-link:hover {
   text-decoration: none !important;
 }
 .inline {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  display: inline-block;
+  vertical-align: middle;
 }
 .chart-icon {
   display: inline-block;
