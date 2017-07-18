@@ -144,7 +144,6 @@ p {
 }
 .subtitle div {
   margin: 5px 0;
-  white-space: nowrap;
 }
 .subtitle .link {
   display: inline-block;
@@ -281,6 +280,9 @@ a.main-link:hover {
   }
   #last_updated {
     display: none;
+  }
+  .subtitle .link {
+    font-size: 0.8em;
   }
 }
 
