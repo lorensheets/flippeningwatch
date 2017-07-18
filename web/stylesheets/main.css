@@ -59,7 +59,7 @@ p {
   padding: 0;
 }
 .inline {
-  display: inline;
+  display: inline-block;
 }
 .container-fluid {
   padding: 0 !important;
