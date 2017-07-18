@@ -196,8 +196,6 @@ p {
 }
 .crypto {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
 }
 .align-rt {
   text-align: right;
@@ -253,6 +251,7 @@ a.main-link:hover {
   margin-right: -20px;
 }
 .chart-icon img {
+  vertical-align: middle;
   height: 20px;
   width: 20px;
   transition: 0.2s;
