@@ -281,6 +281,9 @@ a.main-link:hover {
   #last_updated {
     display: none;
   }
+  .subtitle {
+    white-space: nowrap;
+  }
   .subtitle .link {
     font-size: 0.8em;
   }
