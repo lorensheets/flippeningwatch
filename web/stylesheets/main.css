@@ -285,6 +285,7 @@ a.main-link:hover {
     white-space: nowrap;
   }
   .subtitle .link {
+    margin: 0px 1px 5px 1px;
     font-size: 0.7em;
   }
 }
