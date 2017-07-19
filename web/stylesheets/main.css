@@ -270,6 +270,12 @@ img.chart-icon-img-menu {
   height: 20px;
   width: 20px;
   margin: -4px 0 1px 3px;
+  -webkit-backface-visibility: hidden;
+  transition: 0.2s;
+  -webkit-transition: 0.2s;
+  -moz-transition: 0.2s;
+  -ms-transition: 0.2s;
+  -o-transition: 0.2s;
 }
 .chart-icon:hover {
   text-decoration: none;
