@@ -268,20 +268,13 @@ img.chart-icon-img-menu {
   width: 20px;
   margin: 0 0 0 3px;
   display: inline-block;
-  vertical-align: text-bottom;
+  vertical-align: middle;
 }
 .chart-icon:hover {
   text-decoration: none;
   color: var(--main-text-color);
 }
 .chart-icon:hover img {
-  /*
-  transform: scale(1.05);
-  -webkit-transform: scale(1.05);
-  -moz-transform: scale(1.05);
-  -ms-transform: scale(1.05);
-  -o-transform: scale(1.05);
-  */
   -webkit-backface-visibility: hidden;
   transform: translateX(5px);
   -webkit-transform: translateX(5px);
