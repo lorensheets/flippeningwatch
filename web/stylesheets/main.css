@@ -263,9 +263,9 @@ img.chart-icon-img {
   -webkit-backface-visibility: hidden;
 }
 img.chart-icon-img-menu {
-  margin-left: 10px;
+  margin-left: 5px;
   display: inline-block;
-  vertical-align: bottom;
+  vertical-align: text-top;
   height: 15px;
   width: 15px;
 }
