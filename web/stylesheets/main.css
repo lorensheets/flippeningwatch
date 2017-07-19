@@ -127,7 +127,7 @@ p {
   padding: 5px 0px 0px 0px;
 }
 .navigation-bar {
-  margin-bottom: 5px;
+  margin: 5px 0;
 }
 .navigation-bar a {
   display: inline-block;
@@ -369,6 +369,9 @@ img.chart-icon-img-menu {
   }
   .logo {
     height: 70px !important;
+  }
+  .navigation-bar {
+    margin: 0 0 5px 0;
   }
   .navigation-bar a {
     font-size: 1.1em;
