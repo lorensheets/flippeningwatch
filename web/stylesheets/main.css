@@ -262,6 +262,11 @@ img.chart-icon-img {
   -o-transition: 0.2s;
   -webkit-backface-visibility: hidden;
 }
+img.chart-icon-img-menu {
+  margin-left: 0px;
+  height: 15px;
+  width: 15px;
+}
 .chart-icon:hover {
   text-decoration: none;
   color: var(--main-text-color);
