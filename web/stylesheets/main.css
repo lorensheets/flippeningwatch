@@ -252,6 +252,7 @@ a.main-link:hover {
   color: var(--main-text-color);
 }
 .chart-icon img {
+  margin-left: 5px;
   height: 20px;
   width: 20px;
   transition: 0.2s;
@@ -274,7 +275,6 @@ a.main-link:hover {
   -o-transform: scale(1.05);
   */
   -webkit-backface-visibility: hidden;
-
   transform: translateX(5px);
   -webkit-transform: translateX(5px);
   -moz-transform: translateX(5px) translateZ(0);
