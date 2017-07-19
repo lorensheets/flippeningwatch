@@ -267,7 +267,7 @@ img.chart-icon-img-menu {
   width: 20px;
   margin: 0 0 0 5px;
   display: inline-block;
-  vertical-align: text-top;
+  vertical-align: text-bottom;
 }
 .chart-icon:hover {
   text-decoration: none;
