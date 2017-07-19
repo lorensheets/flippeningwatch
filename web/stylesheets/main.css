@@ -373,6 +373,9 @@ img.chart-icon-img-menu {
   .navigation-bar a {
     font-size: 1.1em;
   }
+  img.chart-icon-img-menu {
+    margin: 0 0 0 3px;
+  }
   .title {
     padding: 15px 0px 0px 0px;
   }
