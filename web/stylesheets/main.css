@@ -261,7 +261,11 @@ a.main-link:hover {
   -o-transition: 0.2s;
   -webkit-backface-visibility: hidden;
 }
-.chart-icon img:hover {
+.chart-icon:hover {
+  text-decoration: none;
+  color: var(--main-text-color);
+}
+.chart-icon:hover img {
   /*
   transform: scale(1.05);
   -webkit-transform: scale(1.05);
