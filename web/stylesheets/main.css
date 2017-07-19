@@ -247,8 +247,9 @@ a.main-link:hover {
   text-decoration: none !important;
 }
 .chart-icon {
-  display: inline-block;
   margin-right: -20px;
+  text-decoration: none;
+  color: var(--main-text-color);
 }
 .chart-icon img {
   height: 20px;
@@ -259,7 +260,6 @@ a.main-link:hover {
   -ms-transition: 0.2s;
   -o-transition: 0.2s;
   -webkit-backface-visibility: hidden;
-
 }
 .chart-icon img:hover {
   /*
