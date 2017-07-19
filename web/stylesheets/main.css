@@ -144,7 +144,7 @@ p {
   text-decoration: underline;
 }
 .subtitle div {
-  margin: 5px 0;
+  margin: 5px 0 0 0;
 }
 .subtitle .link {
   display: inline-block;
@@ -384,6 +384,9 @@ img.chart-icon-img-menu {
   }
   .title div {
     margin-top: 10px;
+  }
+  .subtitle div {
+    margin: 5px 0;
   }
   .table-container {
     padding: 20px 0 0 0;
