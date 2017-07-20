@@ -120,6 +120,9 @@ p {
 .ticker .price img {
   height: 15px;
 }
+.ticker p {
+  display: inline-block;
+}
 #btc_price {
   margin-right: 15px;
 }
