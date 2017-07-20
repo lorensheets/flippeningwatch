@@ -120,6 +120,9 @@ p {
 .ticker .price img {
   height: 15px;
 }
+.ticker a {
+  color: var(--ticker-color);
+}
 .ticker p {
   display: inline-block;
 }
