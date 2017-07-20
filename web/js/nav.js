@@ -7,7 +7,7 @@ $(document).ready(function() {
       'border': '2px solid #dddddd',
       'padding': '5px 5px 3px 5px',
       'border-radius': '10px',
-      'background-color': '#f5f6f7',
+      'background-color': 'var(--table-bg)',
       'font-weight': '800'
     });
   } else {
@@ -15,7 +15,7 @@ $(document).ready(function() {
       'border': '2px solid #dddddd',
       'padding': '5px 5px 3px 5px',
       'border-radius': '10px',
-      'background-color': '#f5f6f7',
+      'background-color': 'var(--table-bg)',
       'font-weight': '800'
     });
   }
