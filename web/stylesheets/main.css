@@ -127,6 +127,8 @@ p {
   text-decoration: none;
 }
 .ticker a img {
+  height: 16px;
+  width: 16px;
   -webkit-backface-visibility: hidden;
   transition: 0.2s;
   -webkit-transition: 0.2s;
@@ -405,6 +407,10 @@ img.chart-icon-img-menu {
   .ticker .col-sm-3 {
     border-right: var(--dark-border);
     padding: 0;
+  }
+  .ticker a img {
+    height: 20px;
+    width: 20px;
   }
   .logo {
     height: 70px !important;
