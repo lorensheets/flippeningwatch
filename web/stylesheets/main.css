@@ -120,11 +120,11 @@ p {
 .ticker .price img {
   height: 15px;
 }
-.ticker a {
+.ticker div a {
   color: var(--ticker-color);
   text-decoration: underline !important;
 }
-.ticker a:hover {
+.ticker div a:hover {
   cursor: pointer;
   color: var(--link-hover);
 }
