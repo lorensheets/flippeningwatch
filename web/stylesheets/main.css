@@ -10,8 +10,8 @@
   --light-grey: #888;
   --border: 1px solid #ddd;
   --dark-border: 1px solid #ccc;
-  --link-underline: 1px solid #111;
-  --link-underline-hover: 1px solid #0000ee;
+  --link-underline: 2px solid #111;
+  --link-underline-hover: 2px solid #0000ee;
   --pct: #eee;
 }
 html, body {
