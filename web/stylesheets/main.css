@@ -125,6 +125,7 @@ p {
   text-decoration: underline !important;
 }
 .ticker a:hover {
+  cursor: pointer;
   color: var(--link-hover);
 }
 .ticker p {
