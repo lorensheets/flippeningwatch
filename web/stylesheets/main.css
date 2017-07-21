@@ -268,7 +268,7 @@ p {
 }
 .chart-icon {
   color: var(--main-text-color) !important;
-  text-decoration: underline;
+  text-decoration: underline !important;
 }
 .chart-icon:hover {
   cursor: pointer;
