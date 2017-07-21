@@ -269,7 +269,7 @@ p {
   color: var(--link-hover) !important;
 }
 .underline {
-  display: block;
+  display: inline-block;
   color: var(--main-text-color) !important;
   border-bottom: var(--link-underline);
   text-decoration: none !important;
