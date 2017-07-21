@@ -120,14 +120,6 @@ p {
 .ticker .price img {
   height: 15px;
 }
-.ticker a {
-  color: var(--ticker-color);
-  text-decoration: underline !important;
-}
-.ticker a:hover {
-  cursor: pointer;
-  color: var(--link-hover);
-}
 .ticker p {
   display: inline-block;
 }
@@ -272,7 +264,7 @@ p {
 }
 .chart-link:hover {
   cursor: pointer;
-  color: var(--link-hover);
+  color: var(--link-hover) !important;
 }
 
 
