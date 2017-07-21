@@ -4,6 +4,7 @@
   --table-bg: #f6f6f6;
   --ticker-color: #222;
   --link-color: #222;
+  --link-hover: #25e;
   --link-bg: #f5f6f7;
   --link-border: 2px solid #ddd;
   --light-grey: #888;
@@ -122,32 +123,10 @@ p {
 }
 .ticker a {
   color: var(--ticker-color);
+  text-decoration: underline;
 }
 .ticker a:hover {
-  text-decoration: none;
-}
-.ticker a img {
-  height: 16px;
-  width: 16px;
-  -webkit-backface-visibility: hidden;
-  transition: 0.2s;
-  -webkit-transition: 0.2s;
-  -moz-transition: 0.2s;
-  -ms-transition: 0.2s;
-  -o-transition: 0.2s;
-}
-.ticker a:hover img {
-  -webkit-backface-visibility: hidden;
-  transform: translateX(5px);
-  -webkit-transform: translateX(5px);
-  -moz-transform: translateX(5px) translateZ(0);
-  -ms-transform: translateX(5px) translateZ(0);
-  -o-transform: translateX(5px) translateZ(0);
-  transition: 0.2s;
-  -webkit-transition: 0.2s;
-  -moz-transition: 0.2s;
-  -ms-transition: 0.2s;
-  -o-transition: 0.2s;
+  color: var(--link-hover);
 }
 .ticker p {
   display: inline-block;
@@ -282,50 +261,10 @@ a.main-link:hover {
   color: var(--main-text-color) !important;
   text-decoration: none !important;
 }
-.chart-icon {
-  margin-right: -20px;
-  text-decoration: none;
-  color: var(--main-text-color);
-}
-img.chart-icon-img {
-  margin-left: 5px;
-  height: 20px;
-  width: 20px;
-  transition: 0.2s;
-  -webkit-transition: 0.2s;
-  -moz-transition: 0.2s;
-  -ms-transition: 0.2s;
-  -o-transition: 0.2s;
-  -webkit-backface-visibility: hidden;
-}
-img.chart-icon-img-menu {
-  height: 20px;
-  width: 20px;
-  margin: -4px 0 1px 3px;
-  -webkit-backface-visibility: hidden;
-  transition: 0.2s;
-  -webkit-transition: 0.2s;
-  -moz-transition: 0.2s;
-  -ms-transition: 0.2s;
-  -o-transition: 0.2s;
-}
-.chart-icon:hover {
-  text-decoration: none;
-  color: var(--main-text-color);
-}
-.chart-icon:hover img {
-  -webkit-backface-visibility: hidden;
-  transform: translateX(5px);
-  -webkit-transform: translateX(5px);
-  -moz-transform: translateX(5px) translateZ(0);
-  -ms-transform: translateX(5px) translateZ(0);
-  -o-transform: translateX(5px) translateZ(0);
-  transition: 0.2s;
-  -webkit-transition: 0.2s;
-  -moz-transition: 0.2s;
-  -ms-transition: 0.2s;
-  -o-transition: 0.2s;
-}
+
+
+
+
 
 /* percentage filler */
 
@@ -408,10 +347,6 @@ img.chart-icon-img-menu {
     border-right: var(--dark-border);
     padding: 0;
   }
-  .ticker a img {
-    height: 20px;
-    width: 20px;
-  }
   .logo {
     height: 70px !important;
   }
@@ -420,9 +355,6 @@ img.chart-icon-img-menu {
   }
   .navigation-bar a {
     font-size: 1.1em;
-  }
-  img.chart-icon-img-menu {
-    margin: -3px 0 0 3px;
   }
   .title {
     padding: 10px 0px 0px 0px;
