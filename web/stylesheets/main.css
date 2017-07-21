@@ -271,6 +271,7 @@ p {
 .underline {
   color: var(--main-text-color) !important;
   border-bottom: var(--link-underline);
+  text-decoration: none !important;
 }
 .underline:hover {
   color: var(--link-hover) !important;
