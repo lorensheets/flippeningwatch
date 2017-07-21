@@ -10,6 +10,8 @@
   --light-grey: #888;
   --border: 1px solid #ddd;
   --dark-border: 1px solid #ccc;
+  --link-underline: 1px solid #111;
+  --link-underline-hover: 1px solid #0000ee;
   --pct: #eee;
 }
 html, body {
@@ -265,6 +267,14 @@ p {
 .chart-link:hover {
   cursor: pointer;
   color: var(--link-hover) !important;
+}
+.underline {
+  color: var(--main-text-color) !important;
+  border-bottom: var(--link-underline);
+}
+.underline:hover {
+  color: var(--link-hover) !important;
+  border-bottom: var(--link-underline-hover);
 }
 
 
