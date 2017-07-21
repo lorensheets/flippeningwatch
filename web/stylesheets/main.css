@@ -270,6 +270,7 @@ p {
 }
 .underline {
   display: inline-block;
+  margin-bottom: 5px;
   color: var(--main-text-color) !important;
   border-bottom: var(--link-underline);
   text-decoration: none !important;
