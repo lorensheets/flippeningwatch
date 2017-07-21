@@ -266,11 +266,11 @@ p {
   color: var(--main-text-color) !important;
   text-decoration: none !important;
 }
-.chart-icon {
+.chart-link {
   color: var(--main-text-color) !important;
   text-decoration: underline !important;
 }
-.chart-icon:hover {
+.chart-link:hover {
   cursor: pointer;
   color: var(--link-hover);
 }
