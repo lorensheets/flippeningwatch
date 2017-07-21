@@ -316,6 +316,11 @@ var newChart = new Chart(ctxratio, {
         }
       }
     },
+    elements: {
+        line: {
+            tension: 0, // disables bezier curves
+        }
+    },
     scales: {
       yAxes: [{
         ticks: {
