@@ -266,6 +266,14 @@ p {
   color: var(--main-text-color) !important;
   text-decoration: none !important;
 }
+.chart-icon {
+  color: var(--main-text-color) !important;
+  text-decoration: underline;
+}
+.chart-icon:hover {
+  cursor: pointer;
+  color: var(--link-hover);
+}
 
 
 
