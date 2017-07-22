@@ -241,7 +241,7 @@ p {
 .portrait-only p {
   text-align: center !important;
   padding: 10px 0px !important;
-  color: var(--link-hover) !important;
+  color: var(--main-text-color) !important;
 }
 .col-currency div img, .col-currency div p {
   display: inline-block !important;
