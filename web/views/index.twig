@@ -182,7 +182,7 @@
   <div class="row transparent">
     <div class="col-xs-0 hidden-xs col-sm-3"></div>
     <div class="col-xs-12 col-sm-6">
-      <a class="underline" href="/charts#marketShareComparison_chart">
+      <a class="underline" href="/charts#marketShareComparison">
         <h2>Market Share</h2>
       </a>
       <p>Total: $<span id="total_market_share"></span></p>
@@ -224,7 +224,7 @@
         <p class="currency_cap chart-link">{{ api[15] }}</p>
       </div>
     </a>
-    <a href="marketShareComparison">
+    <a href="charts#marketShareComparison">
       <div class="col col-xs-3 col-sm-3 border-top-left-right pct">
         <div class="progress"></div>
         <p class="market_share chart-link"></p>
@@ -247,7 +247,7 @@
         <p class="currency_cap chart-link">{{ api[18] }}</p>
       </div>
     </a>
-    <a href="marketShareComparison">
+    <a href="charts#marketShareComparison">
       <div class="col col-xs-3 col-sm-3 border-top-left-right pct">
         <div class="progress"></div>
         <p class="market_share chart-link"></p>
@@ -265,13 +265,17 @@
     <div class="col col-xs-3 col-sm-3 crypto border-top-left">
       <p class="currency_price">{{ api[20] }}</p>
     </div>
-    <div class="col col-xs-3 col-sm-3 crypto border-top-left">
-      <p class="currency_cap">{{ api[21] }}</p>
-    </div>
-    <div class="col col-xs-3 col-sm-3 border-top-left-right pct">
-      <div class="progress"></div>
-      <p class="market_share"></p>
-    </div>
+    <a href="charts#marketCapComparison">
+      <div class="col col-xs-3 col-sm-3 crypto border-top-left">
+        <p class="currency_cap">{{ api[21] }}</p>
+      </div>
+    </a>
+    <a href="charts#marketShareComparison">
+      <div class="col col-xs-3 col-sm-3 border-top-left-right pct">
+        <div class="progress"></div>
+        <p class="market_share"></p>
+      </div>
+    </a>
   </div>
 
   <div class="row">
