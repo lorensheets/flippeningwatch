@@ -21,7 +21,7 @@
   </div>
 </div>
 
-<div id="marketCapRatio_chart" class="container-fluid table-container market-share-comparison">
+<div id="marketCapRatio" class="container-fluid table-container market-share-comparison">
 
   <div class="row transparent">
     <div class="col-xs-12">
@@ -33,7 +33,7 @@
   <div class="row">
     <div class="col-xs-12">
       <div class="chart-container">
-          <canvas id="marketCapRatio" class="chart"></canvas>
+          <canvas id="marketCapRatio_chart" class="chart"></canvas>
       </div>
     </div>
   </div>
@@ -58,7 +58,7 @@
 </div>
 
 
-<div id="marketShareComparison_chart" class="container-fluid table-container market-share-comparison">
+<div id="marketShareComparison" class="container-fluid table-container market-share-comparison">
 
   <div class="row transparent">
     <div class="col-xs-12">
@@ -70,7 +70,7 @@
   <div class="row">
     <div class="col-xs-12">
       <div class="chart-container">
-          <canvas id="marketShareComparison" class="chart"></canvas>
+          <canvas id="marketShareComparison_chart" class="chart"></canvas>
       </div>
     </div>
   </div>
@@ -96,7 +96,7 @@
   </div>
 </div>
 
-<div id="marketCap_chart" class="container-fluid table-container market-share-comparison">
+<div id="marketCapComparison" class="container-fluid table-container market-share-comparison">
 
   <div class="row transparent">
     <div class="col-xs-12">
@@ -108,7 +108,7 @@
   <div class="row">
     <div class="col-xs-12">
       <div class="chart-container">
-          <canvas id="marketCapComparison" class="chart"></canvas>
+          <canvas id="marketCapComparison_chart" class="chart"></canvas>
       </div>
     </div>
   </div>
@@ -203,7 +203,7 @@ for (let i = 0; i < data_set.length; i++) {
 }
 
 /* market cap comparison chart */
-var ctx = document.getElementById("marketCapComparison").getContext('2d');
+var ctx = document.getElementById("marketCapComparison_chart").getContext('2d');
 Chart.defaults.global.defaultColor = 'rgba(0,0,0,0)';
 Chart.defaults.global.defaultFont = "Raleway";
 Chart.defaults.global.defaultFontSize = 14;
@@ -281,7 +281,7 @@ var myChart = new Chart(ctx, {
 });
 
 /* market cap ratio chart */
-var ctxratio = document.getElementById("marketCapRatio").getContext('2d');
+var ctxratio = document.getElementById("marketCapRatio_chart").getContext('2d');
 var gradient = ctxratio.createLinearGradient(1000, 500, 1000, 200);
 gradient.addColorStop(0, '#03fcfe');
 gradient.addColorStop(1, '#13ff00');
@@ -347,7 +347,7 @@ var newChart = new Chart(ctxratio, {
 
 
 /* market share chart */
-var mksh = document.getElementById("marketShareComparison").getContext('2d');
+var mksh = document.getElementById("marketShareComparison_chart").getContext('2d');
 Chart.defaults.global.defaultColor = 'rgba(0,0,0,0)';
 Chart.defaults.global.defaultFont = "Raleway";
 Chart.defaults.global.defaultFontSize = 14;
