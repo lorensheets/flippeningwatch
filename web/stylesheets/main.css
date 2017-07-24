@@ -416,6 +416,7 @@ p {
   }
   .chart-container {
     height: auto;
+    height: 70vh;
     min-height: 400px !important;
   }
 }
