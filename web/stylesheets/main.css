@@ -145,6 +145,8 @@ p {
   text-decoration: none;
 }
 .title-link:hover {
+  color: var(--main-text-color);
+  text-decoration: none;
   cursor: pointer;
 }
 .navigation-bar {
