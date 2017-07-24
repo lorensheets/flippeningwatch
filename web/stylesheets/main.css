@@ -140,6 +140,13 @@ p {
 .title {
   padding: 5px 0px 0px 0px;
 }
+.title-link {
+  color: var(--main-text-color);
+  text-decoration: none;
+}
+.title-link:hover {
+  cursor: pointer;
+}
 .navigation-bar {
   margin: 5px 0;
 }
