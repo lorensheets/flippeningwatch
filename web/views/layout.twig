@@ -9,73 +9,75 @@
 
   <canvas id="confetti"></canvas>
 
-  <div class="container-fluid">
+  <div class="wrapper">
+    <div class="container-fluid">
 
-    <div class="row ticker">
-      <div class="col-xs-0 col-sm-1"></div>
-      <div class="col-xs-12 col-sm-10">
-        <div class="row">
-          <div class="col-xs-12 col-sm-3">
-            <div class="row">
-              <div class="col-xs-12 price">
-                <img src="../images/bitcoin.png"/>
-                <p id="btc_price"></p>
-                <img class="invert" src="../images/ethereum.png"/>
-                <p id="eth_price"></p>
+      <div class="row ticker">
+        <div class="col-xs-0 col-sm-1"></div>
+        <div class="col-xs-12 col-sm-10">
+          <div class="row">
+            <div class="col-xs-12 col-sm-3">
+              <div class="row">
+                <div class="col-xs-12 price">
+                  <img src="../images/bitcoin.png"/>
+                  <p id="btc_price"></p>
+                  <img class="invert" src="../images/ethereum.png"/>
+                  <p id="eth_price"></p>
+                </div>
               </div>
             </div>
-          </div>
-          <div class="col-xs-12 col-sm-9">
-            <div class="row">
-              <div class="col-xs-4 border-rt">
-                <div>
-                  <a href="/charts#marketShareComparison">
-                    <p class="chart-link" id="btc_dom"></p>
+            <div class="col-xs-12 col-sm-9">
+              <div class="row">
+                <div class="col-xs-4 border-rt">
+                  <div>
+                    <a href="/charts#marketShareComparison">
+                      <p class="chart-link" id="btc_dom"></p>
+                    </a>
+                  </div>
+                </div>
+                <div class="col-xs-4 border-rt">
+                  <div>
+                    <a href="/charts#marketShareComparison">
+                      <p class="chart-link" id="eth_dom">%</p>
+                    </a>
+                  </div>
+                </div>
+                <div class="col-xs-4">
+                  <a href="/charts#marketCapRatio">
+                    <p class="chart-link" id="pct_dom"></p>
                   </a>
                 </div>
               </div>
-              <div class="col-xs-4 border-rt">
-                <div>
-                  <a href="/charts#marketShareComparison">
-                    <p class="chart-link" id="eth_dom">%</p>
-                  </a>
-                </div>
-              </div>
-              <div class="col-xs-4">
-                <a href="/charts#marketCapRatio">
-                  <p class="chart-link" id="pct_dom"></p>
-                </a>
-              </div>
             </div>
+
           </div>
+        </div>
+        <div class="col-xs-0 col-sm-1"></div>
+      </div>
 
+      <div class="row">
+        <div class="col-xs-12 title">
+          <img class="logo" src="../favicon/android-icon-192x192.png" alt="logo"/>
+          <h1>Flippening Watch</h1>
+        </div>
+        <div class="col-xs-12 navigation-bar">
+          <a href="/">Metrics<img class="chart-icon-img-menu invert" src="../images/metrics.png"/></a>
+          <a href="/charts">Charts<img class="chart-icon-img-menu invert" src="../images/chart-icon.png"/></a>
+          <a href="https://store.flippening.watch/">Store<img class="chart-icon-img-menu invert" src="../images/store.png"/></a>
+        </div>
+        <div class="col-xs-12 subtitle">
+          <div>
+            <a class="link" href="http://blog.flippening.watch/what-is-the-flippening/" target="_blank">What is &quot;the Flippening?&quot;</a>
+          <!--  <a class="link" href="https://store.flippening.watch/" target="_blank">FLIPPENING T-SHIRTS, MUGS, & MORE!</a> -->
+            <a class="link" href="http://www.ethprice.com/" target="_blank">Partner: Ethereum Price</a>
+          </div>
         </div>
       </div>
-      <div class="col-xs-0 col-sm-1"></div>
+
     </div>
 
-    <div class="row">
-      <div class="col-xs-12 title">
-        <img class="logo" src="../favicon/android-icon-192x192.png" alt="logo"/>
-        <h1>Flippening Watch</h1>
-      </div>
-      <div class="col-xs-12 navigation-bar">
-        <a href="/">Metrics<img class="chart-icon-img-menu invert" src="../images/metrics.png"/></a>
-        <a href="/charts">Charts<img class="chart-icon-img-menu invert" src="../images/chart-icon.png"/></a>
-        <a href="https://store.flippening.watch/">Store<img class="chart-icon-img-menu invert" src="../images/store.png"/></a>
-      </div>
-      <div class="col-xs-12 subtitle">
-        <div>
-          <a class="link" href="http://blog.flippening.watch/what-is-the-flippening/" target="_blank">What is &quot;the Flippening?&quot;</a>
-        <!--  <a class="link" href="https://store.flippening.watch/" target="_blank">FLIPPENING T-SHIRTS, MUGS, & MORE!</a> -->
-          <a class="link" href="http://www.ethprice.com/" target="_blank">Partner: Ethereum Price</a>
-        </div>
-      </div>
-    </div>
-
+    {% block content %}{% endblock %}
   </div>
-
-  {% block content %}{% endblock %}
 
   <script type="text/javascript" src="/js/confetti.js"></script>
   <script type="text/javascript" src="/js/nav.js"></script>

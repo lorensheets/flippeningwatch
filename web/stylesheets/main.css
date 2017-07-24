@@ -22,6 +22,11 @@ html, body {
   color: var(--main-text-color);
   background: var(--main-bg-color);
 }
+.wrapper {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
 #confetti {
   position: fixed !important;
   top: 0;
