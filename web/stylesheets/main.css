@@ -51,6 +51,7 @@ html, body {
 .chart-container {
   position: relative;
   height: auto;
+  min-height: 200px !important;
   width: 90%;
   margin: 0 auto;
 }
