@@ -63,7 +63,7 @@
   <div class="row transparent">
     <div class="col-xs-12">
       <h2>Market Share</h2>
-      <p>ETH, BTC, XRP</p>
+      <p>Historic: ETH, BTC, XRP</p>
     </div>
   </div>
 
@@ -95,6 +95,45 @@
     </div>
   </div>
 </div>
+
+
+<div id="marketShareTop15" class="container-fluid table-container market-share-comparison">
+
+  <div class="row transparent">
+    <div class="col-xs-12">
+      <h2>Market Share</h2>
+      <p>Current: Top 15</p>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="pie-chart-container">
+          <canvas id="marketSharePieChart" class="chart"></canvas>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+<!-- Flippening Watch Charts Google Ads 4 -->
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-xs-12 ad full-padding">
+      <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+      <ins class="adsbygoogle"
+             style="display:block"
+             data-ad-client="ca-pub-3200453829299141"
+             data-ad-slot="8637340833"
+             data-ad-format="auto"></ins>
+      <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+      </script>
+    </div>
+  </div>
+</div>
+
 
 <div id="marketCapComparison" class="container-fluid table-container market-share-comparison">
 
@@ -145,6 +184,28 @@
 <script type="text/javascript" src="../js/moment.js"></script>
 
 <script>
+
+/* price ticker data */
+var btc       = {{ api[0] }};
+var eth       = {{ api[1] }};
+var eth_price = {{ api[2] }};
+var btc_price = {{ api[3] }};
+var mkt_cap   = {{ api[4] }};
+
+var btc_dom = (btc / mkt_cap) * 100;
+var eth_dom = (eth / mkt_cap) * 100;
+var pct_dom = (eth / btc) * 100;
+
+eth_price = eth_price.toFixed(2);
+
+$('#eth_price').html("$" + eth_price.toLocaleString('en-US') );
+$('#btc_price').html("$" + btc_price.toLocaleString('en-US') );
+$('#btc_dom').html("BTC MS: " + btc_dom.toFixed(1) + "%");
+$('#eth_dom').html("ETH MS: " + eth_dom.toFixed(1) + "%");
+$('#pct_dom').html("ETH/BTC: " + pct_dom.toFixed(1) + "%");
+
+
+
 
 /* graph data */
 
@@ -442,25 +503,84 @@ var mkshChart = new Chart(mksh, {
 });
 
 
+/* market shares pie chart */
+var marketShares = [];
+var marketSharesLabels = [];
+var marketSharesCaps = [];
+var marketSharesPct = [];
+var marketSharesColors = [];
+var currencyColors = {
+  "Bitcoin":"#fa9039",
+  "Ethereum":"#323333",
+  "Ripple":"#0089c1",
+  "Litecoin":"#8c8c8c",
+  "Dash":"#1c75bc",
+  "NEM":"#00c4b3",
+  "Ethereum Classic":"#639076",
+  "IOTA":"#020202",
+  "Monero":"#ff6600",
+  "Stratis":"#4db5e8",
+  "EOS":"#070707",
+  "BitConnect":"#f47c28",
+  "Qtum":"#4cb5dc",
+  "NEO":"#6ebb49",
+  "BitShares":"#35baeb",
+  "Zcash":"#f6c063",
+  "Other":"#FF00CC"
+};
+var totalTopCurrencies = 0;
 
-/* price ticker data */
-var btc       = {{ api[0] }};
-var eth       = {{ api[1] }};
-var eth_price = {{ api[2] }};
-var btc_price = {{ api[3] }};
-var mkt_cap   = {{ api[4] }};
+{%for currency in api[5:]%}
+  marketShares.push("{{currency}}");
+{%endfor%}
 
-var btc_dom = (btc / mkt_cap) * 100;
-var eth_dom = (eth / mkt_cap) * 100;
-var pct_dom = (eth / btc) * 100;
+for(var i = 0; i < marketShares.length; i=i+3){
+  marketSharesLabels.push(marketShares[i]);
+}
+for(var i = 2; i < marketShares.length; i=i+3){
+  marketSharesCaps.push(marketShares[i]);
+  marketSharesPct.push( ((marketShares[i]/mkt_cap)*100).toFixed(2) );
+  totalTopCurrencies = totalTopCurrencies + Number(marketShares[i]);
+}
+for(var i = 0; i < marketSharesLabels.length; i++){
+  marketSharesColors.push(currencyColors[marketSharesLabels[i]]);
+}
+marketSharesLabels.push("Other");
+marketSharesCaps.push(mkt_cap - totalTopCurrencies);
+marketSharesPct.push( ((1 - (totalTopCurrencies/mkt_cap))*100).toFixed(2) );
+marketSharesColors.push(currencyColors["Other"]);
 
-eth_price = eth_price.toFixed(2);
+var pie = document.getElementById("marketSharePieChart").getContext('2d');
+var marketSharesChart = new Chart(pie,{
+  type: 'doughnut',
+  data: {
+    labels:marketSharesLabels,
+    datasets:[{
+      data:marketSharesCaps,
+      backgroundColor: marketSharesColors,
+      borderWidth: 1
+    }],
+  },
+  options: {
+    responsive: true,
+    maintainAspectRatio: false,
+    cutoutPercentage: 45,
+    tooltips: {
+      callbacks: {
+        label: function(tooltipItem, data) {
+          return ' $' + Number(data.datasets[0].data[tooltipItem.index]).toFixed(0).replace(/./g, function(c, i, a) {
+            return i > 0 && c !== "." && (a.length - i) % 3 === 0 ? "," + c : c;
+          });
+        },
+        title: function(tooltipItem, data) {
+          return data.labels[tooltipItem[0].index] + ': ' + marketSharesPct[tooltipItem[0].index] + '%';
+        }
+      }
+    }
+  }
+});
 
-$('#eth_price').html("$" + eth_price.toLocaleString('en-US') );
-$('#btc_price').html("$" + btc_price.toLocaleString('en-US') );
-$('#btc_dom').html("BTC MS: " + btc_dom.toFixed(1) + "%");
-$('#eth_dom').html("ETH MS: " + eth_dom.toFixed(1) + "%");
-$('#pct_dom').html("ETH/BTC: " + pct_dom.toFixed(1) + "%");
+
 
 </script>
 
