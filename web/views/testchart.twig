@@ -336,7 +336,7 @@ $('#pct_dom').html("ETH/BTC: " + pct_dom.toFixed(1) + "%");
     "Zcash":"#FF9911",
     "Other":"#FF00CC"
   };
-  var totalTop15;
+  var totalTopCurrencies = 0;
 
   {%for currency in api[5:]%}
     marketShares.push("{{currency}}");
@@ -348,14 +348,14 @@ $('#pct_dom').html("ETH/BTC: " + pct_dom.toFixed(1) + "%");
   for(var i = 2; i < marketShares.length; i=i+3){
     marketSharesCaps.push(marketShares[i]);
     marketSharesPct.push( ((marketShares[i]/mkt_cap)*100).toFixed(2) );
-    totalTop15 += marketShares[i]; console.log(totalTop15);
+    totalTopCurrencies += marketShares[i]; console.log(totalTopCurrencies);
   }
   for(var i = 0; i < marketSharesLabels.length; i++){
     marketSharesColors.push(currencyColors[marketSharesLabels[i]]);
   }
   marketSharesLabels.push("Other");
-  marketSharesCaps.push(totalTop15);
-  marketSharesPct.push( ((totalTop15/mkt_cap)*100).toFixed(2) );
+  marketSharesCaps.push(totalTopCurrencies);
+  marketSharesPct.push( ((totalTopCurrencies/mkt_cap)*100).toFixed(2) );
   marketSharesColors.push(currencyColors["Other"]);
 
   var pie = document.getElementById("marketSharePieChart").getContext('2d');
