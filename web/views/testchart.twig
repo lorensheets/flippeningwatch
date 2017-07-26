@@ -355,7 +355,7 @@ $('#pct_dom').html("ETH/BTC: " + pct_dom.toFixed(1) + "%");
   }
   marketSharesLabels.push("Other");
   marketSharesCaps.push(totalTopCurrencies);
-  marketSharesPct.push( ((totalTopCurrencies/mkt_cap)*100).toFixed(2) );
+  marketSharesPct.push( ((1 - (totalTopCurrencies/mkt_cap))*100).toFixed(2) );
   marketSharesColors.push(currencyColors["Other"]);
 
   var pie = document.getElementById("marketSharePieChart").getContext('2d');
