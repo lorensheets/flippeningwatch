@@ -370,10 +370,10 @@ $('#pct_dom').html("ETH/BTC: " + pct_dom.toFixed(1) + "%");
           label: function(tooltipItem, data) {
             return ' $' + Number(data.datasets[0].data[tooltipItem.index]).toFixed(0).replace(/./g, function(c, i, a) {
               return i > 0 && c !== "." && (a.length - i) % 3 === 0 ? "," + c : c;
-            }) + '<br>' + marketSharesPct[tooltipItem.index] + '%';
+            });
           },
           title: function(tooltipItem, data) {
-            return data.labels[tooltipItem[0].index];
+            return data.labels[tooltipItem[0].index] + ' ' + marketSharesPct[tooltipItem.index] + '%';
           }
         }
       }
