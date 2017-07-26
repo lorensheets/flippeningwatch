@@ -296,7 +296,7 @@
   marketSharesLabels = [];
   marketSharesCaps = [];
   marketSharesColors = [];
-  currencyColors = [
+  currencyColors = array(
     "Bitcoin": "#FFA500",
     "Ethereum":"#8582a5",
     "Ripple":"#4286f4",
@@ -312,7 +312,7 @@
     "Qtum":"#7badd8",
     "NEO":"#71dd58",
     "BitShares":"#78d1e8"
-  ];
+  );
 
   {%for currency in api[5:]%}
     marketShares.push("{{currency}}");
