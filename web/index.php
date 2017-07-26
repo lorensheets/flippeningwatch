@@ -377,7 +377,7 @@ $app->get('/apiupdate/',
   }
 
   /* insert data into table 2 */
-  for ($i = 0; $i < 11; $i++) {
+  for ($i = 0; $i < 15; $i++) {
     $table2_insert = $app['pdo']->prepare("INSERT INTO currencies (currency, price, cap) VALUES ( '$currencies[$i]','$prices[$i]','$caps[$i]' ) ");
     $table2_insert->execute();
   }
