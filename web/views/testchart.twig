@@ -139,6 +139,27 @@
 <!-- chart script -->
 <script>
 
+/* price ticker data */
+var btc       = {{ api[0] }};
+var eth       = {{ api[1] }};
+var eth_price = {{ api[2] }};
+var btc_price = {{ api[3] }};
+var mkt_cap   = {{ api[4] }};
+
+var btc_dom = (btc / mkt_cap) * 100;
+var eth_dom = (eth / mkt_cap) * 100;
+var pct_dom = (eth / btc) * 100;
+
+eth_price = eth_price.toFixed(2);
+
+$('#eth_price').html("$" + eth_price.toLocaleString('en-US') );
+$('#btc_price').html("$" + btc_price.toLocaleString('en-US') );
+$('#btc_dom').html("BTC MS: " + btc_dom.toFixed(1) + "%");
+$('#eth_dom').html("ETH MS: " + eth_dom.toFixed(1) + "%");
+$('#pct_dom').html("ETH/BTC: " + pct_dom.toFixed(1) + "%");
+
+/* charts */
+
   var pct = 0;
   var labelArray = [];
   var data_set = [];
@@ -324,8 +345,8 @@
     marketSharesLabels.push(marketShares[i]);
   }
   for(var i = 1; i < marketShares.length; i=i+3){
-    marketSharesPct.push(marketShares[i]);
-    console.log(marketShares[i]);
+    marketSharesPct.push( ((marketShares[i]/mkt_cap) * 100).toFixed(2) );
+    console.log( ((marketShares[i]/mkt_cap) * 100).toFixed(2) );
   }
   for(var i = 2; i < marketShares.length; i=i+3){
     marketSharesCaps.push(marketShares[i]);
@@ -362,25 +383,6 @@
       }
     }
   });
-
-  /* price ticker data */
-  var btc       = {{ api[0] }};
-  var eth       = {{ api[1] }};
-  var eth_price = {{ api[2] }};
-  var btc_price = {{ api[3] }};
-  var mkt_cap   = {{ api[4] }};
-
-  var btc_dom = (btc / mkt_cap) * 100;
-  var eth_dom = (eth / mkt_cap) * 100;
-  var pct_dom = (eth / btc) * 100;
-
-  eth_price = eth_price.toFixed(2);
-
-  $('#eth_price').html("$" + eth_price.toLocaleString('en-US') );
-  $('#btc_price').html("$" + btc_price.toLocaleString('en-US') );
-  $('#btc_dom').html("BTC MS: " + btc_dom.toFixed(1) + "%");
-  $('#eth_dom').html("ETH MS: " + eth_dom.toFixed(1) + "%");
-  $('#pct_dom').html("ETH/BTC: " + pct_dom.toFixed(1) + "%");
 
 </script>
 
