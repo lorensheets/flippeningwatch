@@ -207,6 +207,16 @@ $app->get('/testchart/', function() use($app) {
   array_push($api, $row['btc_price']);
   array_push($api, $row['mkt_cap']);
 
+  $ms = $app['pdo']->prepare('SELECT * FROM currencies');
+  $ms->execute();
+
+  while ($row = $ms->fetch(PDO::FETCH_ASSOC)) {
+    array_push($api, $row['currency']);
+    array_push($api, $row['price']);
+    array_push($api, $row['cap']);
+  }
+
+
   /* bitcoin historical market cap data api */
   $mk = curl_init();
   curl_setopt($mk, CURLOPT_SSL_VERIFYPEER, false);
