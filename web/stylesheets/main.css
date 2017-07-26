@@ -58,7 +58,6 @@ html, body {
 .pie-chart-container {
   position: relative;
   height: auto;
-  min-height: 600px !important;
   width: 90%;
   margin: 0 auto;
 }
@@ -351,11 +350,17 @@ p {
     padding: 5px 2px;
     font-size: 0.7em;
   }
+  .pie-chart-container {
+    min-height: 600px !important;
+  }
 }
 
 @media (orientation: landscape) {
   .title div {
     margin-top: 5px;
+  }
+  .pie-chart-container {
+    min-height: 400px !important;
   }
 }
 
