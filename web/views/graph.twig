@@ -549,6 +549,9 @@ marketSharesLabels.push("Other");
 marketSharesCaps.push(mkt_cap - totalTopCurrencies);
 marketSharesPct.push( ((1 - (totalTopCurrencies/mkt_cap))*100).toFixed(2) );
 marketSharesColors.push(currencyColors["Other"]);
+marketSharesLabels.forEach(function(item){
+  item = item.toUpperCase();
+});
 
 var pie = document.getElementById("marketSharePieChart").getContext('2d');
 var marketSharesChart = new Chart(pie,{
@@ -565,11 +568,6 @@ var marketSharesChart = new Chart(pie,{
     responsive: true,
     maintainAspectRatio: false,
     cutoutPercentage: 45,
-    legend: {
-      labels: {
-        fontStyle: 'capitalize'
-      }
-    },
     tooltips: {
       callbacks: {
         label: function(tooltipItem, data) {
