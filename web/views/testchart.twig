@@ -184,7 +184,6 @@ $('#pct_dom').html("ETH/BTC: " + pct_dom.toFixed(1) + "%");
 
   {% for item in total_mktcap_dataset %}
         total_mktcap.push( {{ item }} );
-        console.log({{item}});
   {% endfor %}
 
   {% for time in times %}
