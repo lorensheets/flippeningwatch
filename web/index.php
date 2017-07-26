@@ -367,7 +367,7 @@ $app->get('/apiupdate/',
   $truncate_currencies = $app['pdo']->prepare('TRUNCATE currencies');
   $truncate_currencies->execute();
 
-  for ($i = 0; $i < 11; $i++) {
+  for ($i = 0; $i < 15; $i++) {
     $currency = $obj[$i]->name;
     $currency_price = $obj[$i]->price_usd;
     $currency_cap = $obj[$i]->market_cap_usd;
