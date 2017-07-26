@@ -87,6 +87,25 @@
 
 </div>
 
+<div id="marketShareTop15" class="container-fluid table-container market-share-comparison">
+
+  <div class="row transparent">
+    <div class="col-xs-12">
+      <h2>Market Share</h2>
+      <p>Top 15</p>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="chart-container">
+          <canvas id="marketSharePieChart" class="chart"></canvas>
+      </div>
+    </div>
+  </div>
+
+</div>
+
 
 <footer>
   <div class="container-fluid">
@@ -269,9 +288,32 @@
     }
   });
 
+
+  /* market shares pie chart */
+  marketShares = [];
+  marketSharesLabels = [];
+  marketSharesCaps = [];
+
   {%for currency in api[5:]%}
-    console.log("{{currency}}");
+    marketShares.push("{{currency}}");
   {%endfor%}
+
+  for(var i = 0; i <= marketShares.length; i=i+3){
+    marketSharesLabels.push(marketShares[i]);
+  }
+  for(var i = 2; i <= marketShares.length; i=i+3){
+    marketSharesCaps.push(marketShares[i]);
+  }
+
+  var pie = document.getElementById("marketShareComparison").getContext('2d');
+  var marketSharesChart = new Chart(pie,{
+    type: 'pie',
+    data: {
+      labels:marketSharesLabels,
+      data:marketSharesCaps
+    },
+    options: {}
+  });
 
   /* price ticker data */
   var btc       = {{ api[0] }};
