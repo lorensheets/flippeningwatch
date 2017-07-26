@@ -144,7 +144,7 @@ var btc       = {{ api[0] }};
 var eth       = {{ api[1] }};
 var eth_price = {{ api[2] }};
 var btc_price = {{ api[3] }};
-var mkt_cap   = {{ api[4] }};
+var mkt_cap   = {{ api[4] }}; console.log(mkt_cap);
 
 var btc_dom = (btc / mkt_cap) * 100;
 var eth_dom = (eth / mkt_cap) * 100;
@@ -344,8 +344,9 @@ $('#pct_dom').html("ETH/BTC: " + pct_dom.toFixed(1) + "%");
     marketSharesLabels.push(marketShares[i]);
   }
   for(var i = 1; i < marketShares.length; i=i+3){
-    marketSharesPct.push( marketShares[i]/mkt_cap * 100 );
-    console.log( marketShares[i]/mkt_cap * 100);
+    var mktpct = marketShares[i] / mkt_cap;
+    marketSharesPct.push( mktpct );
+    console.log( mktpct );
   }
   for(var i = 2; i < marketShares.length; i=i+3){
     marketSharesCaps.push(marketShares[i]);
