@@ -310,7 +310,9 @@
     type: 'pie',
     data: {
       labels:marketSharesLabels,
-      datasets:[marketSharesCaps]
+      datasets:[{
+        data:marketSharesCaps
+      }]
     },
     options: {}
   });
