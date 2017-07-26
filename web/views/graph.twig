@@ -552,6 +552,7 @@ marketSharesColors.push(currencyColors["Other"]);
 marketSharesLabels.forEach(function(item){
   item = item.toUpperCase();
   console.log(item);
+  marketSharesLabels[item] = item;
 });
 
 var pie = document.getElementById("marketSharePieChart").getContext('2d');
