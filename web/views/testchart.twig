@@ -324,13 +324,13 @@
   }
   for(var i = 1; i < marketShares.length; i=i+3){
     marketSharesPct.push(marketShares[i]);
+    console.log(marketShares[i]);
   }
   for(var i = 2; i < marketShares.length; i=i+3){
     marketSharesCaps.push(marketShares[i]);
   }
   for(var i = 0; i < marketSharesLabels.length; i++){
     marketSharesColors.push(currencyColors[marketSharesLabels[i]]);
-    console.log(currencyColors[marketSharesLabels[i]]);
   }
 
   var pie = document.getElementById("marketSharePieChart").getContext('2d');
