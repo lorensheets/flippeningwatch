@@ -417,6 +417,7 @@ Chart.defaults.global.defaultColor = 'rgba(0,0,0,0)';
 Chart.defaults.global.defaultFont = "Raleway";
 Chart.defaults.global.defaultFontSize = 14;
 Chart.defaults.global.defaultFontColor = '#000';
+Chart.defaults.global.defaultFontStyle = 'uppercase';
 
 var mkshChart = new Chart(mksh, {
   type: 'line',
@@ -565,9 +566,6 @@ var marketSharesChart = new Chart(pie,{
     responsive: true,
     maintainAspectRatio: false,
     cutoutPercentage: 45,
-    legend: {
-      fontStyle: 'uppercase'
-    },
     tooltips: {
       callbacks: {
         label: function(tooltipItem, data) {
