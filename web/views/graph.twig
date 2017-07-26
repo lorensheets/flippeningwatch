@@ -576,6 +576,11 @@ var marketSharesChart = new Chart(pie,{
           return data.labels[tooltipItem[0].index] + ': ' + marketSharesPct[tooltipItem[0].index] + '%';
         }
       }
+    },
+    scale: {
+        pointLabels: {
+           fontStyle: "uppercase"
+        }
     }
   }
 });
