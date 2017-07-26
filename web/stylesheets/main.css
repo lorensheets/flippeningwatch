@@ -55,6 +55,13 @@ html, body {
   width: 90%;
   margin: 0 auto;
 }
+.pie-chart-container {
+  position: relative;
+  height: auto;
+  min-height: 300px !important;
+  width: 90%;
+  margin: 0 auto;
+}
 canvas {
   height: 100% !important;
 }
@@ -417,6 +424,10 @@ p {
   .chart-container {
     height: 70vh;
     min-height: 500px !important;
+  }
+  .pie-chart-container {
+    height: 100vh;
+    min-height: 700px !important;
   }
 }
 

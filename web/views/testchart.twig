@@ -98,7 +98,7 @@
 
   <div class="row">
     <div class="col-xs-12">
-      <div class="chart-container">
+      <div class="pie-chart-container">
           <canvas id="marketSharePieChart" class="chart"></canvas>
       </div>
     </div>
@@ -348,7 +348,7 @@ $('#pct_dom').html("ETH/BTC: " + pct_dom.toFixed(1) + "%");
   for(var i = 2; i < marketShares.length; i=i+3){
     marketSharesCaps.push(marketShares[i]);
     marketSharesPct.push( ((marketShares[i]/mkt_cap)*100).toFixed(2) );
-    totalTopCurrencies = totalTopCurrencies + Number(marketShares[i]); 
+    totalTopCurrencies = totalTopCurrencies + Number(marketShares[i]);
   }
   for(var i = 0; i < marketSharesLabels.length; i++){
     marketSharesColors.push(currencyColors[marketSharesLabels[i]]);
