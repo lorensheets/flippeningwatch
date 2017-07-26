@@ -100,6 +100,8 @@ $app->get('/graphtest/', function() use($app) {
 
 $app->get('/charts/', function() use($app) {
 
+
+  /* get crypto data from database */
   $st = $app['pdo']->prepare('SELECT * FROM crypto');
   $st->execute();
 
@@ -111,6 +113,16 @@ $app->get('/charts/', function() use($app) {
   array_push($api, $row['eth_price']);
   array_push($api, $row['btc_price']);
   array_push($api, $row['mkt_cap']);
+
+  /* get currencies data from database */
+  $ms = $app['pdo']->prepare('SELECT * FROM currencies');
+  $ms->execute();
+
+  while ($row = $ms->fetch(PDO::FETCH_ASSOC)) {
+    array_push($api, $row['currency']);
+    array_push($api, $row['price']);
+    array_push($api, $row['cap']);
+  }
 
 
   /* bitcoin historical market cap data api */
