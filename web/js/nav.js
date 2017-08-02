@@ -1,7 +1,9 @@
-/* navigation indicator */
+/* navigation indicator and scrollTop button */
 
 // find out which page visitor is on
 $(document).ready(function() {
+
+
   if (window.location.href.includes("charts")) {
     $('.navigation-bar a:nth-child(2)').css({
       'border': 'var(--link-border)',
@@ -19,4 +21,28 @@ $(document).ready(function() {
       'font-weight': '800'
     });
   }
+
+  var scrollPos;
+  var scrollTopVisible = false;
+
+  window.onscroll = scroll;
+
+  function scroll() {
+    scrollPos = window.pageYOffset;
+
+    if (scrollPos > 200 && scrollTopVisible == false) {
+      $('#scrollTop').css('display','block');
+      $('#scrollTop').animate({
+        'opacity': '0.7'
+      }, 300);
+      scrollTopVisible = true;
+    } else if (scrollPos < 200 & scrollTopVisible == true) {
+      $('#scrollTop').animate({
+        'opacity': '0'
+      }, 300);
+      $('#scrollTop').css('display','none');
+      scrollTopVisible = false;
+    }
+  }
+
 });
