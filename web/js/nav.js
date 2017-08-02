@@ -43,10 +43,10 @@ $(document).ready(function() {
       $('#scrollTop').css('display','none');
       scrollTopVisible = false;
     }
-
-    $('#scrollTop').on('click', function() {
-      $('html,body').animate({scrollTop:0},500,'easeInOutCubic');
-    });
   }
+
+  $('#scrollTop').on('click', function() {
+    $('html,body').animate({scrollTop:0},500,'easeInOutCubic');
+  });
 
 });

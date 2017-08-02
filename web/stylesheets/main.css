@@ -54,7 +54,7 @@ html, body {
   bottom: 20px;
   right: 20px;
   height: 35px;
-  width: 35px;
+  width: auto;
   display: none;
   opacity: 0;
 }
