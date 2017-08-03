@@ -39,8 +39,7 @@ $(document).ready(function() {
     } else if (scrollPos < 200 & scrollTopVisible == true) {
       $('#scrollTop').animate({
         'opacity': '0'
-      }, 300);
-      $('#scrollTop').css('display','none');
+      }, 300, function() { $('#scrollTop').css('display','none'); });
       scrollTopVisible = false;
     }
   }
