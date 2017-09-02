@@ -466,6 +466,10 @@ $app->get('/xrpjsondata', function() use($app) {
   return $app['twig']->render('xrp.html');
 });
 
+$app->get('/bchjsondata', function() use($app) {
+  return $app['twig']->render('bch.html');
+});
+
 $app->get('/mktcapjsondata', function() use($app) {
   return $app['twig']->render('totalmarketcap.html');
 });
