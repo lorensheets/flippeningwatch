@@ -235,7 +235,7 @@ var bch_mkt_cap_pct = [];
 {% endfor %}
 
 {% for item in dataset %}
-      data_set.push( {{ item }} );
+  data_set.push( {{ item }} );
 {% endfor %}
 
 {% for cap in xrpdata %}
@@ -244,6 +244,8 @@ var bch_mkt_cap_pct = [];
 
 {% for cap in bchdata %}
   bch_data.push({{ cap }});
+  console.log(bch_data);
+
 {%endfor%}
 
 {% for item in total_mktcap_dataset %}
@@ -251,7 +253,7 @@ var bch_mkt_cap_pct = [];
 {% endfor %}
 
 {% for time in times %}
-      labelArray.push("{{ time }}");
+  labelArray.push("{{ time }}");
 {% endfor %}
 
 /* reverse datasets so the earliest points to most recent points */
@@ -275,7 +277,6 @@ for (let i = 0; i < data_set.length; i++) {
   eth_mkt_cap_pct.push(eth_ratio);
   xrp_mkt_cap_pct.push(xrp_ratio);
   bch_mkt_cap_pct.push(bch_ratio);
-  console.log(bch_ratio);
 }
 
 /* market cap comparison chart */
