@@ -172,6 +172,20 @@ $app->get('/charts/', function() use($app) {
     array_push($xrp_data, $val);
   }
 
+  /* bitcoin cash historical market cap data api */
+  $bch = curl_init();
+  curl_setopt($xrp, CURLOPT_SSL_VERIFYPEER, false);
+  curl_setopt($xrp, CURLOPT_RETURNTRANSFER, true);
+  curl_setopt($xrp, CURLOPT_URL, 'http://www.flippening.watch/bchjsondata');
+  $bchmktcap = curl_exec($xrp);
+  curl_close($bch);
+  $bch = json_decode($bchmktcap);
+
+  $bch_data = array();
+  foreach($bchdata as $key => $val) {
+    array_push($bch_data, $val);
+  }
+
   /* total cryptocurrency historical market cap data api */
   $mktcap = curl_init();
   curl_setopt($mktcap, CURLOPT_SSL_VERIFYPEER, false);
@@ -197,7 +211,8 @@ $app->get('/charts/', function() use($app) {
     'ethdata' => $eth_data,
     'ethdates' => $eth_dates,
     'total_mktcap_dataset' => $total_mktcap_dataset,
-    'xrpdata' => $xrp_data
+    'xrpdata' => $xrp_data,
+    'bchdata' => $bch_data
   ));
 
 });

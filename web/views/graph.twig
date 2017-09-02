@@ -220,6 +220,7 @@ var labelArray = [];
 var data_set = [];
 var eth_data = [];
 var xrp_data = [];
+var bch_data = [];
 
 var flippening_ratio = [];
 
@@ -227,6 +228,7 @@ var total_mktcap = [];
 var btc_mkt_cap_pct = [];
 var eth_mkt_cap_pct = [];
 var xrp_mkt_cap_pct = [];
+var bch_mkt_cap_pct = [];
 
 {% for cap in ethdata %}
   eth_data.push({{ cap }});
@@ -238,6 +240,10 @@ var xrp_mkt_cap_pct = [];
 
 {% for cap in xrpdata %}
   xrp_data.push({{ cap }});
+{%endfor%}
+
+{% for cap in bchdata %}
+  bch_data.push({{ cap }});
 {%endfor%}
 
 {% for item in total_mktcap_dataset %}
@@ -253,19 +259,22 @@ labelArray.reverse();
 data_set.reverse();
 eth_data.reverse();
 xrp_data.reverse();
+bch_data.reverse();
 total_mktcap.reverse();
 
 
 /* create array of flippening ratios */
 for (let i = 0; i < data_set.length; i++) {
-  let ratio = (eth_data[i]/data_set[i])*100;
-  let btc_ratio = (data_set[i]/total_mktcap[i])*100;
-  let eth_ratio = (eth_data[i]/total_mktcap[i])*100;
-  let xrp_ratio = (xrp_data[i]/total_mktcap[i])*100;
+  var ratio = (eth_data[i]/data_set[i])*100;
+  var btc_ratio = (data_set[i]/total_mktcap[i])*100;
+  var eth_ratio = (eth_data[i]/total_mktcap[i])*100;
+  var xrp_ratio = (xrp_data[i]/total_mktcap[i])*100;
+  var bch_ratio = (bch_data[i]/total_mktcap[i])*100;
   flippening_ratio.push(ratio);
   btc_mkt_cap_pct.push(btc_ratio);
   eth_mkt_cap_pct.push(eth_ratio);
   xrp_mkt_cap_pct.push(xrp_ratio);
+  bch_mkt_cap_pct.push(bch_ratio);
 }
 
 /* market cap comparison chart */
@@ -457,6 +466,16 @@ var mkshChart = new Chart(mksh, {
         pointRadius: 0,
         pointBackgroundColor: 'rgba(250,144,57,0.5)',
         pointBorderColor: 'rgba(250,144,57,1)'
+      },
+      {
+        label: 'BITCOIN CASH',
+        data: bch_mkt_cap_pct,
+        backgroundColor: 'rgba(0,128,0,0.5)',
+        borderColor: 'rgba(0,128,0,1)',
+        borderWidth: 2,
+        pointRadius: 0,
+        pointBackgroundColor: 'rgba(0,128,0,0.5)',
+        pointBorderColor: 'rgba(0,128,0,1)'
       }
     ]
   },
