@@ -177,7 +177,7 @@ $app->get('/charts/', function() use($app) {
   curl_setopt($xrp, CURLOPT_SSL_VERIFYPEER, false);
   curl_setopt($xrp, CURLOPT_RETURNTRANSFER, true);
   curl_setopt($xrp, CURLOPT_URL, 'http://www.flippening.watch/bchjsondata');
-  $bchmktcap = curl_exec($xrp);
+  $bchmktcap = curl_exec($bch);
   curl_close($bch);
   $bch = json_decode($bchmktcap);
 
