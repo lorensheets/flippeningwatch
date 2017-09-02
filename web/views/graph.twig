@@ -244,7 +244,6 @@ var bch_mkt_cap_pct = [];
 
 {% for cap in bchdata %}
   bch_data.push({{ cap }});
-  console.log({{cap}});
 {%endfor%}
 
 {% for item in total_mktcap_dataset %}
@@ -439,6 +438,16 @@ var mkshChart = new Chart(mksh, {
     labels: labelArray,
     datasets: [
       {
+        label: 'BITCOIN CASH',
+        data: bch_mkt_cap_pct,
+        backgroundColor: 'rgba(0,128,0,0.5)',
+        borderColor: 'rgba(0,128,0,1)',
+        borderWidth: 2,
+        pointRadius: 0,
+        pointBackgroundColor: 'rgba(0,128,0,0.5)',
+        pointBorderColor: 'rgba(0,128,0,1)'
+      },
+      {
         label: 'RIPPLE',
         data: xrp_mkt_cap_pct,
         backgroundColor: 'rgba(0,137,193,0.7)',
@@ -467,16 +476,6 @@ var mkshChart = new Chart(mksh, {
         pointRadius: 0,
         pointBackgroundColor: 'rgba(250,144,57,0.5)',
         pointBorderColor: 'rgba(250,144,57,1)'
-      },
-      {
-        label: 'BITCOIN CASH',
-        data: bch_mkt_cap_pct,
-        backgroundColor: 'rgba(0,128,0,0.5)',
-        borderColor: 'rgba(0,128,0,1)',
-        borderWidth: 2,
-        pointRadius: 0,
-        pointBackgroundColor: 'rgba(0,128,0,0.5)',
-        pointBorderColor: 'rgba(0,128,0,1)'
       }
     ]
   },
