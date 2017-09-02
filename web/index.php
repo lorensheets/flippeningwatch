@@ -174,9 +174,9 @@ $app->get('/charts/', function() use($app) {
 
   /* bitcoin cash historical market cap data api */
   $bch = curl_init();
-  curl_setopt($xrp, CURLOPT_SSL_VERIFYPEER, false);
-  curl_setopt($xrp, CURLOPT_RETURNTRANSFER, true);
-  curl_setopt($xrp, CURLOPT_URL, 'http://www.flippening.watch/bchjsondata');
+  curl_setopt($bch, CURLOPT_SSL_VERIFYPEER, false);
+  curl_setopt($bch, CURLOPT_RETURNTRANSFER, true);
+  curl_setopt($bch, CURLOPT_URL, 'http://www.flippening.watch/bchjsondata');
   $bchmktcap = curl_exec($bch);
   curl_close($bch);
   $bchdata = json_decode($bchmktcap);
